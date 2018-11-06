@@ -1,0 +1,10 @@
+<template name="tab">
+    <view class="tab" wx:if="{{Tab.list}}">
+        <view class="tab-indicator" style="transform:translate3d({{Tab.offsetLeft}}px, 0,0);width:calc(100% / {{Tab.list.length}})">
+            <view class="bar"></view>
+        </view>
+        <view class="tab-items">
+            <text bindtap="{{Tab.switch}}" class="tab-item {{Tab.index===index?'tab-item--active':''}}" data-index="{{index}}" wx:for="{{Tab.list}}">{{item}}</text>
+        </view>
+    </view>
+</template>

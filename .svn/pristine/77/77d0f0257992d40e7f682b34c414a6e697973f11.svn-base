@@ -1,0 +1,10 @@
+<navigator class="flex_row item space-between" url='../bumenxuanze/demo'>
+<view  class='flex_row flex_row_center left'>
+ <view class='black73 size30 margin30 myleft'>选择营业部</view>
+ <view class='black3c size30 text-overflow-one'>{{branchName?branchName:"请选择营业部"}}</view>
+</view>
+<image src='../../img/right.png' class='icon_small margin20' mode='aspectFit'></image>
+</navigator>
+<view class='flex_row flex_center mt100'>
+<button class=' common_button blue size28' bindtap='goNext'>下一步</button>
+</view>

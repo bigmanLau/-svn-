@@ -1,0 +1,96 @@
+page{
+  background: #f5f8fa;
+}
+.mycalendar{
+background:rgba(239,240,243,1);
+border-radius: 5px 
+}
+.select{
+  width: 44rpx;
+  height: 44rpx;
+  line-height: 44rpx;
+  text-align: center;
+  background: #2A9EF1;
+  border-radius: 50%;
+  color: white !important;
+}
+.point{
+  height: 8rpx;
+  width: 8rpx;
+  background: #2A9EF1;
+  border-radius: 50%;
+}
+.bline{
+  width: 1rpx;
+  background: #2A9EF1;
+ height: 100%;
+}
+.bline2{
+   width: 1rpx;
+  background: #2A9EF1;
+ height:16rpx;
+
+}
+.item{
+  min-height: 50rpx;
+}
+.hline{
+  height: 1rpx;
+  background: #2A9EF1;
+  width: 53rpx;
+  margin-left: 4rpx;
+}
+.mylittletext{
+  margin-left: 16rpx;
+  font-size: 18rpx;
+}
+.mytagview{
+  width:81rpx;
+height:30rpx; 
+background:rgba(42,158,241,1);
+border-radius: 3rpx ;
+color: white;
+font-size: 18rpx;
+/* margin-left: 72rpx; */
+
+}
+.myleft{
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  justify-content:center;
+}
+.mred{
+ margin-right: 20rpx;
+min-height:97rpx; 
+font-size:27rpx;
+font-family:MicrosoftYaHei;
+color:rgba(248,38,38,1);
+line-height:36rpx;
+margin-top: 21rpx;
+margin-left: 30rpx;
+max-width: 600rpx;
+margin-bottom: 25rpx;
+overflow: hidden;
+}
+
+.mblack{
+ margin-right: 20rpx;
+min-height:97rpx; 
+font-size:27rpx;
+max-width: 600rpx;
+display: flex;
+flex-wrap: nowrap;
+font-family:MicrosoftYaHei;
+overflow: hidden;
+color: black;
+line-height:36rpx;
+margin-top: 21rpx;
+margin-left: 30rpx;
+margin-bottom: 25rpx;
+}
+.more{
+color: #2A9EF1;
+font-size: 24rpx;
+margin-left: 10rpx;
+}

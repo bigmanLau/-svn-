@@ -1,0 +1,180 @@
+.xm-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.modal-dialog {
+    width: 560rpx;
+    position: relative;
+    margin: 340rpx auto;
+    background: #FFFFFF;
+    border-radius: 8rpx;
+    z-index: 1040;
+}
+
+.modal-dialog.isInputing {
+    margin-top: 20rpx;
+}
+
+.modal-close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 80rpx;
+    height: 80rpx;
+}
+
+.modal-close:before {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border-top: 80rpx solid rgba(245,245,245,0.80);
+    border-left: 80rpx solid transparent;
+}
+
+.icon-modal-close {
+    position: absolute;
+    width: 25rpx;
+    height: 25rpx;
+    background: url('https://img.alicdn.com/imgextra/i2/732450928/TB2bYZ0c9VmpuFjSZFFXXcZApXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+    top: 10rpx;
+    right: 10rpx;
+}
+
+.modal-content {
+    display: flex;
+    flex-flow: column;
+}
+
+.modal-header {
+    padding: 40rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-title {
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #000000;
+    line-height: 1;
+}
+
+.modal-body {
+    padding: 0 30rpx;
+}
+
+.input-modal-code-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 30rpx;
+}
+
+.input-modal-code {
+    width: 100%;
+    height: 50rpx;
+    padding: 20rpx;
+    border: 1rpx solid #E8E8E8;
+    border-radius: 4rpx;
+    font-family: PingFangSC-Light;
+    font-size: 32rpx;
+    color: #000;
+}
+
+.input-modal-image-wrap {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 40rpx;
+}
+
+.input-modal-image {
+    width: 180rpx;
+    height: 40rpx;
+    background-size: 100%;
+    padding: 22rpx 60rpx;
+    border: 1rpx solid #E8E8E8;
+    border-radius: 4rpx;
+    margin-right: 30rpx;
+}
+
+.btn-change-image {
+    width: 170rpx;
+    font-family: PingFangSC-Light;
+    font-size: 30rpx;
+    color: #FFFFFF;
+    background: #ccc;
+    border-radius: 4px;
+    line-height: 88rpx;
+    margin: 0;
+    text-align: center;
+}
+
+.modal-footer {
+    height: 100rpx;
+    box-shadow: 0 1px 10px 0 rgba(0,0,0,0.1);
+    display: flex;
+    flex-flow: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn-footer-modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    font-family: PingFangSC-Light;
+    font-size: 32rpx;
+    color: #333333;
+    width: 50%;
+    text-align: center;
+    height: 100rpx;
+}
+
+.btn-footer-modal:first-child {
+    border-right: 1rpx solid #000;
+    border-image: radial-gradient(#ccc 50%,#fff 100%,#fff) 1%;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(0,0,0,0.5);
+}
+
+.global-msg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 100rpx;
+    left: 60rpx;
+    right: 60rpx;
+    z-index: 1040;
+}
+
+.global-msg-text {
+    display: inline-block;
+    background-color: rgba(0,0,0,.5);
+    color: #fff;
+    padding: 10rpx 16rpx;
+    max-width: 100%;
+    font-size: 24rpx;
+    text-align: center;
+}

@@ -1,0 +1,38 @@
+<view class="container">
+  <view class="top">
+    <view class="top-content">
+      <view class="topitem">
+        <view class="left"></view>
+        <view class="right">
+          <text class="text">新得利科技（北京）有限责任公司成立于2015年8月25日，公司拥有一支团结、进取、和谐的经营管理及研发团队。创始人团队来自国内知名金融机构和财经媒体，并拥有10年以上行业经验。</text>
+        </view>
+      </view>
+
+      <view class="topitem">
+        <view class="left"></view>
+        <view class="right">
+          <text class="text">公司自主研发"期货淘单"项目,并独立运营"解盘侠财经"微信公众号。</text>
+        </view>
+      </view>
+
+
+      <view class="topitem">
+        <view class="left"></view>
+        <view class="right">
+          <text class="text">新得利科技将继续以全球化视野、投资者至上的宗旨，致力于持续为投资者创造更多价值。</text>
+        </view>
+      </view>
+
+
+    </view>
+  </view>
+  <view class="item" bindtap="callPhone">
+    <image src="/images/star.png" class="left-logo"></image>
+    <text class="text-2">客服热线:</text>  <text class="text-3">010-62279320</text>
+  </view>
+   <view class="item">
+    <image src="/images/star.png" class="left-logo"></image>
+    <text class="text-2">微信订阅号:</text>  <text class="text-3">解盘侠财经</text>
+  </view>
+  <image src="img/qrcode.jpg" class="qr-img"></image>
+</view>

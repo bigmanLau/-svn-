@@ -1,0 +1,384 @@
+{
+	"description": "项目配置文件。",
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.0.9",
+	"appid": "wx06a640c02fc34576",
+	"projectname": "%E9%87%91%E7%91%9E%E6%9C%9F%E8%B4%A7%E6%AD%A3%E5%BC%8F%E7%89%88",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {
+			"current": 57,
+			"list": [
+				{
+					"id": -1,
+					"name": "公告详情",
+					"pathName": "pages/gonggaodetail/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/pcenter/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "账号管理",
+					"pathName": "pages/zhanghaoguanli/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "公告列表",
+					"pathName": "pages/gonggao/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "用户名修改",
+					"pathName": "pages/yonghumingxiugai/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "查询密码修改",
+					"pathName": "pages/chaxunmimaxiugai/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "手机号码修改",
+					"pathName": "pages/shoujihaomaxiugai/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "手势密码修改1",
+					"pathName": "pages/shoushimimaxiugai1/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "手势密码修改2",
+					"pathName": "pages/shoushimimaxiugai2/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人成绩就",
+					"pathName": "pages/gerenchengji/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "运营部门选择",
+					"pathName": "pages/yuyingbumenxuanze/index",
+					"query": ""
+				},
+				{
+					"id": 11,
+					"name": "上传身份证",
+					"pathName": "pages/yuyuekaihuxiugai/index",
+					"query": ""
+				},
+				{
+					"id": 12,
+					"name": "填写基本资料",
+					"pathName": "pages/jibenziliao/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "风险承受",
+					"pathName": "pages/wenjuan/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "风险承受",
+					"pathName": "pages/shenqingtijiao/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "风险承受",
+					"pathName": "pages/paisherenlian/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "手机号码",
+					"pathName": "pages/shoujihaoma/index",
+					"query": ""
+				},
+				{
+					"id": 17,
+					"name": "子账号",
+					"pathName": "pages/zizhanghao/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "交易日历2",
+					"pathName": "pages/jiaoyirili2/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "交易快照",
+					"pathName": "pages/jiaoyikuaizhao/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "营业列表",
+					"pathName": "pages/bumenxuanze/demo",
+					"query": ""
+				},
+				{
+					"id": 21,
+					"name": "绑定银行",
+					"pathName": "pages/banddingyinhang/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "申请提交",
+					"pathName": "pages/shenqingtijiao/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "拍摄人脸",
+					"pathName": "pages/paisherenlian/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "证书密码",
+					"pathName": "pages/zhengshumima/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "手机图形验证输入登录",
+					"pathName": "pages/shoujihaoma/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "上传身份证",
+					"pathName": "pages/yuyuekaihuxiugai/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "选择运营部门",
+					"pathName": "pages/yuyingbumenxuanze/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "运营部门列表",
+					"pathName": "pages/bumenxuanze/demo",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "问卷调查",
+					"pathName": "pages/wenjuan/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "签署协议",
+					"pathName": "pages/qianshuxieyi/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "签署协议详情",
+					"pathName": "pages/xieyixiangqing/index",
+					"query": "econtract_id=25539"
+				},
+				{
+					"id": -1,
+					"name": "视频注意事项",
+					"pathName": "pages/zhuyishixiang/index",
+					"query": "econtract_id=25539"
+				},
+				{
+					"id": -1,
+					"name": "视频通话",
+					"pathName": "pages/shipingtonghua/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "交易快照",
+					"pathName": "pages/jiaoyikuaizhao/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "安全中心",
+					"pathName": "pages/anquanzhongxin/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "二维码",
+					"pathName": "pages/qrcode/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "资金账号绑定",
+					"pathName": "pages/paisherenlian/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "公告",
+					"pathName": "pages/gonggao/index",
+					"query": ""
+				},
+				{
+					"id": 39,
+					"name": "交易日历首页",
+					"pathName": "pages/jiaoyirili/index",
+					"query": "year=2017&month=7&day=2"
+				},
+				{
+					"id": -1,
+					"name": "公告详情",
+					"pathName": "pages/gonggaodetail/index",
+					"query": "id=402880ef63cedfa50163cee0cf7f0015"
+				},
+				{
+					"id": -1,
+					"name": "电子证书页",
+					"pathName": "pages/cert/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "02_手机授权",
+					"pathName": "pages/auth/index",
+					"query": ""
+				},
+				{
+					"id": 43,
+					"name": "01_用户授权登录",
+					"pathName": "pages/authUser/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "回访",
+					"pathName": "pages/huifang/index",
+					"query": ""
+				},
+				{
+					"id": 44,
+					"name": "结果页面",
+					"pathName": "pages/shenqingtijiao/index",
+					"query": ""
+				},
+				{
+					"id": 45,
+					"name": "首页",
+					"pathName": "pages/jinrishouye/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "引导页面",
+					"pathName": "pages/guide/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "数字密码",
+					"pathName": "pages/shuzimima/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的好友",
+					"pathName": "pages/zizhanghao/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "收益曲线",
+					"pathName": "pages/jiaoyiquxian/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "交易日历",
+					"pathName": "pages/jiaoyirili2/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/pcenter/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "快照",
+					"pathName": "pages/jiaoyikuaizhao/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "个人中心",
+					"pathName": "pages/pcenter/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "authUser",
+					"pathName": "pages/authUser/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "安全中心",
+					"pathName": "pages/anquanzhongxin/index",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "ocr",
+					"pathName": "pages/ocr/index"
+				}
+			]
+		}
+	}
+}

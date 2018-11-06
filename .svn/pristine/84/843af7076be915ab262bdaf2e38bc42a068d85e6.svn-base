@@ -1,0 +1,46 @@
+ page{
+   background: #f2f2f2;
+ }
+
+.container {
+  background-color: white;
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+}
+.title{
+  height: 100rpx;
+  width: 750rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: white;
+
+}
+.title-item{
+  font-size: 29rpx;
+  width: 25%;
+  text-align: center;
+}
+.line{
+  height: 1px;
+  background: #f2f2f2;
+  margin-left: 22rpx;
+  width: 728rpx;
+}
+.data{
+  height: 108rpx;
+  width: 750rpx;
+  background: white;
+  display: flex;
+  flex-direction: row;
+}
+.data-item{
+  color: #323232;
+  height: 108rpx;
+  width: 25%;
+  text-align: center;
+  font-size: 25rpx;
+  margin-top: 20rpx;
+  
+}

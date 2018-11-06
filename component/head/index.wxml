@@ -1,0 +1,8 @@
+
+<view class="myhead fix">
+  <image src='../../images/back.png' class='myicon' catchtap='goBack'></image>
+  <view class='mytext'>
+  <view class='flex_row flex_center'>{{name}}标题标题</view>
+  </view>
+</view>
+

@@ -1,0 +1,10 @@
+ <view class='flex_column flex_center'>
+  <image lazy-load='true' src='../../images/xiaochengxu.jpg' class='width100'></image>
+  <text class='size35 mt100'>金瑞期货，需要您授权登录</text>
+  <!--  <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo" class='mt40 bg_blue size35 white ' style='width:500rpx;margin-top:100rpx;'>授权登录</button> -->
+
+
+  <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class='mt40 bg_blue size35 white ' style='width:500rpx;margin-top:100rpx;'>手机授权登录</button>
+ </view>
+
+

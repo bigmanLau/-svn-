@@ -1,0 +1,7 @@
+<view class="item flex_column flex_center">
+ <image class='myimg' src='../../img/yanzheng.png' mode='aspectFit'></image>
+
+ <view class='size30 black73 mt55'>恭喜您！绑定成功</view>
+</view>
+
+<button class='blue_btn mt30'>返回首页</button>

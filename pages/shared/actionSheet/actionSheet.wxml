@@ -1,0 +1,28 @@
+<template name="actionSheet">
+    <block wx:if="{{actionSheet.showActionSheet}}">
+        <view class="actionSheet">
+            <scroll-view scrollY bindscrolltolower="onActionSheetReachBottom" class="sheet-list">
+                <block wx:for="{{actionSheet.playList}}">
+                    <view bindtap="toggleTrack" class="sheet-list-item {{(item.trackId||item.id)==player.playerFocusId?'active':''}}" data-track-id="{{item.trackId||item.id}}" wx:if="{{(item.trackId||item.id)==player.playerFocusId}}">
+                        <block wx:if="{{(item.trackId||item.id)==player.playerFocusId}}">
+                            <icon class="icon icon-playing" wx:if="{{!player.state.paused}}"></icon>
+                            <icon class="icon icon-paused" wx:else></icon>
+                        </block>
+                        <text class="sheet-text">{{item.title||item.track_title}}</text>
+                    </view>
+                    <view bindtap="playTrack" class="sheet-list-item {{(item.trackId||item.id)==player.playerFocusId?'active':''}}" data-track-id="{{item.trackId||item.id}}" wx:else>
+                        <block wx:if="{{(item.trackId||item.id)==player.playerFocusId}}">
+                            <icon class="icon icon-playing" wx:if="{{!player.state.paused}}"></icon>
+                            <icon class="icon icon-paused" wx:else></icon>
+                        </block>
+                        <text class="sheet-text">{{item.title||item.track_title}}</text>
+                    </view>
+                </block>
+            </scroll-view>
+            <view bindtap="sheetCancel" class="sheet-cancel">
+                <text class="cancel-text">关闭</text>
+            </view>
+        </view>
+        <view bindtap="sheetCancel" catchtouchmove="onTouchMove" class="mask"></view>
+    </block>
+</template>

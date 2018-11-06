@@ -1,0 +1,33 @@
+page{
+  background: #f5f8fa;
+}
+.wrapper{
+  background: white;
+}
+.inputwrap{
+  height: 90rpx;
+  width: 100%;
+    border-bottom: 1rpx solid #eee;
+}
+.leftlabel{
+  width: 206rpx;
+}
+.mybutton{
+  width: 200rpx;
+  height: 70rpx;
+  border-radius: 10rpx;
+  border-width: 3rpx;
+  border-color: #2A9EF1;
+  border-style: solid;
+  margin-top: 200rpx;
+}
+input{
+  width: 200rpx;
+}
+.mycode{
+  height: 54rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  border-radius: 10rpx;
+  border: 3rpx solid #2A9EF1;
+}

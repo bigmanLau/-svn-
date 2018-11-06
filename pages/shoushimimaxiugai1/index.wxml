@@ -1,0 +1,21 @@
+<form bindsubmit='onSubmit'>
+<view class="wrapper mt40">
+  <view class='inputwrap flex_row flex_row_center'>
+    <view class='leftlabel size28 black3c ml32'>手机号</view>
+    <input class='size28 black3c' placeholder-class='size28 gray99' placeholder='请输入手机号' type='password' type='number' name="phone" bindinput='inputPhone'></input>
+  </view>
+
+  <view class='inputwrap flex_row flex_row_center space-between'>
+  <view class='flex_row flex_row_center'>
+    <view class='leftlabel size28 black3c ml32'>验证码</view>
+    <input class='size28 black3c' placeholder-class='size28 gray99' placeholder='请输入验证码' type='number' name="code" bindinput='inputCode'></input>
+  </view>
+  <view class='blue size24 mycode flex_row flex_center mr32' bindtap='changeVerifycode'>{{codeTime}}</view>
+  </view>
+</view>
+
+<view class='flex_row flex_center'>
+
+<button class='blue size28 mybutton'  form-type='submit'>保存</button>
+</view>
+</form>

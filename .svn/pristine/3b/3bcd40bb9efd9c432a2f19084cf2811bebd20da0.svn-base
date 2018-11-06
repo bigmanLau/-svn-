@@ -1,0 +1,12 @@
+<!--pages/xieyixiangqing/index.wxml-->
+<view class='container'>
+  <view class='container-info'>
+  
+ <import src="../../wxParse/wxParse.wxml"/> 
+<view class="wxParse">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view> 
+  
+  </view>
+  <view class='container-button' bindtap='goback'>已阅读</view>
+</view>

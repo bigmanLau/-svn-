@@ -1,0 +1,67 @@
+ <view class='week_item'>
+                <view class='flex_row flex_end size24 gray_date black3c'>1</view>
+                <view class='flex_row flex_row_center  space-between wrap mt7'>
+                  <view class='flex_row flex_center myname '>中金</view>
+                  <view class='flex_row flex_center myname'>大商</view>
+                  <view class='flex_row flex_center myname '>中金</view>
+                  <view class='flex_row flex_center myname'>大商</view>
+                </view>
+              </view>
+              <view class='week_item'>
+                <view class='flex_row flex_end size24 gray_date black3c'>2</view>
+                <view class='flex_row flex_row_center  space-between wrap mt7'>
+                  <view class='flex_row flex_center myname '>中金</view>
+                  <view class='flex_row flex_center myname'>大商</view>
+                  <view class='flex_row flex_center myname '>中金</view>
+                  <view class='flex_row flex_center myname'>大商</view>
+                </view>
+              </view>
+              <view class='week_item'>
+                <view class='flex_row flex_end size24 gray_date black3c'>3</view>
+                <view class='flex_row flex_row_center  space-between wrap mt7'>
+                  <view class='flex_row flex_center myname '>中金</view>
+                  <view class='flex_row flex_center myname'>大商</view>
+                  <view class='flex_row flex_center myname '>中金</view>
+                  <view class='flex_row flex_center myname'>大商</view>
+                </view>
+              </view>
+              <view class='week_item  '>
+                <view class='flex_row flex_end size24 gray_date '>4</view>
+                <view class='flex_row flex_row_center  space-between wrap mt7'>
+                  <view class='flex_row flex_center myname white '>中金</view>
+                  <view class='flex_row flex_center myname white'>大商</view>
+                  <view class='flex_row flex_center myname white'>中金</view>
+                  <view class='flex_row flex_center myname white'>大商</view>
+                </view>
+              </view>
+              <view class='week_item'>
+                <view class='flex_row flex_end size24 gray_date black3c'>5</view>
+                <view class='flex_row flex_row_center  space-between wrap mt7'>
+                  <view class='flex_row flex_center myname '>中金</view>
+                  <view class='flex_row flex_center myname'>大商</view>
+                  <view class='flex_row flex_center myname '>中金</view>
+                  <!-- <view class='flex_row flex_center myname'>大商</view> -->
+                </view>
+              </view>
+              <view class='week_item'>
+                <view class='flex_row flex_end size24 gray_date blue'>6</view>
+                <view class='flex_row flex_row_center  space-between wrap mt7'>
+                  <view class='flex_row flex_center myname '>中金</view>
+                  <!-- <view class='flex_row flex_center myname'>大商</view>
+         <view class='flex_row flex_center myname '>中金</view>
+         <view class='flex_row flex_center myname'>大商</view> -->
+                </view>
+              </view>
+
+
+
+
+                <view class='week_item  {{index==0?"bg_blue white":""}}'>
+                <view class='flex_row flex_end size24 gray_date black3c  {{index==0?" white":""}}'>12</view>
+                <view class='flex_row flex_row_center  space-between wrap mt7'>
+                  <view class='flex_row flex_center myname '>中金</view>
+                  <view class='flex_row flex_center myname'>大商</view>
+                  <view class='flex_row flex_center myname '>中金</view>
+                  <!-- <view class='flex_row flex_center myname'>大商</view> -->
+                </view>
+              </view>

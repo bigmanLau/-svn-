@@ -1,0 +1,360 @@
+
+<button class='bg_blue white margin32' wx:if="{{showReturn}}" bindtap='goback'>返回</button>
+<view  wx:if='{{islogin}}'>
+<view class='flex_row flex_row_center space-between name-space'>
+  <view class='flex_row flex_row_center'>
+    <text class='black3c size24 ml32'>姓名:</text>
+    <text class='size24 blue ml20'>{{account3.name?account3.name:"-"}}</text>
+  </view>
+  <view class='flex_row ml32  mr32'>
+    <view class='black3c size24'>资金账号：</view>
+    <view class='size24 blue'>{{account3.investorId?account3.investorId:"-"}}</view>
+  </view>
+</view>
+
+
+<view class='bg_white mt20 pb20'>
+  <view class='flex_row space-between pt24 '>
+    <view class='flex_row flex_row_center '>
+      
+      <view class='size30 black3c ml32' bindtap='changeChart' data-index='1'>收益曲线</view>
+     
+      <view class='size30 blue ml32' bindtap='changeChart' data-index='2'>复权资金</view>
+      <view class='size30 orange ml32' bindtap='changeChart' data-index='3'>年化收益率</view>
+    </view>
+   <button style='background:none;padding:0 0 !important; margin:0 0 !important;line-height:50rpx;' open-type='share'><image src='img/share.png' class='myshareimg mr32' mode='aspectFill'></image>
+   </button>
+  </view>
+  <view class='line mt20'></view>
+
+  <view class="container">
+
+  <canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas"  wx:if="{{line!=null&&line.length!=0&&!isShowPickTime}}"></canvas>
+  <view class='size24 black3c flex_row flex_center emptyview' wx:if="{{line==null||line.length==0}}">数据为空</view>
+<!-- 
+    <canvas canvas-id="lineCanvas" disable-scroll="false" class="canvas"  wx:if="{{line.length!=0&&!isShowPickTime}}"></canvas>
+    <view class='size24 black3c flex_row flex_center emptyview' wx:if="{{line.length==0}}">数据为空</view> -->
+  </view>
+  <view class='container-menu'>
+   <view class='container-menu-item {{canvas_tag == 1 ? "tag" : "" }}' bindtap='canvasTap' data-id="1">近1周</view>
+  <view class='container-menu-item {{canvas_tag == 2 ? "tag" : "" }}' bindtap='canvasTap' data-id="2">近1个月</view>
+  <view class='container-menu-item {{canvas_tag == 3 ? "tag" : "" }}' bindtap='canvasTap' data-id="3">近3个月</view>
+  <view class='container-menu-item {{canvas_tag == 4 ? "tag" : "" }}' bindtap='canvasTap' data-id="4">近6个月</view>
+  <view class='container-menu-item {{canvas_tag == 5 ? "tag" : "" }}' bindtap='canvasTap' data-id="5">自定义</view>
+  </view>
+
+</view>
+
+
+<view class='bg_white mt20 pb20'>
+  <view class='flex_row flex_row_center pt20 margin40'>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>期末权益</view>
+      <text class='red2 size28 mt25'>{{account3.finalRights}}</text>
+    </view>
+   <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>出金</view>
+      <text class='red2 size28 mt25'>{{account3.withdraw}}</text>
+    </view>
+
+
+  
+
+   <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>手续费</view>
+      <text class='green00 size28 mt25'>{{account3.poundage}}</text>
+    </view>
+
+      <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>盈亏/手续费</view>
+      <text class='red2 size28 mt25'>{{account3.poundage_breakRatio}}</text>
+    </view>
+  </view>
+
+  <view class='flex_row flex_row_center mt35 margin40'>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>期初权益</view>
+      <text class='red2 size28 mt25'>{{account3.initialRights}}</text>
+    </view>
+
+      <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>入金</view>
+      <text class='red2 size28 mt25'>{{account3.deposit}}</text>
+    </view>
+      <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>盈亏</view>
+      <text class='green00 size28 mt25'>{{account3.profitLoss}}</text>
+    </view>
+
+  
+
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>年化收益率</view>
+      <text class='red2 size28 mt25'>{{account3.annualEarnings}}</text>
+    </view>
+  </view>
+
+  </view>
+
+<view class='bg_white mt20 '>
+  <view class='flex_row space-between pt24 '>
+    <view class='flex_row flex_row_center '>
+      <view class='blue_line bg_blue ml32'></view>
+      <view class='size30 black3c ml7 '>盈利/亏损</view>
+    </view>
+  </view>
+  <view class=' flex_column  '>
+    <canvas canvas-id="canvas4" class="canvas {{finalName.length!=0?'visible':'invisible'}} mt20"  wx:if="{{!isShowPickTime}}" />
+    <view class='size24 black3c flex_row flex_center emptyview' wx:if="{{finalName.length==0}}">数据为空</view>
+  </view>
+</view>
+
+<view class='bg_white mt20 '>
+  <view class='bg_white mt20 pb40 '>
+    <view class='flex_row space-between pt24 '>
+      <view class='flex_row flex_row_center '>
+        <view class='blue_line bg_blue ml32'></view>
+        <view class='size30 black3c ml7 '>手续费</view>
+      </view>
+    </view>
+
+    <view class=' flex_column  '>
+      <canvas canvas-id="canvas3" class="myCanvas {{poundageName.length!=0?'visible':'invisible'}}" style="width:{{chartWidth}}px;height:{{chartHeight}}px;" 
+     wx:if="{{!isShowPickTime}}"/>
+        <view class='size24 black3c flex_row flex_center emptyview' wx:if="{{poundageName.length==0}}">数据为空</view>
+    </view>
+  </view>
+</view>
+
+<!-- 
+<view class='flex_row flex_row_center mytag'>
+  <view class='size24 black3c ml32'>擅长品种:</view>
+  <view class='flex_row flex_row nowrap'>
+    <view class='blue_tag'>黄金</view>
+    <view class='blue_tag'>黄铜</view>
+    <view class='blue_tag'>黄豆</view>
+  </view>
+</view> 
+-->
+<view class='flex_row flex_row_center mt60 mb20'>
+  <view class='hline'></view>
+  <view class='size24 graya7 margin10'>已经到底啦</view>
+  <view class='hline'></view>
+</view>
+
+<view class='cover-shadow' wx:if="{{isShowPickTime}}"></view>
+<view class="pickbox" wx:if="{{isShowPickTime}}">
+   <view class='pick-title flex_row flex_row_center space-between'>
+    <text class="size30 black3c margin20">请选择起止时间</text>
+    <view class='flex_row flex_row_center'> 
+    <text class="size30 black3c margin20" bindtap='cancalShow'>取消</text>
+    <text class="size30 black3c margin20" bindtap='submitTime'>确定</text>
+    </view>
+   
+   </view>
+   <view class="flex_row">
+    <picker-view wx:if="{{years.length>0 && months.length>0 && days.length>0}}" style="width: 50%; height: 500rpx;" value="{{value}}" bindchange="bindChange">
+        <picker-view-column>
+            <view wx:for="{{years}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{months}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{days}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+ </picker-view>
+<picker-view wx:if="{{years2.length>0 && months2.length>0 && days2.length>0}}" style="width: 50%; height: 500rpx;" value="{{value2}}" bindchange="bindChange2">
+
+         <picker-view-column>
+            <view wx:for="{{years2}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{months2}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{days2}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+</view>
+
+
+
+
+
+<view wx:if='{{!islogin}}'>
+<view class='flex_row flex_row_center space-between name-space'>
+  <view class='flex_row flex_row_center'>
+    <text class='black3c size24 ml32'>姓名:</text>
+    <text class='size24 blue ml20'>*金瑞</text>
+  </view>
+  <view class='flex_row ml32  mr32'>
+    <view class='black3c size24'>资金账号：</view>
+    <view class='size24 blue'>99****50</view>
+  </view>
+</view>
+
+
+<view class='bg_white mt20 pb20'>
+  <view class='flex_row space-between pt24 '>
+    <view class='flex_row flex_row_center '>
+      
+      <view class='size30 black3c ml32' bindtap='changeChart2' data-index='1'>收益曲线</view>
+     
+      <view class='size30 blue ml32' bindtap='changeChart2' data-index='2'>复权资金</view>
+      <view class='size30 orange ml32' bindtap='changeChart2' data-index='3'>年化收益率</view>
+    </view>
+   <button style='background:none;padding:0 0 !important; margin:0 0 !important;line-height:50rpx;' open-type='share'><image src='img/share.png' class='myshareimg mr32' mode='aspectFill'></image>
+   </button>
+  </view>
+  <view class='line mt20'></view>
+
+  <view class="container">
+    <canvas canvas-id="lineCanvas2" disable-scroll="false" class="canvas"  ></canvas>
+   
+  </view>
+  <view class='container-menu'>
+   <view class='container-menu-item {{canvas_tag == 1 ? "tag" : "" }}' bindtap='canvasTap2' data-id="1">近1周</view>
+  <view class='container-menu-item {{canvas_tag == 2 ? "tag" : "" }}' bindtap='canvasTap2' data-id="2">近1个月</view>
+  <view class='container-menu-item {{canvas_tag == 3 ? "tag" : "" }}' bindtap='canvasTap2' data-id="3">近3个月</view>
+  <view class='container-menu-item {{canvas_tag == 4 ? "tag" : "" }}' bindtap='canvasTap2' data-id="4">近6个月</view>
+  <view class='container-menu-item {{canvas_tag == 5 ? "tag" : "" }}' bindtap='canvasTap2' data-id="5">自定义</view>
+  </view>
+
+</view>
+
+
+<view class='bg_white mt20 pb20'>
+  <view class='flex_row flex_row_center pt20 margin40'>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>期末权益</view>
+      <text class='red2 size28 mt25'>5036250.43</text>
+    </view>
+   <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>出金</view>
+      <text class='red2 size28 mt25'>0</text>
+    </view>
+
+
+ 
+
+   <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>手续费</view>
+      <text class='green00 size28 mt25'>0</text>
+    </view>
+
+
+      <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>盈亏/手续费比</view>
+      <text class='red2 size28 mt25'>0</text>
+    </view>
+  </view>
+
+  <view class='flex_row flex_row_center mt35 margin40'>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>期初权益</view>
+      <text class='red2 size28 mt25'>5018550.43</text>
+    </view>
+
+       <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>入金</view>
+      <text class='red2 size28 mt25'>0</text>
+    </view>
+      <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>盈亏</view>
+      <text class='green00 size28 mt25'>0</text>
+    </view>
+
+  
+
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>年化收益</view>
+      <text class='red2 size28 mt25'>0</text>
+    </view>
+  </view>
+
+  </view>
+
+<view class='bg_white mt20 '>
+  <view class='flex_row space-between pt24 '>
+    <view class='flex_row flex_row_center '>
+      <view class='blue_line bg_blue ml32'></view>
+      <view class='size30 black3c ml7 '>盈利/亏损</view>
+    </view>
+  </view>
+  <view class=' flex_column  '>
+    <canvas canvas-id="canvas1" class="canvas mt20"  />
+  </view>
+</view>
+
+<view class='bg_white mt20 '>
+  <view class='bg_white mt20 pb40 '>
+    <view class='flex_row space-between pt24 '>
+      <view class='flex_row flex_row_center '>
+        <view class='blue_line bg_blue ml32'></view>
+        <view class='size30 black3c ml7 '>手续费</view>
+      </view>
+    </view>
+
+    <view class=' flex_column  '>
+      <canvas canvas-id="canvas2" class="myCanvas" style="width:{{chartWidth}}px;height:{{chartHeight}}px;" />
+    </view>
+  </view>
+</view>
+
+<!-- 
+<view class='flex_row flex_row_center mytag'>
+  <view class='size24 black3c ml32'>擅长品种:</view>
+  <view class='flex_row flex_row nowrap'>
+    <view class='blue_tag'>黄金</view>
+    <view class='blue_tag'>黄铜</view>
+    <view class='blue_tag'>黄豆</view>
+  </view>
+</view> 
+-->
+<view class='flex_row flex_row_center mt60 mb20'>
+  <view class='hline'></view>
+  <view class='size24 graya7 margin10'>已经到底啦</view>
+  <view class='hline'></view>
+</view>
+
+<view class='cover-shadow' wx:if="{{isShowPickTime}}"></view>
+<view class="pickbox" wx:if="{{isShowPickTime}}">
+   <view class='pick-title flex_row flex_row_center space-between'>
+    <text class="size30 black3c margin20">请选择起止时间</text>
+    <view class='flex_row flex_row_center'> 
+    <text class="size30 black3c margin20" bindtap='cancalShow'>取消</text>
+    <text class="size30 black3c margin20" bindtap='submitTime'>确定</text>
+    </view>
+   
+   </view>
+   <view class="flex_row">
+    <picker-view wx:if="{{years.length>0 && months.length>0 && days.length>0}}" style="width: 50%; height: 500rpx;" value="{{value}}" bindchange="bindChange">
+        <picker-view-column>
+            <view wx:for="{{years}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{months}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{days}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+ </picker-view>
+<picker-view wx:if="{{years2.length>0 && months2.length>0 && days2.length>0}}" style="width: 50%; height: 500rpx;" value="{{value2}}" bindchange="bindChange2">
+
+         <picker-view-column>
+            <view wx:for="{{years2}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{months2}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{days2}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+</view>
+

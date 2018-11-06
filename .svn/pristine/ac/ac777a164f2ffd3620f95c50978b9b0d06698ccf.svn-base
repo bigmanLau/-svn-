@@ -1,0 +1,103 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="user-container">
+    <view class="userbg">
+      <image src="/images/bg.png" class="bg-class"></image>
+    </view>
+    <view class="userinfo flex_row flex_row_center space-between">
+      <view class='flex_row flex_row_center'>
+        <open-data type="userAvatarUrl" class="userinfo-avatar"background-size="cover" wx:if="{{islogin}}"></open-data>
+        <view class='userinfo-avatar mr100'  bindtap="goAuth" wx:if="{{!islogin}}">
+        <open-data type="userAvatarUrl" class="userinfo-avatar"background-size="cover" ></open-data>
+        </view>
+        <view class='flex_column flex_left'>
+          <view class='size36 white flex_row flex_row_center'>
+          <text wx:if='{{islogin||notbind}}'>Hi,{{investorName?investorName:"未绑定资金账号"}} </text> 
+            <text wx:if="{{!islogin&&!notbind}}"  bindtap='goAuth'>请先登录</text> 
+              <text style='font-size:24rpx;' wx:if='{{islogin}}'>({{investorId?investorId:"暂无资金账号"}})</text> 
+  
+            <!--  
+            <view class='center-set'>
+              <navigator class='flex_row flex_row_center' url='../yonghumingxiugai/index'>
+                <image src='../../img/sz.png' class='little_icon' mode='widthFix'></image>
+              </navigator>
+            </view>
+            -->
+            </view>
+          <view class='size24 white mt27' wx:if='{{islogin}}'>{{phone}}（CTP关联手机号）
+</view>
+        </view>
+        
+      </view>
+        <image src='../../img/qr.png' class='myqrcode' mode='aspectFit' bindtap='switchTab' wx:if="{{islogin}}"></image>
+      <!--  
+      <navigator class='flex_row flex_row_center' url='../zhanghaoguanli/index'>
+        <image class="icon_1" src="../../img/sz.png" background-size="cover"></image>
+        <view class='flex_column flex_column_center'>
+          <view class='size28 white mr32'>账号设置</view>
+        </view>
+      </navigator>
+      -->
+    
+    
+    </view>
+  
+  </view>
+
+  <view class='flex_column'>
+    <navigator class='item flex_row flex_row_center space-between width100'  bindtap='goSafe'>
+      <view class='flex_row flex_row_center ml34'>
+        <image src='../../img/fx.png' class='little_icon' mode='aspectFit'></image>
+        <view class='size30 black3c ml16'>安全中心</view>
+      </view>
+      <image class='little_icon mr32' mode="aspectFit" src='../../img/r.png'></image>
+    </navigator>
+    <!-- <navigator class='item flex_row flex_row_center space-between mt20 width100 invisible' url='../gerenchengji/index'>
+      <view class='flex_row flex_row_center ml34'>
+        <image src='../../img/cj.png' class='little_icon' mode='aspectFit'></image>
+        <view class='size30 black3c ml16'>个人成就</view>
+      </view>
+      <image class='little_icon mr32' mode="aspectFit" src='../../img/r.png'></image>
+    </navigator> -->
+<!--
+    <navigator class='item flex_row flex_row_center space-between mt20 width100'>
+      <view class='flex_row flex_row_center ml34'>
+        <image src='../../img/sj.png' class='little_icon' mode='aspectFit'></image>
+        <view class='size30 black3c ml16'>升级规则</view>
+      </view>
+      <image class='little_icon mr32' mode="aspectFit" src='../../img/r.png'></image>
+    </navigator>
+-->
+    <navigator class='item flex_row flex_row_center space-between mt20 width100' url='../ruanjianshiyongxuzhi/index'>
+      <view class='flex_row flex_row_center ml34'>
+        <image src='../../img/fx.png' class='little_icon' mode='aspectFit'></image>
+        <view class='size30 black3c ml16'>软件使用须知</view>
+      </view>
+      <image class='little_icon mr32' mode="aspectFit" src='../../img/r.png'></image>
+    </navigator>
+<!-- 
+    <navigator class='item flex_row flex_row_center space-between mt20' url='../authUser/index' >
+      <view class='flex_row flex_row_center ml34'>
+        <image src='../../img/fx.png' class='little_icon' mode='aspectFit'></image>
+        <view class='size30 black3c ml16'>重新登录</view>
+      </view>
+      <image class='little_icon mr32' mode="aspectFit" src='../../img/r.png'></image>
+    </navigator> -->
+
+  </view>
+<view class="modal-mask" wx:if="{{isModal}}" ></view>
+<view class="modal-dialog" wx:if="{{isModal}}">
+  <view class='modal-dialog-wrap'>
+    <image src='../../img/dialog-bg.png' class='img' mode='widthFix'></image>
+    <view class='wrap-logo'>
+      <image src='../../img/dialog-logo.png' class='img' mode='widthFix'></image>
+    </view>
+    <!-- ../yuyingbumenxuanze/index -->
+    <!-- <view class='wrap-button' bindtap='goNext' data-url="../yuyuekaihuyindao/index">已有资金账户，去绑定>></view> -->
+    <view class='wrap-button size14'  style="font-size: 13px;" bindtap='goBand'>已有资金账户，去绑定>></view>
+    <!-- <view class='wrap-title' bindtap='goBand'>已有资金账户，去绑定>></view> -->
+  </view>
+</view>
+
+
+</view>

@@ -1,0 +1,36 @@
+
+<form bindsubmit='loginSubmit'>
+<view class="flex_row item space-between">
+
+<view class='flex_row flex_row_center left'>
+
+ <input class='black3c size30 margin40' placeholder='请输入开户手机号码' placeholder-class='blackbe size30' bindinput='inputPhone' ></input>
+</view>
+<image src='../../img/right.png' class='icon_small margin30 gone' mode='aspectFit'></image>
+
+ <view class='line margin40 '></view>
+</view>
+
+
+<view class="flex_row item space-between ">
+<view class='flex_row flex_row_center left'>
+ <input class='black3c size30 margin40' placeholder='请输入图片验证码' placeholder-class='blackbe size30' bindinput='inputVerfycodeChange' type='number' name="verifycode"></input>
+</view>
+<image  class=' mr40 size24  picturecode flex_row flex_center '  src="{{imgCode}}"mode='widthFix' bindtap='changeCode'></image>
+ <view class='line margin40 '></view>
+</view>
+
+
+<view class="flex_row item space-between ">
+<view class='flex_row flex_row_center left'>
+ <input class='black3c size30 margin40' placeholder='请输入短信验证码' placeholder-class='blackbe size30' name="validateCode"></input>
+</view>
+<view  class=' mr40 size24  picturecode flex_row flex_center smscode white ' mode='aspectFit' bindtap='changeVerifycode'>{{codeTime}}</view>
+ <view class='line margin40 '></view>
+</view>
+
+
+<view class='flex_row flex_center mt40'>
+<button class=' common_button blue size28 bg_white'form-type='submit'>下一步</button>
+</view>
+</form>

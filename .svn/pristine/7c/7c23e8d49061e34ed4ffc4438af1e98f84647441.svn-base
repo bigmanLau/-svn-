@@ -1,0 +1,170 @@
+
+page{
+  background: #f2f2f2;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 750rpx;
+}
+/**产品列表*/
+
+.product-content {
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: #f2f2f2;
+}
+
+.product-content-title {
+  height: 80rpx;
+  width: 750rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  background: #f2f2f2;
+}
+
+.product-title-logo {
+  height: 38rpx;
+  width: 6rpx;
+  margin-left: 30rpx;
+  margin-right: 20rpx;
+}
+
+.product-title-text {
+  font-size: 30rpx;
+  color: #333;
+}
+
+.product-item {
+  width: 750rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  
+  background: #fff;
+  padding-bottom: 37rpx;
+
+  margin-bottom: 16rpx;
+}
+
+.item-left {
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 470rpx;
+  margin-left:30rpx; 
+  
+}
+
+.left-item-title {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 40rpx;
+}
+
+.project-name {
+  color: #333;
+  font-size: 36rpx;
+  margin-right: 13rpx;
+  width: 216rpx;
+}
+
+.label {
+  height: 38rpx;
+  padding: auto 14rpx;
+  color: white;
+  font-size: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #fc7a36;
+  border-radius: 8rpx;
+  margin: auto 7rpx;
+  min-width: 60rpx;
+}
+
+.project-relative {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 10rpx;
+}
+
+.relative-item {
+  height: 30rpx;
+  padding: auto 14rpx;
+  color: #999;
+  font-size: 20rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background: #f2f2f2;
+  border-radius: 8rpx;
+  margin-right: 14rpx;
+  margin-top: 10rpx;
+}
+
+.product-sub {
+  color: #666;
+  font-size: 26rpx;
+  margin-top: 22rpx;
+  display: -webkit-box; /** 对象作为伸缩盒子模型显示 **/
+  -webkit-box-orient: vertical; /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+  -webkit-line-clamp: 2; /** 显示的行数 **/
+  overflow: hidden; /** 隐藏超出的内容 **/
+}
+.item-right{
+display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-right: 20rpx;
+}
+
+.right-item-top{
+ color:#333;
+font-size:30rpx;
+margin-top: 40rpx;
+
+}
+.myday{
+  color:#41a4f9;
+font-size:30rpx;
+  }
+.right-rexiao-logo{
+  height: 83rpx;
+  width: 90rpx;
+}
+.item-data-content{
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  margin-top: 32rpx;
+  
+}
+.item-data-data{
+  color: #fd4b05;
+  font-size: 48rpx;
+}
+.item-data-percent{
+   color: #fd4b05;
+  font-size: 48rpx;
+  margin-left: 10rpx;
+}
+.item-shouyilv{
+  color: #999;
+  font-size: 24rpx;
+  margin-top: 20rpx;
+}

@@ -1,0 +1,149 @@
+<view class="container container-index {{player.sound.title?'container-footer-empty':''}} {{actionSheet.showActionSheet?'no-scroll':''}}">
+  <view bindtap="toSearch" class="searchLink">
+    <input disabled class="searchLink-input" placeholder="好课搜索" placeholderStyle="color:#999"></input>
+    <image class="searchLink-icon" src="../../images/icon-search.png"></image>
+  </view>
+  <swiper autoplay circular bindchange="onSwiperChange" class="index-swiper" indicatorDots="{{false}}" interval="5000" nextMargin="80rpx" previousMargin="80rpx">
+    <block wx:if="{{banners}}">
+      <block wx:for="{{banners}}">
+        <swiper-item bindtap="toAlbumDetail" data-album-id="{{item.albumId}}" data-long-title="{{item.longTitle}}">
+          <view class="swiper-img {{swiperCurrent==index?'scale-big':'scale-small'}}">
+            <image binderror="handleImageLoaded" bindload="handleImageLoaded" bindtap="bannerAnalytics" class="slide-image" data-sort="{{index+1}}" mode="widthFix" src="{{item.image.url}}"></image>
+          </view>
+        </swiper-item>
+        <swiper-item bindtap="toSoundPage" data-track-id="{{item.trackId}}" wx:if="{{item.type==3}}">
+          <view class="swiper-img {{swiperCurrent==index?'scale-big':'scale-small'}}">
+            <image binderror="handleImageLoaded" bindload="handleImageLoaded" bindtap="bannerAnalytics" class="slide-image" data-sort="{{index+1}}" mode="widthFix" src="{{item.image.url}}"></image>
+          </view>
+        </swiper-item>
+        <swiper-item bindtap="toPage" data-sort="{{item.index+1}}" data-track-id="{{item.trackId}}" data-url="{{item.url}}" wx:if="{{item.type==4}}">
+          <view class="swiper-img {{swiperCurrent==index?'scale-big':'scale-small'}}">
+            <image binderror="handleImageLoaded" bindload="handleImageLoaded" bindtap="bannerAnalytics" class="slide-image" data-sort="{{index+1}}" mode="widthFix" src="{{item.image.url}}"></image>
+          </view>
+        </swiper-item>
+      </block>
+    </block>
+  </swiper>
+  <view class="album-list-wrap">
+    <view class="recommend">
+      <view bindtap="toRank" class="recommend-item" hoverClass="btn-hover">
+        <image class="recommend-icon" src="../../images/icon-rank.png"></image>
+        <text>榜单</text>
+      </view>
+      <view bindtap="toChannel" class="recommend-item" data-cate="3" data-catename="听小说" hoverClass="btn-hover">
+        <image class="recommend-icon" src="../../images/icon-fiction.png"></image>
+        <text>听课</text>
+      </view>
+      <view catchtap="tofreeGetList" class="recommend-item" data-action-type="main_icon" hoverClass="btn-hover">
+        <image class="recommend-icon" src="../../images/icon-forfree.png"></image>
+        <image class="recommend-icon-tip" src="../../images/icon_new_tip.png"></image>
+        <text>免费领</text>
+      </view>
+      <view bindtap="toVip" class="recommend-item" data-cate="12" data-catename="听相声" hoverClass="btn-hover">
+        <image class="recommend-icon" src="../../images/home_btn_vip_n@3x.png"></image>
+        <text>付费专区</text>
+      </view>
+      <view bindtap="toPaidRank" class="recommend-item" data-cate="6" data-catename="付费精品" hoverClass="btn-hover">
+        <image class="recommend-icon" src="../../images/icon-story.png"></image>
+        <text>直播</text>
+      </view>
+    </view>
+    <view class="gap"></view>
+    <view class="free-get-category" data-name="{{freeGetAlbum.category_name}}" wx:if="{{AssistanceAlbumList.length>0}}">
+      <view class="category-header" style="margin-bottom:2rpx">
+       限时秒杀
+        <view catchtap="tofreeGetList" class="category-more" data-action-type="more_btn" hoverClass="btn-hover">更多
+          <icon class="icon icon-arrow-right"></icon>
+        </view>
+      </view>
+      <free-get-album album="{{album}}" indexReport="{{true}}" isIndex="{{false}}" listIndex="{{index+1}}" noBorderBottom="{{index===AssistanceAlbumList.length-1}}" wx:for="{{AssistanceAlbumList}}" wx:for-item="album" wx:key="{{album.id}}"></free-get-album>
+    </view>
+    <view class="vip-recommend-section" wx:if="{{vipRecommends.length>0}}">
+      <view class="section-header">
+        <view class="section-name">猜你喜欢</view>
+        <view bindtap="toVip" class="section-action" data-module-name="猜你喜欢">
+          更多
+          <image mode="widthFix" src="../../images/icon_home_vip_more.png"></image>
+        </view>
+      </view>
+      <view class="section-main">
+        <view class="vip-recommend-list">
+          <view bindtap="toPaidAlbumDetail" class="vip-recommend-item" data-album-id="{{item.albumId}}" data-module-name="会员精品" wx:for="{{vipRecommends}}">
+            <view class="vip-item-cover">
+              <image lazyLoad class="vip-item-cover-image" src="{{item.cover}}"></image>
+              <view class="vip-item-playcount">
+                <image class="icon icon-playcount" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAPFJREFUOBGlkLEOwVAYhVuDQUQiEjEZJAxGMWFkMEgkNqPBM7B6DvEEFgYLq/AEhiaEUWJjpb4rvUnb/Kj6ky/tPfecc9trGM7Yth2HGiS0FvhJKAVHUHODIUR/KeippG8s1s1vJRHHEBOMebQFJXPICfsvSRfc3xnQW7CjZATSQYbBRh+CzAlTx32Y/oKHW/zwnmVvSskSCsqnCz79gtRXR9xSkg5boEqTUPmn4ELBJmzBinDVNM2zLgh6iXuCbYINsHgPfIlXvAMoEpypoGe4zTZI80CcQMYT8C8wlIT0Gq3s94prjCaMQZ14gK5oFMQnTMTgzLyhcKoAAAAASUVORK5CYII="></image>
+                {{item.countingInfo}}
+              </view>
+            </view>
+            <view class="vip-item-info">
+              <view class="item-name">{{item.courseName}}</view>
+              <view class="item-intro">{{item.subTitle}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="categories">
+      <view class="category" data-name="{{paid.category_name}}" wx:if="{{paidRecommends.length>0}}">
+        <view class="category-header">
+          听知识
+          <view bindtap="toPaidRank" class="category-more" data-cate="{{paid.category_id}}" data-catename="{{paid.category_name}}" hoverClass="btn-hover">更多
+            <icon class="icon icon-arrow-right"></icon>
+          </view>
+        </view>
+        <view class="paid-recommend-wrapper">
+          <view class="paid-recommend-list">
+            <view bindtap="toPaidAlbumDetail" class="paid-recommend-item" data-album-id="{{item.id}}" data-module-name="付费精品" wx:for="{{paidRecommends}}">
+              <view class="paid-item-cover">
+                <image lazyLoad src="{{item.coverUrlLarge}}"></image>
+              </view>
+              <view class="paid-item-info">
+                <view class="paid-item-name">
+                  <view class="vip-free-icon" wx:if="{{item.isVIPFree}}">会员免费</view>
+                  <view class="paid-item-name-txt">{{item.albumTitle}}</view>
+                </view>
+                <view class="paid-item-intro">{{item.albumIntro}}</view>
+                <view class="paid-item-playinfo">
+                  <view class="paid-item-playcount">
+                    <image class="icon-playcount" src="../../images/icon-playcount.png"></image>
+                    {{item.playCount}}
+                  </view>
+                  <view class="paid-item-tracknumber">
+                    <icon class="icon-tracksCounts"></icon>
+                    {{item.includeTrackCount}}集
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="category" data-name="{{item.category_name}}" wx:for="{{categories}}" wx:key="{{item.category_id}}">
+        <view class="category-header">
+          {{item.category}}
+          <view bindtap="toChannel" class="category-more" data-cate="{{item.category_id}}" data-catename="{{item.category}}" hoverClass="btn-hover">更多
+            <icon class="icon icon-arrow-right"></icon>
+          </view>
+        </view>
+        <view class="index-albums">
+          <view class="index-album" wx:for="{{item.coursePreviews}}" wx:if="{{index<3}}" wx:for-item="album" wx:key="{{album.id}}">
+            <album album="{{album}}" category_name="{{item.category}}" class="component-album" noBorderBottom="{{index==2?true:false}}" vertical="{{true}}"></album>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <template is="player" data="{{player:player,actionSheet:actionSheet}}"></template>
+  <view bindtap="hideAdvBox" class="popup-box" wx:if="{{showAdvBox}}">
+    <view catchtap="toVipActivity" class="popup-main" data-action-type="adv">
+      <image catchtap="hideAdvBox" class="close" mode="widthFix" src="../../images/icon-close-circle.png"></image>
+      <image class="adv-img" mode="widthFix" src="{{advertisementImg}}"></image>
+    </view>
+  </view>
+  <view class="miniprogram" wx:if="{{miniProgram.length>0}}">
+    <navigator appId="{{item.longTitle}}" class="swiper-img" path="{{item.url}}" target="miniProgram" wx:for="{{miniProgram}}" wx:key="{{index}}">
+      <image bindtap="adAnalytics" class="slide-image" data-app-id="{{item.longTitle}}" mode="aspectFit" src="{{item.pic}}"></image>
+    </navigator>
+  </view>
+</view>

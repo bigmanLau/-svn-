@@ -1,0 +1,96 @@
+var wRequest = require('../../utils/servers.js');
+var WxParse = require('../../wxParse/wxParse.js');
+//获取应用实例
+
+var app = getApp();
+Page({
+
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    let content=""
+
+    // WxParse.wxParse('article', 'html', article, this, 5);
+
+    var dparms = {
+      id: options.id,
+
+    }
+    // wRequest.getExchageDetail(dparms).then((res) => {
+
+    //   console.log("getNoticeDetail", res.data.data)
+    //   let org=""
+    //    if(res.data.data.type==1){
+    //      org="大商所"
+    //    } else if (res.data.data.type == 2){ 
+    //      org = "上交所"
+    //    } else if (res.data.data.type == 3) {
+    //      org = "郑交所"
+    //    } else if (res.data.data.type == 4) {
+    //      org = "中交所"
+    //    }
+    //   this.setData({
+    //     noticeDetail: res.data.data,
+    //     org: org
+    //   })
+
+    // }, (res) => { console.log("getNoticeDetail", res) });
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+  
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+  
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+  
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+  
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  }
+})

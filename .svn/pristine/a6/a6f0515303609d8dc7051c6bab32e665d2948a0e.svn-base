@@ -1,0 +1,50 @@
+<view class="flex_column flex_center">
+
+  <image src='../../img/yanzheng.png' class='myimg mt56'></image>
+  <view class='mt42 size24 black73'>尊敬的{{result.userName+result.gender}}</view>
+  <view class='mt10 size24 black73'>
+    {{result.errorInfo}}
+  </view>
+  <view class='mt10 size24 black73'>请在收到通知短信后登陆系统查看</view>
+</view>
+<view class='flex_column mt84'>
+  <view class='item flex_row space-between'>
+    <view class='size30 black73 margin37'>客户姓名</view>
+    <view class='size30 black3c margin37'>{{result.userName+result.gender}}</view>
+  </view>
+  <!-- <view class='wrap'>
+    <view class='line2 margin40 '></view>
+  </view> -->
+
+<view class='item flex_row space-between'>
+    <view class='size30 black73 margin37'>资金账号</view>
+    <view class='size30 black3c margin37'>{{result.fundAccount}}</view>
+  </view>
+  <!-- <view class='wrap'>
+    <view class='line2 margin40 '></view>
+  </view> -->
+  <block wx:for="{{result.accountList}}" wx:key="unique">
+  <view class='item flex_row space-between'>
+    <view class='size30 black73 margin37'>{{item.account_name}}</view>
+    <view class='size30 black3c margin37'>{{item.open_result}}</view>
+  </view>
+  </block>
+  <!-- <view class='wrap'>
+    <view class='line2 margin40 '></view>
+  </view> -->
+  
+  <!-- <view class='wrap'>
+    <view class='line2 margin40 '></view>
+  </view> -->
+  <block wx:for="{{result.bankAccountList}}" wx:key="unique">
+  <view class='item flex_row space-between'>
+    <view class='size30 black73 margin37'>结算银行</view>
+    <view class='size30 black3c margin37'>{{item.bank_name}} {{item.open_result}}</view>
+  </view>
+  </block>
+  <!-- <view class='wrap'>
+    <view class='line2 margin40 '></view>
+  </view> -->
+
+
+</view>

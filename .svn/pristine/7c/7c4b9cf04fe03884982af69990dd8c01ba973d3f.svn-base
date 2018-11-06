@@ -1,0 +1,50 @@
+<!--pages/anquanzhongxin/index.wxml-->
+<view class="container">
+  <view class='flex_column'>
+
+    <!-- <navigator class='item flex_row flex_row_center space-between mt40' url='../shoujihaomaxiugai/index'>
+      <view class='flex_row flex_row_center ml34'>
+        <image src='../../img/jy.png' class='little_icon' mode='aspectFit'></image>
+        <view class='size24 black3c ml16'>手机号修改</view>
+      </view>
+      <image class='little_icon mr32' mode="aspectFit" src='../../img/r.png'></image>
+    </navigator> -->
+
+    <navigator class='item flex_row flex_row_center space-between mt20' url='../jiaoyimimaxiugai/index'>
+      <view class='flex_row flex_row_center ml34'>
+        <image src='../../img/jy.png' class='little_icon' mode='aspectFit'></image>
+        <view class='size24 black3c ml16'>交易密码修改</view>
+      </view>
+      <image class='little_icon mr32' mode="aspectFit" src='../../img/r.png'></image>
+    </navigator>
+    <navigator class='item flex_row flex_row_center space-between mt20' url='../chaxunmimaxiugai/index'>
+      <view class='flex_row flex_row_center ml34'>
+        <image src='../../img/cx.png' class='little_icon' mode='aspectFit'></image>
+        <view class='size24 black3c ml16'>资金账号密码修改</view>
+      </view>
+      <image class='little_icon mr32' mode="aspectFit" src='../../img/r.png'></image>
+    </navigator>
+      <navigator class='item flex_row flex_row_center space-between mt20' url='../jiaoyichongzhi/index?otype=0'>
+      <view class='flex_row flex_row_center ml34'>
+        <image src='../../img/q1.png' class='little_icon' mode='aspectFit'></image>
+        <view class='size24 black3c ml16'>交易密码重置</view>
+      </view>
+      <image class='little_icon mr32' mode="aspectFit" src='../../img/r.png'></image>
+    </navigator>
+       <navigator class='item flex_row flex_row_center space-between mt20' url='../chaxunchongzhi/index?otype=0'>
+      <view class='flex_row flex_row_center ml34'>
+        <image src='../../img/q0.png' class='little_icon' mode='aspectFit'></image>
+        <view class='size24 black3c ml16'>资金账号密码重置</view>
+      </view>
+      <image class='little_icon mr32' mode="aspectFit" src='../../img/r.png'></image>
+    </navigator>
+      
+    <navigator class='item flex_row flex_row_center space-between mt20' url='../ocr/index?otype=0'>
+      <view class='flex_row flex_row_center ml34'>
+        <image src='../../img/sz.png' class='little_icon' mode='aspectFit'></image>
+        <view class='size24 black3c ml16'>数字密码修改</view>
+      </view>
+      <image class='little_icon mr32' mode="aspectFit" src='../../img/r.png'></image>
+    </navigator>
+  </view>
+</view>

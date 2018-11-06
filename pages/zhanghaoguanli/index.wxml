@@ -1,0 +1,37 @@
+<!--index.wxml-->
+<view class="container">
+  
+
+  <view class='flex_column'>
+
+
+
+    <navigator class='item flex_row flex_row_center space-between mt20' url='../yonghumingxiugai/index'>
+      <view class='flex_row flex_row_center ml34'>
+       
+        <view class='size24 black3c ml16'>用户名修改</view>
+      </view>
+      <image class='little_icon mr32' mode="aspectFit" src='../../img/r.png'></image>
+    </navigator>
+
+    <navigator class='item flex_row flex_row_center space-between mt20' url='../shoujihaomaxiugai/index'>
+      <view class='flex_row flex_row_center ml34'>
+        
+        <view class='size24 black3c ml16'>手机号修改</view>
+      </view>
+      <image class='little_icon mr32' mode="aspectFit" src='../../img/r.png'></image>
+    </navigator>
+
+    <navigator class='item flex_row flex_row_center space-between mt20' url='../shoushimimaxiugai1/index'>
+      <view class='flex_row flex_row_center ml34'>
+       
+        <view class='size24 black3c ml16'>手势密码修改</view>
+      </view>
+      <image class='little_icon mr32' mode="aspectFit" src='../../img/r.png'></image>
+    </navigator>
+
+  </view>
+
+
+
+</view>

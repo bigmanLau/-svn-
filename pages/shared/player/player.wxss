@@ -1,0 +1,278 @@
+.player {
+    position: fixed;
+    bottom: 70rpx;
+    right: 30rpx;
+    width: 104rpx;
+    height: 104rpx;
+    z-index: 100;
+    background-color: #d8d8d8;
+    overflow: visible;
+    border-radius: 50%;
+    border: 4rpx solid #fff;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: url('https://img.alicdn.com/imgextra/i2/732450928/TB22yXCbipnpuFjSZFIXXXh2VXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+    z-index: 0;
+    animation: none;
+}
+
+.player-image.playing {
+    animation: rotate 10s linear infinite forwards;
+}
+
+.player-image::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(0,0,0,0.4);
+}
+
+.player-playing-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 26rpx;
+}
+
+.line-wrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    width: 100%;
+}
+
+.line:first-child,.line:last-child {
+    height: 20rpx;
+}
+
+.player-playing-icon.playing .line {
+    height: 40rpx;
+    animation: bodong .7s infinite linear;
+}
+
+.player-playing-icon.playing .line:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.player-playing-icon.playing .line:nth-child(3) {
+    animation-delay: 0.1s;
+}
+
+.line {
+    width: 8rpx;
+    height: 40rpx;
+    background: #fff;
+    transform-origin: bottom;
+}
+
+.player-slider {
+    position: absolute;
+    top: -1rpx;
+    width: 100%;
+    height: 2rpx;
+    background: transparent;
+    overflow: visible;
+}
+
+.player-inner {
+    position: relative;
+    height: 2rpx;
+    background: #ebebeb;
+    overflow: visible;
+}
+
+.player-load {
+    height: 2rpx;
+    background: #ccc;
+}
+
+.player-play {
+    position: absolute;
+    top: 0;
+    left: 0;
+    max-width: 100%;
+    height: 2rpx;
+    background: #424040;
+    overflow: visible;
+}
+
+.player-info {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+}
+
+.album-image-wrap {
+    position: relative;
+    width: 80rpx;
+    height: 80rpx;
+    overflow: hidden;
+    padding: 15rpx 24rpx;
+}
+
+.icon-play,.icon-pause {
+    position: absolute;
+    left: 24rpx;
+    top: 15rpx;
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+}
+
+.icon-play {
+    background: url('https://img.alicdn.com/imgextra/i3/732450928/TB2sP_6Xw0kpuFjSspdXXX4YXXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+}
+
+.icon-pause {
+    background: url('https://img.alicdn.com/imgextra/i4/732450928/TB2frdoXJFopuFjSZFHXXbSlXXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+}
+
+.icon-play-btn {
+    width: 80rpx;
+    height: 80rpx;
+    background: #444;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+.icon-pause-btn {
+    width: 80rpx;
+    height: 80rpx;
+    background: #3498db;
+    margin-right: 20rpx;
+}
+
+.track-info {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    height: 110rpx;
+}
+
+.track-info .text-title {
+    font-family: PingFangSC-Regular;
+    font-size: 30rpx;
+    color: #4a4a4a;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.player-ctrl {
+    display: flex;
+    flex-flow: row;
+}
+
+.player-ctrl-inner {
+    padding: 20rpx;
+    display: flex;
+    align-content: center;
+}
+
+.player-ctrl-inner:last-child {
+    padding-right: 40rpx;
+}
+
+.player-ctrl .icon-history,.player-ctrl .icon-list {
+    width: 40rpx;
+    height: 40rpx;
+    background: #ff4612;
+}
+
+.player-ctrl .icon-list {
+    background: url('https://img.alicdn.com/imgextra/i2/732450928/TB297T7XB8lpuFjSspaXXXJKpXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+}
+
+.player-ctrl .icon-history {
+    background: url('https://img.alicdn.com/imgextra/i2/732450928/TB2lAL7XCBjpuFjSsplXXa5MVXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+}
+
+.player-is-paused .player-pauseBtn {
+    display: none;
+}
+
+.player-is-paused .player-playBtn {
+    display: block;
+}
+
+.player-is-playing .player-pauseBtn {
+    display: block;
+}
+
+.player-is-playing .player-playBtn {
+    display: none;
+}
+
+@-webkit-keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes bodong {
+    0% {
+        transform: scale3d(1,0.2,1);
+    }
+
+    60% {
+        transform: scale3d(1,1,1);
+    }
+
+    100% {
+        transform: scale3d(1,0.2,1);
+    }
+}
+
+@keyframes bodong {
+    0% {
+        transform: scale3d(1,0.2,1);
+    }
+
+    60% {
+        transform: scale3d(1,1,1);
+    }
+
+    100% {
+        transform: scale3d(1,0.2,1);
+    }
+}

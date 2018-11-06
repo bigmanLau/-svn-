@@ -1,0 +1,77 @@
+.actionSheet {
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    width: 100%;
+    z-index: 1050;
+}
+
+.sheet-list {
+    max-height: 540rpx;
+    overflow: auto;
+    background: #fff;
+    -webkit-overflow-scrolling: touch;
+    border-bottom: 1rpx solid rgba(0,0,0,0.1);
+}
+
+.sheet-list-item {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    padding: 24rpx;
+    margin: 0 20rpx;
+}
+
+.sheet-list-item.active .sheet-text {
+    color: #f86442;
+}
+
+.icon-playing {
+    width: 40rpx;
+    height: 40rpx;
+    background: url('https://img.alicdn.com/imgextra/i2/732450928/TB22Ha6dbBnpuFjSZFGXXX51pXa_!!732450928.gif') no-repeat center;
+    background-size: 100%;
+    margin-right: 20rpx;
+}
+
+.icon-paused {
+    width: 40rpx;
+    height: 40rpx;
+    background: url('https://img.alicdn.com/imgextra/i3/732450928/TB2nYJ8cS0jpuFjy0FlXXc0bpXa_!!732450928.png') no-repeat center;
+    background-size: 100%;
+    margin-right: 20rpx;
+}
+
+.sheet-text {
+    font-family: PingFangSC-Light;
+    font-size: 30rpx;
+    color: #4A4A4A;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.sheet-cancel {
+    display: flex;
+    justify-content: center;
+    padding: 20rpx;
+    background: #fff;
+}
+
+.cancel-text {
+    font-family: PingFangSC-Regular;
+    font-size: 34rpx;
+    color: #4A4A4A;
+}
+
+.mask {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    background: rgba(0,0,0,0.5);
+}

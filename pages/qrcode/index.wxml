@@ -1,0 +1,21 @@
+<view class="contain flex flex_column ">
+  <view class='flex_row flex_row_center mytop'>
+   <view>
+   <image src='{{userinfo.avatarUrl}}' class='headimg'></image>
+   </view>
+   <view class='flex_column ml20 width100'>
+    <view class='size24 black3c'>{{userinfo.nickName}}</view>
+    <view class='size24 black3c mt22'>{{userinfo.phone}}</view>
+   </view>
+  </view>
+  <view>
+  <image class='myqrcode' src='{{img}}'></image>
+  </view>
+  <view class='flex_column flex_center width100'>
+  <text class='text2'>分享二维码，邀请您的好朋友</text>
+  <button  class='share_btn flex_row flex_center' style='font-size: 32rpx;background:white;' open-type='share'>
+  分享二维码，邀请好友
+</button>
+  </view>
+
+</view>

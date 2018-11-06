@@ -1,0 +1,20 @@
+<view class="album-comment-item" wx:if="{{comment}}">
+    <view class="album-comment-info">
+        <image lazyLoad class="album-comment-user-cover" src="http{{comment.headImage}}"></image>
+        <view class="album-comment-mate-info">
+            <view class="album-comment-user-name">{{comment.nickName}}</view>
+            <view class="album-comment-score">
+                <view class="album-comment-score-icon">
+                    <view class="album-comment-score-icon-wrap">
+                        <block wx:for="{{scoreNum}}">
+                            <image lazyLoad class="score-icon" src="../../images/score_icon.png" style="" wx:if="{{index===scoreNum-1}}"></image>
+                            <image lazyLoad class="score-icon" src="../../images/score_icon.png" wx:else></image>
+                        </block>
+                    </view>
+                </view>
+        {{scoreStr}} 分
+      </view>
+        </view>
+    </view>
+    <view class="album-comment-content">{{comment.content}}</view>
+</view>

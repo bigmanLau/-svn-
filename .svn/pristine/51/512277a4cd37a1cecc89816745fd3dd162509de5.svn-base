@@ -1,0 +1,69 @@
+.tipsbar{
+  height: 69rpx;
+  background: #F5F5F5;
+  width: 100%;
+  position: relative;
+}
+.myicon{
+  width: 40rpx;
+  height: 69rpx;
+}
+.mright{
+  position: absolute;
+  right: 20rpx;
+  margin: auto;
+}
+.item{
+  width: 545rpx;
+  height: 340rpx;
+  border: 1rpx dotted #cdcdcd;
+  margin-top: 25rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.item2{
+  width: 545rpx;
+  height: 196rpx;
+  border: 1rpx dotted #cdcdcd;
+  margin-top: 25rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.wrap{
+  width: 750rpx;
+}
+.tupian{
+  width: 134rpx;
+  height: 90rpx;
+}
+.wenzi{
+  color: #BEBEBE;
+  font-size: 24rpx;
+
+}
+.mycheckbox{
+  height: 25rpx;
+  width: 25rpx;
+}
+.mygray{
+  color: #A0A0A0;
+margin-left: 16rpx;
+}
+
+.itemImg{
+  width: 545rpx;
+  height: 338rpx;
+   border-radius: 2rpx ;
+}
+.itemImgSig{
+  width: 545rpx;
+  height: 194rpx;
+  border-radius: 2rpx;
+}

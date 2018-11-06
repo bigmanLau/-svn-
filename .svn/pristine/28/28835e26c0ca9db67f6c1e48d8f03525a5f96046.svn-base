@@ -1,0 +1,21 @@
+.myimg{
+  width: 115rpx;
+  height: 115rpx;
+}
+.item{
+  height: 90rpx;
+  border-bottom: 1rpx solid RGBA(181, 181, 181, 1);
+  box-sizing: border-box;
+  margin: 0 32rpx;
+  width: calc(100% - 64rpx);
+}
+.line2{
+  width: 90%;
+  margin-left: 30rpx;
+  margin-right: 40rpx;
+  background: #63B8F5;
+  height: 1rpx;
+}
+.wrap{
+  width: 100%;
+}

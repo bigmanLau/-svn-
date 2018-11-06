@@ -1,0 +1,32 @@
+.margin48{
+  padding-left: 48rpx;
+  padding-right: 48rpx;
+  padding-top: 20rpx;
+  color: #535353;
+  font-size: 28rpx;
+}
+.wrap22{
+
+  width: 654rpx;
+  background: #f5f8fa;
+  position: absolute;
+  top: 0;
+}
+.rec{
+  width: 150rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  background: #2a9ef1;
+}
+.common_button2{
+  width: 150rpx;
+  height: 70rpx;
+  border-radius: 10rpx;
+  border-width: 3rpx;
+  border-color: #2A9EF1;
+  border-style: solid;
+  color: #2A9EF1;
+  font-size: 28rpx;
+}

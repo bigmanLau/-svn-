@@ -1,0 +1,137 @@
+.index {
+  font-family: SourceHanSansCN-Regular;
+}
+
+.tips {
+  width: 682rpx;
+  height: 122rpx;
+  border-top: 2rpx solid #e6e6e6;
+  padding: 0 34rpx;
+}
+
+.orangefa {
+  width: 682rpx;
+  height: 122rpx;
+  text-align: center;
+  /* line-height: 122rpx; */
+  font-size: 26rpx;
+  color: #999;
+  /* font-family: Source Han Sans CN; */
+  /* letter-spacing: 100; */
+}
+
+.main {
+  width: 690rpx;
+  height: 500rpx;
+  padding: 0 30rpx;
+}
+
+.card {
+  width: 690rpx;
+  height: 84rpx;
+  border-bottom: 2rpx solid #e6e6e6;
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-text {
+  width: 120rpx;
+  height: 84rpx;
+  font-size: 30rpx;
+  line-height: 84rpx;
+  color: #666;
+}
+
+.certificates {
+  width: 188rpx;
+  height: 84rpx;
+  display: flex;
+  align-items: center;
+}
+
+.certificates-text {
+  width: 152rpx;
+  height: 84rpx;
+  font-size: 30rpx;
+  line-height: 84rpx;
+  color: #2a9ef1;
+}
+
+.certificates-image {
+  width: 36rpx;
+  height: 36rpx;
+}
+
+.name {
+  width: 690rpx;
+  height: 84rpx;
+  border-bottom: 2rpx solid #e6e6e6;
+  display: flex;
+  align-items: center;
+}
+
+.name-text {
+  width: 150rpx;
+  height: 84rpx;
+  font-size: 30rpx;
+  line-height: 84rpx;
+  color: #666;
+}
+
+.name-input {
+  width: 540rpx;
+  height: 84rpx;
+  font-size: 30rpx;
+}
+
+.number {
+  width: 690rpx;
+  height: 84rpx;
+  border-bottom: 2rpx solid #e6e6e6;
+  display: flex;
+  align-items: center;
+}
+
+.number-text {
+  width: 150rpx;
+  height: 84rpx;
+  font-size: 30rpx;
+  line-height: 84rpx;
+  color: #666;
+}
+
+.number-input {
+  width: 540rpx;
+  height: 84rpx;
+  font-size: 30rpx;
+}
+
+.plus{
+  width: 690rpx;
+  height: 232rpx;
+}
+
+.add-to{
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 10rpx;
+  border: 1rpx dashed #ccc;
+  margin: 30rpx 20rpx 30rpx 0rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.add-to image{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.submission{
+  width: 710rpx;
+  height: 90rpx;
+  margin: 0 20rpx;
+  font-size: 36rpx;
+  color: #FFFFFF;
+  border-radius: 10rpx;
+}

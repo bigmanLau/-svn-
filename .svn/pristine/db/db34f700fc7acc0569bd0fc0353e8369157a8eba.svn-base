@@ -1,0 +1,35 @@
+<view class="tipsbar flex_row flex_center" wx:if="{{isNeedShow}}" bindtap='changeShow'>
+  <view class='flex_row flex_center'>
+    <image src='../../img/shenfen1.png' class='myicon' mode='aspectFit'></image>
+    <view class='orangefa size24'>金瑞期货将对您的资料进行加密保护，请放心填写</view>
+  </view>
+  <image src='../../img/close.png' class='icon_small mright'></image>
+</view>
+<view class='flex_column flex_center wrap'>
+
+
+  <view class='item' bindtap='pickIDCardFront'>
+    <image src='{{IDCardFront?IDCardFront:"../../img/shenfen2.png"}}' class='tupian {{IDCardFront?"itemImg":""}}' ></image>
+    <view class='wenzi mt40' wx:if="{{!IDCardFront}}">上传身份证正面</view>
+  </view>
+
+  <view class='item'>
+    <image src='{{IDCardBack?IDCardBack:"../../img/shenfen3.png"}}' class='tupian {{IDCardBack?"itemImg":""}}' bindtap='pickIDCardBack'></image>
+    <view class='wenzi mt40' wx:if="{{!IDCardBack}}">上传身份证反面</view>
+  </view>
+
+  <view class='item2'>
+    <image src='{{Signature?Signature:"../../img/shenfen.png"}}' class='tupian {{Signature?"itemImgSig":""}}' bindtap='pickSignature'></image>
+    <view class='wenzi mt40' wx:if="{{!Signature}}">上传签名</view>
+  </view>
+  <view class='wenzi mt40'>请在白纸上签名后上传  需字体清晰 
+</view>
+  <view class='flex_row flex_row_center mt30' bindtap='changeSelect'>
+    <image class='mycheckbox' src='{{isSelect?"../../img/xz.png":"../../img/wz.png"}}' mode='aspectFit'></image>
+    <view class='mygray size24'>我已阅读并同意签署</view>
+    <navigator url='../cert/index' class='blue size24'>《个人数字证书申请责任书》</navigator>
+  </view>
+  <view class='flex_row flex_center mt30'>
+    <button class=' common_button blue size28 bg_white' bindtap='uploadImgs'>下一步</button>
+  </view>
+</view>

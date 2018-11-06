@@ -1,0 +1,48 @@
+.album-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.album-cover {
+    width: 100%;
+    padding-bottom: 100%;
+    background: #eee center/cover no-repeat;
+    margin-bottom: 15rpx;
+    border-radius: 6rpx;
+    overflow: hidden;
+}
+
+.vip-free::before {
+    content: '';
+    position: absolute;
+    width: 60rpx;
+    height: 32rpx;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEIAAAAkCAMAAAAKJxydAAAASFBMVEVHcEzswZ/ov5zmuZLnvpznvpv/1cnTkl381rHpvp7rwaHVlmLYm2fou5LgqnvaoG3js4jdpXTir4D///7frILrwp3w2MP47eN/D5/UAAAAC3RSTlMAJ3DLlOAD+gc7HGWyRq4AAAKISURBVEjHnZbZcsMgDEW9JF5ZDbb//08rCRDC7lOUZDrtVKdHl8Xtum5aPl+ttYM3V0xlooeXVUrtouZ9ztXl6hGgCeKIEvHF5b1KtasMwPdOmGVCwLSMBZAJCZLas0NpZ485mSwLIrbhPKtFgVQNa1VrgXOUYXqy6MdC4EEAwAwgWPXyQMDOiFXrU/9HyQRmCApnURCyX2hgqTrGY1FmMtkoi6GxEKvioicFEiEHkUbWSBaDxjjPZopk4q0tc1j2EJFKhD6rhb7OZBGt1jFqSCP9PHryaCN9WaDIGQIyQMGF4K5w2Rhy3U5a0CAlC7Jgxg2/CjvS2yvcFhE+hAvqvkOIUqO1wP7CgE7jse5wqWzhsdXCD/Z2e8ksOA0YIQSNBJgjFgtPmepwtzusschpOGPor6MGzmGLBa3ISQixv0QWaUUPQ+Uh0DTHWRG0O25EyC3GFu7AMoYQ3vg0Cc6BKoS4wPPKcSqZZ0YcCZElDPWlZk8Whhf1fJ6U1qIQ0iQG5zCWaAYtwMP551nhLFySYA8foV3THDJOeeoLRT0sqgc00jCcBZ5Y+zqxMMjWIESgGifXXlqkI8vHLd+iql9aC9aAIMIdswWuULl57PPqKRasUSDQmebwwkLcXiWO+ZFFsyhwc9NBsfjhUs+b+D+LRPEISWdNYpStqeI+V7PlLNzRJkqZZoaVGm+Lrli41oIpDGGP5jqfR86iWpTd4X07SrWQi6KGmkWlGPP2sOlVrnMeZh6HpVqIVTlEuylp+teiwFX8HdYpZfGtzyHn5FMgP9PEQ76p72fdMuLz/aXGcRj6NEe3Dp9fahjWLRO6rV9/qZ4B8C8K1TIt+KYP1VTf9etUvpu4HeoPdXd1dXxEBFcAAAAASUVORK5CYII=") center/cover no-repeat;
+    border-radius: 6rpx 0 0 0;
+}
+
+.album-tit {
+    font-size: 26rpx;
+    line-height: 36rpx;
+    max-height: 72rpx;
+    color: #FEF9F0;
+    margin-bottom: 5rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+
+.album-price {
+    font-size: 24rpx;
+    color: #9FA0A7;
+    letter-spacing: 0.34px;
+    line-height: 40rpx;
+}
+
+.price-count {
+    font-size: 28rpx;
+    color: #F86442;
+    font-weight: bold;
+}

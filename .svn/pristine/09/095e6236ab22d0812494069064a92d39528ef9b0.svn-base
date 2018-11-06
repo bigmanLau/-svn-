@@ -1,0 +1,84 @@
+<view class='ten'></view>
+<view class=" bg_white">
+  <view class='flex_row  flex_row_center flex_end'>
+    <image src='img/cal.png' class='cal'></image>
+    <view class='year'>{{startYear}}</view>
+    <image src='img/l.png' class='left_triangle' bindtap='goLastMonth'></image>
+    <view class='size36 black77 month flex_row flex_center'>{{startMonth%12==0?"12":startMonth%12}}月</view>
+    <image src='img/r.png' class='right_triangle' bindtap='goNextMonth'></image>
+    <image src='img/c2.png' class='right_triangle ml80'></image>
+    <view class='size30 black77 mr32 ml10'>个人</view>
+  </view>
+
+
+  <view class='flex_row flex_center margin32 mt40'>
+    <view class='size24 blue flex_1 flex_row flex_center '>日</view>
+    <view class='size24 black3c flex_1 flex_row flex_center '>一</view>
+    <view class='size24 black3c flex_1 flex_row flex_center '>二</view>
+    <view class='size24 black3c flex_1 flex_row flex_center '>三</view>
+    <view class='size24 black3c flex_1 flex_row flex_center '>四</view>
+    <view class='size24 black3c flex_1 flex_row flex_center '>五</view>
+    <view class='size24 blue flex_1 flex_row flex_center '>六</view>
+  </view>
+  <view class="swiper-container">
+    <swiper class="swiper" indicator-dots="{{indicatorDots}}" vertical="{{vertical}}" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{0}}" current="{{swiperCurrent}}" bindchange="swiperChange" circular="{{circular}}" scroll-with-animation="{{true}}">
+
+      <block wx:for="{{banner}}" wx:for-item="item" wx:key="unique">
+        <swiper-item>
+          <view class='mt15 borderbottom'>
+            <block wx:for="{{6}}" wx:for-item="i" wx:key="unique">
+              <view class="flex_row flex_center   mywrap ">
+                <block wx:for="{{7}}" wx:for-item="j" wx:key="unique">
+                  <view class='week_item {{item[7*i+j].check?"bg_blue white":""}}' bindtap='getDetail{{item[7*i+j].type==2?"":"1"}}' data-day='{{item[7*i+j].day}}' data-index='{{7*i+j}}'>
+                  <view class='space-between'>
+                   <view class='flex_row flex_center myname {{item[7*i+j].check?"white":""}}' style='visibility:{{item[7*i+j].ineType?"visible":"hidden"}}'>能源</view>
+                    <view class='flex_row flex_end size24 gray_date {{item[7*i+j].type==2?"black3c":""}} {{item[7*i+j].check?"white":""}}'>{{item[7*i+j].day}}</view>
+                   
+                    </view>
+                    <view class='flex_row flex_row_center  space-between wrap mt7'>
+                    <block wx:for="{{item[7*i+j].orgs}}" wx:for-item="child" wx:key="unique">
+                       <view class='flex_row flex_center myname {{item[7*i+j].check?"white":""}}'>{{child[0]}}{{child[1]}}</view>
+                      </block>
+                    </view>
+                  </view>
+                </block>
+
+              </view>
+            </block>
+
+          </view>
+
+        </swiper-item>
+      </block>
+    </swiper>
+
+  </view>
+
+</view>
+
+<view class='bg_white'>
+  <view class='pt30 flex_row flex_end'>
+    <navigator url='../jiaoyirili/index?year={{year}}&month={{month}}&day={{day}}' class='size24 blue mr32'>更多>></navigator>
+  </view>
+</view>
+
+<view class='bg_white item_content'>
+<block wx:for="{{list}}" wx:key="unique">
+  <view class='shadow_item'>
+    <view class='flex_row space-between'>
+      <view class='blue_tag flex_row flex_center'>{{item.org}}</view>
+      <view class='blue size18 mr32'></view>
+    </view>
+    <view class='margin32 size24  mt20 mb20 {{item.clevel=="0"?"mblack":"mred"}}'>{{item.content}}</view>
+  </view>
+</block>
+
+  <!-- <view class='shadow_item'>
+    <view class='flex_row space-between'>
+      <view class='blue_tag flex_row flex_center'>中金所</view>
+      <view class='blue size18 mr32'>16:20</view>
+    </view>
+    <view class='margin32 size24 black3c mt20 mb20'>英镑兑美元盘中升破1.32关口，现小幅回落，至1.3197，因市场预计英国央行将在本周四（11月2日）的会议上加息25个基点英镑兑美元盘中升破1.32关口，现小幅回落，至1.3197，因市场预计英国央行将在本周四（11月2日）的会议上加息25个基点</view>
+  </view> -->
+
+</view>

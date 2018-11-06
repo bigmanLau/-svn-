@@ -1,0 +1,365 @@
+<view class="container" disable-scroll="{{isService}}">
+
+  <view class="top">
+
+    <view class="left-top">
+      <text class="little-text">总收益率</text>
+      <view class="text-content">
+        <text class="big-text">{{introduce.yieldRate}}</text>
+        <text class="small-text">%</text>
+      </view>
+    </view>
+    <view class="right-top">
+      <text class="little-text">总盈利</text>
+
+      <text class="big-text">{{introduce.profit}}</text>
+    </view>
+  </view>
+
+
+  <!--产品详情-->
+  <view class="product-dynamic-content">
+
+    <scroll-view class="product_scroll_x_box" scroll-x="true" bindtouchstart="myscrollStart" bindtouchend="myscrollEnd" wx:if="{{ProductInstrumentList.length!=0&&isService}}">
+      <block wx:for="{{ProductInstrumentList}}" wx:key="unique">
+        <view class="product_scroll_box {{selectCode==item.code?'scroll-box-select':''}} " data-code="{{item.code}}" bindtap="doCode">
+          <view class="scroll-box-item ">{{item.name}}</view>
+        </view>
+      </block>
+
+    </scroll-view>
+    <view class="dynamic-data" wx:if="{{getlastDepthMarketData&&isService}}">
+      <view class="dynamic-data-item1">
+        <view class="item1-a">
+          
+            <view class="item1-left">卖</view>
+            <view class="item1-right {{Color}}">{{getlastDepthMarketData.askPrice1}}</view>
+          </view>
+           <view class="item1-a">
+          <view class="item1-left ">买</view>
+          <view class="item1-right {{Color}}">{{getlastDepthMarketData.bidPrice1}}</view>
+          </view>
+       
+
+        <view class="item1-a">
+          <view class="item1-left">仓</view>
+          <view class="item1-right2">{{getlastDepthMarketData.openInterest}}</view>
+        </view>
+      </view>
+      <view class="dynamic-data-item2">
+        <view class="item1-b">
+          <view class="item1-left ">{{getlastDepthMarketData.bidVolume1}}</view>
+
+        </view>
+        <view class="item1-b">
+          <view class="item1-left ">{{getlastDepthMarketData.askVolume1}}</view>
+
+        </view>
+        <view class="item1-b">
+          <view class="item1-left ">{{getlastDepthMarketData.minusA}}</view>
+
+        </view>
+
+      </view>
+      <view class="line-v"></view>
+      <view class="dynamic-data-item3">
+        <view class="item1-c {{Color}}">{{getlastDepthMarketData.lastPrice}}</view>
+        <view class="item1-d {{Color}}">{{percent1}}/{{percent}}%</view>
+      </view>
+    </view>
+
+
+
+
+    <view class="product-content-title" wx:if="{{isService}}">
+      <image src="/images/zhuangsi.png" class="product-title-logo"></image>
+      <text class="product-title-text">账户统计</text>
+    </view>
+
+    <view class="data-tongji-content" wx:if="{{isService}}">
+
+      <view class="tongji-bottom">
+
+        <view class="tongji-bottom-item">
+          <text class="tongji-bottom-text1">账户权益</text>
+          <text class="tongji-bottom-text2">{{Detail.dynamicBalance}}</text>
+        </view>
+        <view class="tongji-line"></view>
+        <view class="tongji-bottom-item">
+          <text class="tongji-bottom-text1">可用资金</text>
+          <text class="tongji-bottom-text2">{{Detail.available}}</text>
+        </view>
+        <view class="tongji-line"></view>
+        <view class="tongji-bottom-item">
+          <text class="tongji-bottom-text1">持仓盈亏</text>
+          <text class="tongji-bottom-text3 {{Color2}}">{{Detail.positionProfitByTrade}}</text>
+        </view>
+      </view>
+
+    </view>
+
+    <view class="broadcast-content" wx:if="{{tradeList2.length!=0&&isService}}">
+
+      <view class="broadcast-left">
+        <image src="/images/laba.png" class="broadcast-logo"></image>
+        <view class="broadcast-text">以{{tradeList2[0].price}}{{tradeList2[0].offsetFlag}}{{tradeList2[0].direction=='0'?'买入':'卖出'}}{{tradeList2[0].volume}}手{{tradeList2[0].varietyName}}</view>
+
+      </view>
+      <view class="broadcast-right">{{tradeList2[0].tradeTime}}</view>
+    </view>
+
+
+
+
+    <view class="select-box" wx:if="{{isService}}">
+
+      <view class="select-1 {{    selectItem2==3?'select-on':''}}" data-id="3" bindtap="changeItem2" wx:if="{{isService}}">持仓信息</view>
+      <view class="select-2"></view>
+      <view class="select-3  {{    selectItem2==4?'select-on':''}}" data-id="4" bindtap="changeItem2">当日成交</view>
+    </view>
+    <view class="angle ">
+
+
+
+    </view>
+
+    <view class="history-content " wx:if="{{isService}}">
+      <view class="history-title" wx:if="{{selectItem2==3&&isService}}">
+        <view class="histoty-title-item">合约</view>
+        <view class="histoty-title-item">方向</view>
+        <view class="histoty-title-item">手数</view>
+        <view class="histoty-title-item">开仓均价</view>
+        <view class="histoty-title-item">逐笔盈亏</view>
+        <!-- <view class="histoty-title-item">资金占比</view> -->
+
+      </view>
+      <view class="line" wx:if="{{selectItem2==3&&isService}}"></view>
+
+      <block wx:for="{{ProductItemList}}" wx:key="unique" wx:if="{{selectItem2==3}}">
+        <view class="history-title">
+          <view class="histoty-title-item">{{item.varietyName}}</view>
+          <view class="histoty-title-item">{{item.direction=='0'?'多':'空'}}</view>
+          <view class="histoty-title-item">{{item.validVolume}}</view>
+          <view class="histoty-title-item">{{item.avgPrice}}</view>
+          <view class="histoty-title-item">{{item.positionProfitByTrade}}</view>
+          <!-- <view class="histoty-title-item">{{item.positionRatio}}%</view> -->
+        </view>
+        <view class="line"></view>
+      </block>
+
+
+
+      <view class="history-title" wx:if="{{selectItem2==4&&isService}}">
+        <view class="histoty-title-item">合约</view>
+        <view class="histoty-title-item">买卖</view>
+        <view class="histoty-title-item">开平</view>
+        <view class="histoty-title-item">成家价格</view>
+        <view class="histoty-title-item">成交手数</view>
+        <view class="histoty-title-item">成交时间</view>
+      </view>
+      <view class="line" wx:if="{{selectItem2==4}}"></view>
+      <block wx:for="{{tradeList2}}" wx:key="unique" wx:if="{{selectItem2==4&&isService}}">
+        <view class="history-item-content">
+
+          <view class="history-item">
+            <text class="history-text1">{{item.varietyName}}</text>
+            <!--<text class="history-text2">1612</text>-->
+          </view>
+
+          <view class="history-item">
+
+            <text class="history-text2">{{item.direction==0?'多':'空'}}</text>
+          </view>
+          <view class="history-item">
+
+            <text class="history-text2">{{item.offsetFlag}}</text>
+          </view>
+          <view class="history-item">
+
+            <text class="history-text2">{{item.price}}</text>
+          </view>
+          <view class="history-item">
+
+            <text class="history-text2">{{item.volume}}</text>
+          </view>
+          <view class="history-item">
+
+            <text class="history-text3 ">{{item.tradeTime}}</text>
+          </view>
+        </view>
+        <view class="line"></view>
+      </block>
+
+    </view>
+
+
+
+  </view>
+
+
+
+
+  <!--收益走势图-->
+
+  <view class="product-content-title">
+    <image src="/images/zhuangsi.png" class="product-title-logo"></image>
+    <text class="product-title-text">收益走势图</text>
+  </view>
+  <view class="map-box" wx:if="{{ProductyieldList.length>0}}">
+
+    <view class="chart-box">
+
+      <canvas canvas-id="lineCanvas" disable-scroll="false" class="canvas" bindtouchstart="touchHandler"></canvas>
+    </view>
+    <!-- <view class="tab-bar">
+      <view class="tab {{    selectMonth==1?'select-tab':''}}" data-id="1" bindtap="changeMonth">一个月</view>
+      <view class="tab {{    selectMonth==2?'select-tab':''}}" data-id="2" bindtap="changeMonth">三个月</view>
+      <view class="tab {{    selectMonth==3?'select-tab':''}}" data-id="3" bindtap="changeMonth">一年</view>
+    </view> -->
+  </view>
+  <view class="empty-view" wx:else>目前该策略还没有生成收益曲线图</view>
+  <view class="select-box">
+
+    <view class="select-1 {{    selectItem==1?'select-on':''}}" data-id="1" bindtap="changeItem">产品介绍</view>
+    <view class="select-2"></view>
+    <view class="select-3  {{    selectItem==2?'select-on':''}}" data-id="2" bindtap="changeItem">历史平仓</view>
+  </view>
+  <view class="angle {{selectItem==2?'':'hide'}}">
+    <view class="angle-item">
+
+    </view>
+    <view class="angle-item">
+      <view class="triangle-up"></view>
+    </view>
+
+  </view>
+
+  <view class="history-content {{selectItem==2?'':'hide'}}">
+    <view class="history-title">
+      <view class="histoty-title-item">合约</view>
+      <view class="histoty-title-item">平仓价</view>
+      <view class="histoty-title-item">数量</view>
+      <view class="histoty-title-item">平仓盈亏</view>
+      <view class="histoty-title-item">平仓时间</view>
+    </view>
+    <view class="line"></view>
+    <block wx:for="{{tradeList}}" wx:key="unique">
+      <view class="history-item-content">
+
+        <view class="history-item">
+          <text class="history-text1">{{item.varietyName}}</text>
+          <!--<text class="history-text2">1612</text>-->
+        </view>
+
+        <view class="history-item">
+
+          <text class="history-text2">{{item.price}}</text>
+        </view>
+        <view class="history-item">
+
+          <text class="history-text2">{{item.volume}}</text>
+        </view>
+        <view class="history-item">
+
+          <text class="history-text2">{{item.profit}}</text>
+        </view>
+        <view class="history-item">
+
+          <text class="history-text2">{{item.tradeDate}}</text>
+        </view>
+      </view>
+      <view class="line"></view>
+    </block>
+
+
+  </view>
+  <view class="product-introduce {{selectItem==1?'':'hide'}}">
+    <view class="desc">{{introduce.description}}</view>
+    <view class="line"></view>
+    <view class="many">
+      <view class="many-item">
+        <view class="left-many">
+          产品编号:{{introduce.productCode}}</view>
+        <view class="right-many">
+          订阅模式:{{introduce.productMode==1?'收费':'免费'}}</view>
+      </view>
+      <view class="many-item">
+        <view class="left-many">
+          创建时间:{{introduce.createDate}}</view>
+        <view class="right-many">
+          订阅价格:{{introduce.salePrice}}元/月</view>
+      </view>
+
+    </view>
+    <!--<view class="shouyi-content {{selectItem==1?'':'hide'}}">
+
+      <view class="shouyi-left">
+        <text class="orange-text">80.20%</text>
+        <text class="gray-text">累计收益率</text>
+      </view>
+      <view class="shouyi-right">
+        <text class="orange-text2">80.20%</text>
+        <text class="gray-text">胜算率</text>
+      </view>
+    </view>-->
+  </view>
+  <view class="product-content-title">
+    <image src="/images/zhuangsi.png" class="product-title-logo"></image>
+    <text class="product-title-text">数据统计</text>
+  </view>
+
+  <view class="data-tongji-content2">
+    <view class="tongji-top">
+
+      <view class="tongji-top-item">
+        <text class="tongji-top-text1">总盈利</text>
+        <text class="tongji-top-text2">{{introduce.profit}}</text>
+      </view>
+      <view class="tongji-top-item">
+        <text class="tongji-top-text1">总亏损</text>
+        <text class="tongji-top-text2">{{introduce.loss}}</text>
+      </view>
+      <view class="tongji-top-item">
+        <text class="tongji-top-text1">最大回撤率</text>
+        <text class="tongji-top-text2">{{introduce.withdrawOffer}}%</text>
+      </view>
+
+      <view class="tongji-top-item">
+        <text class="tongji-top-text1">胜算率</text>
+        <text class="tongji-top-text2">{{introduce.oddsRatio}}%</text>
+      </view>
+
+    </view>
+    <!-- <view class="tongji-top" >
+     <view class="tongji-top-item">
+       <text class="tongji-top-text1">累计收益率</text>
+       <text class="tongji-top-text2"></text>
+     </view>
+     <view class="tongji-top-item">
+       <text class="tongji-top-text1">总亏损</text>
+       <text class="tongji-top-text2"></text>
+     </view>
+
+     <view class="tongji-top-item">
+       <text class="tongji-top-text1">周收益率</text>
+       <text class="tongji-top-text2">%</text>
+     </view>
+
+     <view class="tongji-top-item">
+       <text class="tongji-top-text1">月收益率</text>
+       <text class="tongji-top-text2">%</text>
+     </view>
+
+    </view> -->
+  </view>
+
+  <view class="btn-content" wx:if="{{!isService}}">
+    <view class="btn" bindtap="goPay" data-id="{{id}}">订 阅</view>
+  </view>
+
+
+
+
+
+
+</view>

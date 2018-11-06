@@ -1,0 +1,11 @@
+<view bindtap="toAlbumDetail" class="album" data-album-id="{{album.id}}" data-category="{{category_name}}" data-is-assistant="{{isAssistant}}" data-ispaid="{{ispaid}}" hoverClass="album-hover">
+    <image class="icon icon-ispaid" src="../../images/icon-ispaid.png" wx:if="{{ispaid==1&&isAssistant==0}}"></image>
+    <image lazyLoad class="album-cover" src="{{album.cover_url_large}}"></image>
+    <view class="album-info {{isLast?'no-border-bottom':''}}">
+        <view class="album-title line-ellipsis">{{album.album_title}}</view>
+        <view class="album-intro">{{album.album_intro}}</view>
+        <view class="album-playcount">
+            <text>{{album.hasGotNum||0}}人已领取</text>
+        </view>
+    </view>
+</view>

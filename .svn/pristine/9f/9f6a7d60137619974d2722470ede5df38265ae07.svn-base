@@ -1,0 +1,142 @@
+<view class='bg_white mt20'>
+<view class="item flex_row space-between flex_row_center margin40">
+  <view class='left flex_row flex_row_center'>
+    <view class='size30 redef star'>*</view>
+    <view class='size30 black73'>姓 名</view>
+  </view>
+  <view class='size30 black3c myinput'>请与证件一致</view>
+</view>
+<!-- <view class='mywrap'>
+  <view class='line2 margin40'></view>
+</view> -->
+
+
+<view class="item flex_row space-between flex_row_center margin40">
+  <view class='left flex_row flex_row_center'>
+    <view class='size30 redef star'>*</view>
+    <view class='size30 black73'>身份证号</view>
+  </view>
+  <view class='size30 black3c myinput'>请与证件一致</view>
+</view>
+<!-- <view class='mywrap'>
+  <view class='line2 margin40'></view>
+</view> -->
+
+
+<view class="item flex_row space-between flex_row_center margin40">
+  <view class='left flex_row flex_row_center'>
+    <view class='size30 redef star'>*</view>
+    <view class='size30 black73'>联系地址省市</view>
+  </view>
+  <view class='size30 black3c myinput'>请与证件一致</view>
+</view>
+<!-- <view class='mywrap'>
+  <view class='line2 margin40'></view>
+</view> -->
+
+<view class="item flex_row space-between flex_row_center margin40">
+  <view class='left flex_row flex_row_center'>
+    <view class='size30 redef star'>*</view>
+    <view class='size30 black73'>联系地址</view>
+  </view>
+  <view class='size30 black3c myinput'>请与证件一致</view>
+</view>
+<!-- <view class='mywrap'>
+  <view class='line2 margin40'></view>
+</view> -->
+
+<view class="item flex_row space-between flex_row_center margin40">
+  <view class='left flex_row flex_row_center'>
+    <view class='size30 redef star'>*</view>
+    <view class='size30 black73'>联系电话</view>
+  </view>
+  <view class='size30 black3c myinput'>请与证件一致</view>
+</view>
+<!-- <view class='mywrap'>
+  <view class='line2 margin40'></view>
+</view> -->
+
+<view class="item flex_row space-between flex_row_center margin40">
+  <view class='left flex_row flex_row_center'>
+    <view class='size30 redef star gone'>*</view>
+    <view class='size30 black73'>电子邮件</view>
+  </view>
+  <view class='size30 black3c myinput'>请与证件一致</view>
+</view>
+<!-- <view class='mywrap'>
+  <view class='line2 margin40'></view>
+</view> -->
+
+<view class="item flex_row space-between flex_row_center margin40">
+  <view class='left flex_row flex_row_center'>
+    <view class='size30 redef star gone'>*</view>
+    <view class='size30 black73'>邮 箱</view>
+  </view>
+  <view class='size30 black3c myinput'>请与证件一致</view>
+</view>
+<!-- <view class='mywrap'>
+  <view class='line2 margin40'></view>
+</view> -->
+
+<view class="item flex_row space-between flex_row_center margin40">
+  <view class='left flex_row flex_row_center'>
+    <view class='size30 redef star gone'>*</view>
+    <view class='size30 black73'>职业</view>
+  </view>
+  <view class='size30 black3c myinput'>请与证件一致</view>
+</view>
+<!-- <view class="item flex_row space-between flex_row_center margin40">
+  <view class='left flex_row flex_row_center'>
+    <view class='size30 redef star gone'>*</view>
+    <view class='size30 black73'>职 业</view>
+  </view>
+  <image src='../../img/right.png' class='icon_small ' mode='aspectFit'></image>
+</view> -->
+<!-- <view class='mywrap'>
+  <view class='line2 margin40'></view>
+</view> -->
+
+<view class="item flex_row space-between flex_row_center margin40">
+  <view class='left flex_row flex_row_center'>
+    <view class='size30 redef star gone'>*</view>
+    <view class='size30 black73'>学历</view>
+  </view>
+  <view class='size30 black3c myinput'>请与证件一致</view>
+</view>
+<!-- <view class="item flex_row space-between flex_row_center margin40">
+  <view class='left flex_row flex_row_center'>
+    <view class='size30 redef star gone'>*</view>
+    <view class='size30 black73'>学 历</view>
+  </view>
+  <image src='../../img/right.png' class='icon_small ' mode='aspectFit'></image>
+</view> -->
+<!-- <view class='mywrap'>
+  <view class='line2 margin40'></view>
+</view> -->
+
+<view class="item flex_row space-between flex_row_center margin40">
+  <view class='left flex_row flex_row_center'>
+    <view class='size30 redef star gone'>*</view>
+    <view class='size30 black73'>客户经理电话</view>
+  </view>
+  <view class='size30 black3c myinput'>请与证件一致</view>
+</view>
+<!-- <view class='mywrap'>
+  <view class='line2 margin40'></view>
+</view> -->
+
+<view class="item flex_row space-between flex_row_center margin40 ">
+  <view class='left flex_row flex_row_center'>
+    <view class='size30 redef star gone'>*</view>
+    <view class='size30 black73'>客户经理手机号</view>
+  </view>
+  <view class='size30 black3c myinput'>请与证件一致</view>
+</view>
+<!-- <view class='mywrap pb40'>
+  <view class='line2 margin40 '></view>
+</view> -->
+</view>
+
+<view class='flex_row flex_center mt40'>
+<button class=' common_button blue size28 bg_white' bindtap='goNext'>下一步</button>
+</view>

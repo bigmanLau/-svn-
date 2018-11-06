@@ -1,0 +1,32 @@
+<view class="flex_column width100">
+  <view class='flex_row flex_center text1'>准备工作</view>
+  <view class='flex_row flex_center text2'>视频认证前确保环境正常</view>
+  <view class='flex_column margin140 mt68'>
+    <view class='flex_row flex_row_center'>
+      <image class='img' src='img/yanzheng.png'></image>
+      <view class='text3'>光线充足</view>
+    </view>
+
+    <view class='flex_row flex_row_center mt60'>
+      <image class='img' src='img/yanzheng.png'></image>
+      <view class='text3'>网络稳定</view>
+    </view>
+
+    <view class='flex_row flex_row_center mt60'>
+      <image class='img' src='img/yanzheng.png'></image>
+      <view class='text3'>视频摄像头清晰</view>
+    </view>
+
+    <view class='flex_row flex_row_center mt60'>
+      <image class='img' src='img/yanzheng.png'></image>
+      <view class='text3'>脸部完全漏出</view>
+    </view>
+
+
+  </view>
+
+ <view class='flex_row flex_center '>
+     <navigator url="../shipingtonghua/index" class='mybutton text4  flex_row flex_center'>开始视频通话</navigator>
+ </view>
+
+</view>

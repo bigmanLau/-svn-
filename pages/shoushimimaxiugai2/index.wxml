@@ -1,0 +1,13 @@
+<!--pages/main/index.wxml-->
+<view class="lock-box">
+    
+    <view class='flex_column flex_row_center'>
+    <view class='size28 black3c mt133'></view>
+    <image src='../../img/dots.png' mode='apectFit' class='mydots mt30'></image>
+      <text class='black3c size28 mt40'>{{title}}</text>
+     
+    </view>
+   <view class='flex_row flex_center mycanvaswrap mt100'>
+    <canvas disable-scroll="true"  bindtouchstart="touchS" bindtouchmove="touchM" bindtouchend="touchE" canvas-id="locker" style="width:650rpx;height:650rpx;"></canvas>
+    </view>
+  </view>

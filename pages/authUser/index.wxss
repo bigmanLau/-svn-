@@ -1,0 +1,14 @@
+.margin48{
+  padding-left: 48rpx;
+  padding-right: 48rpx;
+  padding-top: 20rpx;
+  color: #535353;
+  font-size: 28rpx;
+}
+.wrap22{
+
+  width: 654rpx;
+  background: #f5f8fa;
+  position: absolute;
+  top: 0;
+}

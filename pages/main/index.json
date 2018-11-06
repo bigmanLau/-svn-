@@ -1,0 +1,7 @@
+{
+    "enablePullDownRefresh": true,
+  "usingComponents": {
+    "album": "/components/album/album",
+    "free-get-album": "/components/freeGetAlbum/freeGetAlbum"
+  }
+}

@@ -1,0 +1,65 @@
+<view class="mt20   ml32 mr32 flex_row flex_row_center mycalendar" style='height:114rpx;'>
+  <view class='flex_column flex_center flex_1' bindtap='goNext' data-index='1'>
+    <view class='size24 gray99 flex_row flex_center'> 日</view>
+    <view class='size24 gray99 mt18 flex_row flex_center  {{currentIndex==1?"blue":""}} {{selectIndex==1?"select":""}}'>{{weeksList[0]}}</view>
+  </view>
+
+  <view class='flex_column flex_center flex_1' bindtap='goNext' data-index='2'>
+    <view class='size24 black3c flex_row flex_center'>一</view>
+    <view class='size24 black3c mt18 flex_row flex_center   {{currentIndex==2?"blue":""}} {{selectIndex==2?"select":""}}'>{{weeksList[1]}}</view>
+  </view>
+
+  <view class='flex_column flex_center flex_1' bindtap='goNext' data-index='3'>
+    <view class='size24 black3c flex_row flex_center'>二</view>
+    <view class='size24 black3c mt18 flex_row flex_center {{currentIndex==3?"blue":""}} {{selectIndex==3?"select":""}}'>{{weeksList[2]}}</view>
+  </view>
+
+
+  <view class='flex_column flex_center flex_1' bindtap='goNext' data-index='4'>
+    <view class='size24 black3c flex_row flex_center'>三</view>
+    <view class='size24 black3c mt18 flex_row flex_center {{currentIndex==4?"blue":""}} {{selectIndex==4?"select":""}}'>{{weeksList[3]}}</view>
+  </view>
+
+  <view class='flex_column flex_center flex_1' bindtap='goNext' data-index='5'>
+    <view class='size24 black3c flex_row flex_center'>四</view>
+    <view class='size24 black3c mt18 flex_row flex_center {{currentIndex==5?"blue":""}} {{selectIndex==5?"select":""}}'>{{weeksList[4]}}</view>
+  </view>
+
+  <view class='flex_column flex_center flex_1' bindtap='goNext' data-index='6'>
+    <view class='size24 black3c flex_row flex_center'>五</view>
+    <view class='size24 black3c mt18 flex_row flex_center {{currentIndex==6?"blue":""}} {{selectIndex==6?"select":""}}'>{{weeksList[5]}}</view>
+  </view>
+
+  <view class='flex_column flex_center flex_1' bindtap='goNext' data-index='7'>
+    <view class='size24 gray99 flex_row flex_center'>六</view>
+    <view class='size24 gray99 mt18 flex_row flex_center {{currentIndex==7?"blue":""}} {{selectIndex==7?"select":""}}'>{{weeksList[6]}}</view>
+  </view>
+</view>
+
+<view class='bg_white ml32 mr32 {{list?"pt20":""}}'>
+  <block wx:for="{{list}}" wx:key="unique">
+    <view class='flex_row item'>
+      <view class=' myleft'>
+        <view class='bline2'></view>
+        <view class='point'></view>
+        <view class='bline'></view>
+      </view>
+      <view class='flex_column'>
+        <view class='flex_row flex_row_center'>
+          <view class='hline'></view>
+          <view class='size28 blue mylittletext' style='visible:hidden;'></view>
+          <view class='flex_row flex_center mytagview'>{{item.org}}</view>
+        </view>
+
+        <text class='{{item.clevel=="0"?"mblack":"mred"}}' wx:if="{{item.isShrink!=null}}" bindtap='goOpen' data-index='{{index}}'>
+   {{item.isShrink?item.shortContent:item.content}}<text class="more">{{item.isShrink?"更多>>":"收起<<"}}</text>
+        </text>
+        <text class='{{item.clevel=="0"?"mblack":"mred"}}' wx:if="{{item.isShrink==null}}">
+   {{item.content}}
+   </text>
+      </view>
+    </view>
+  </block>
+
+
+</view>

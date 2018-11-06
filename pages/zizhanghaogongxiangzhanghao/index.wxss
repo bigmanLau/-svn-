@@ -1,0 +1,100 @@
+/* pages/zizhanghaogongxiangzhanghao/index.wxss */
+page {
+  background: #f2f2f2;
+
+}
+
+.container {
+  background-color: #f2f2f2;
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contianer-message{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 20rpx 0 30rpx;
+  height: 56rpx;
+  margin-bottom: 10rpx;
+  font-size: 20rpx;
+  background: rgba(246, 236, 234, 1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.contianer-message text{
+  flex: 1;
+  font-size: 28rpx;
+  color: rgba(250, 130, 95, 1);
+  line-height: 1.5;
+}
+.contianer-message .icon{
+  flex: 0 0 50rpx;
+  display: block;
+  height: 50rpx;
+  width: 50rpx;
+}
+
+.contianer-message .close{
+  flex: 0 0 50rpx;
+  display: block;
+  height: 50rpx;
+  width: 50rpx;
+  box-sizing: border-box;
+  padding: 10rpx;
+}
+.contianer-message .icon image,.contianer-message .close image{
+  width: 100%;
+  height: auto;
+}
+.contianer-info{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15rpx 30rpx;
+  line-height: 1.5;
+  font-size: 20rpx;
+  color: RGBA(195, 195, 195, 1);
+  text-align: left;
+}
+.contianer-input{
+  width: 100%;
+  height: 90rpx;
+  background: #fff;
+  box-sizing: border-box;
+  border-top: 2px solid RGBA(238, 238, 238, 1);
+  border-bottom: 2px solid RGBA(238, 238, 238, 1);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.contianer-input-label{
+  flex: 0 0 150rpx;
+  text-align: left;
+  font-size: 24rpx;
+  box-sizing: border-box;
+  padding-left: 30rpx;
+  color: RGBA(60, 60, 60, 1);
+}
+.contianer-input-wrop{
+  flex: 1;
+  height: 50rpx;
+  box-sizing: border-box;
+  padding-right: 30rpx;
+
+}
+.contianer-input-wrop input{
+  font-size: 24rpx;
+  color: RGBA(60, 60, 60, 1);
+}
+.contianer-button{
+  width: 250rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin: 180rpx auto 40rpx;
+  text-align: center;
+  border: 4rpx solid RGBA(42, 158, 241, 1);
+  color: RGBA(42, 158, 241, 1);
+  font-size: 28rpx;
+  border-radius: 10rpx;
+}

@@ -1,0 +1,87 @@
+.tab{
+  height: 57rpx;
+  width: 248rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.left_circle{
+  border-top-left-radius: 57rpx;
+  border-bottom-left-radius: 57rpx;
+}
+.left_border{
+  border-radius: 1rpx solid #2A9EF1;
+
+}
+.right_circle{
+  border-top-right-radius: 57rpx;
+  border-bottom-right-radius: 57rpx;
+}
+.blue_border{
+  border: 1rpx solid #2A9EF1;
+  
+}
+page{
+  background: #f5f8fa;
+}
+.item{
+  height: 90rpx;
+  width: 100%;
+  background: white;
+  border-bottom: 1rpx solid #eeeeee;
+}
+.mytag{
+  height: 38rpx;
+ padding-left: 10rpx;
+ padding-right: 10rpx;
+  border-radius: 8rpx;
+  border: 2rpx solid #2A9EF1;
+  margin-left: 33rpx;
+  margin-right: 15rpx;
+}
+.centertext{
+  width: 400rpx;
+}
+.text-center{
+  text-align: center;
+}
+.mytext{
+  margin-right: 32rpx;
+}
+
+.myscrollview{
+  height: 65rpx;
+  background: white;
+  margin-top: 23rpx;
+  width: 100%;
+  white-space: nowrap;
+
+}
+.scroll_item{
+  width: 150rpx;
+  height: 100%;
+  display: inline-block;
+}
+.select_line{
+  width:135rpx;
+  height: 3rpx;
+  background:#2A9EF1;
+  margin-top: 4rpx;
+}
+.topcontent{
+  position: relative;
+  width: 100%;
+}
+.myredpoints{
+  position: absolute;
+  right: 120rpx;
+  top: -10rpx;
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30rpx;
+  color: white;
+  font-size: 20rpx;
+  background: #FF0000;
+}

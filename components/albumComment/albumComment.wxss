@@ -1,0 +1,69 @@
+.album-comment,.album-comment-block {
+    background: #fff;
+}
+
+.album-comment-item {
+    padding: 0 28rpx;
+    margin-bottom: 41.6rpx;
+    background: #fff;
+}
+
+.album-comment-info {
+    display: flex;
+    align-items: center;
+}
+
+.album-comment-user-cover {
+    width: 67.6rpx;
+    height: 67.6rpx;
+    border-radius: 50%;
+    background: url('https://img.alicdn.com/imgextra/i4/732450928/TB2vNE2c4xmpuFjSZFNXXXrRXXa_!!732450928.png') no-repeat;
+    background-size: cover;
+}
+
+.album-comment-mate-info {
+    margin-left: 18.6rpx;
+}
+
+.album-comment-user-name {
+    font-size: 28rpx;
+    color: #333;
+}
+
+.album-comment-score {
+    font-size: 22rpx;
+    color: #9a9a9a;
+    letter-spacing: 0;
+}
+
+.score-icon {
+    height: 20.2rpx;
+    width: 21.4rpx;
+}
+
+.score-icon:last-child {
+    margin-right: 5rpx;
+}
+
+.album-comment-content {
+    font-size: 28rpx;
+    color: #333;
+    margin-top: 12.4rpx;
+    padding-bottom: 30rpx;
+    border-bottom: 1px solid #e8e8e8;
+    line-height: 52rpx;
+    overflow: hidden;
+    word-break: break-all;
+}
+
+.album-comment-score-icon {
+    display: inline-block;
+    line-height: 1;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.album-comment-score-icon-wrap {
+    overflow: hidden;
+    white-space: nowrap;
+}

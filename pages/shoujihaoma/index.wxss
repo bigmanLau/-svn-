@@ -1,0 +1,57 @@
+/* pages/paisherenlian/index.wxss */
+.item{
+  height: 90rpx;
+  width: 750rpx;
+}
+input{
+  max-width: 280rpx;
+}
+.face_wrap{
+  width: 100%;
+  height: 467rpx;
+  margin-top: 15rpx;
+}
+.face_item{
+  border: 1rpx dotted #cdcdcd;
+  width: 337rpx;
+  height: 337rpx;
+}
+.face{
+  width: 100rpx;
+  height:100rpx;
+
+}
+.mytoastcover{
+   position: fixed;   
+   top: 0;
+     z-index: 999;
+  width:100%;
+  height: 100vh;
+}
+.mytoasecontainer{
+  position: relative;
+
+}
+.mytoast{
+  position: absolute;
+  margin: auto;
+  line-height: 160rpx;
+  left: 0 ;
+  right: 0;
+  top: 330rpx;
+  width: 556rpx;
+  height: 160rpx;
+  background: #000000;
+  opacity: 0.6;
+  border-radius: 30rpx;
+}
+.picturecode{
+  width: 154rpx;
+  height: 56rpx;
+  background: #D9D9D9;
+}
+.smscode{
+  background: #2A9EF1;
+  border-radius: 8rpx;
+
+}

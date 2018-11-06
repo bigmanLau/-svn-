@@ -1,0 +1,91 @@
+<view class="first flex_row flex_row_center space-between">
+  <view class='mytext gone'>跳过</view>
+  <view class='mytext'>跳过</view>
+</view>
+<view class='content mb200'>
+<block wx:for="{{list}}" wx:key="unique">
+<view class='flex_column  wrap flex_column_center'>
+  <view class='size30 black3c margin40 mt40'>{{index+1}}、{{item.question_content}}（{{item.question_type==1?"多选":"单选"}}）</view>
+
+</view>
+<view class='wrap'>
+<view class='line2 margin40 mt30'></view> 
+</view>
+ <block wx:for="{{item.answers}}" wx:for-item="childitem" wx:for-index="childkey" wx:key="unique">
+<view class='mt36 flex_row flex_row_center' bindtap='changeSelect' data-index='{{index}}' data-childIndex='{{childkey}}'>
+  <view class='checkbox flex_row flex_center'>
+    <image class='checkbox_img' src='{{childitem.isSelect?"../../img/xz.png":"../../img/wz.png"}}' mode='aspectFill'></image>
+  </view>
+  <view class='ml16 size30 {{childitem.isSelect?"blue":""}}'>{{childitem.value}}</view>
+</view>
+</block>
+<!-- 
+<view class='mt36 flex_row flex_row_center'>
+  <view class='checkbox flex_row flex_center'>
+    <image class='checkbox_img' src='../../img/wz.png'></image>
+  </view>
+  <view class='ml16 size30 black73'>生产经营所得</view>
+</view>
+<view class='mt36 flex_row flex_row_center'>
+  <view class='checkbox flex_row flex_center'>
+    <image class='checkbox_img' src='../../img/wz.png'></image>
+  </view>
+  <view class='ml16 size30 black73'>利息、股息、转让证券等金融性资产收入</view>
+</view>
+<view class='mt36 flex_row flex_row_center'>
+  <view class='checkbox flex_row flex_center'>
+    <image class='checkbox_img' src='../../img/wz.png'></image>
+  </view>
+  <view class='ml16 size30 black73'>出租、出售房地产等非金融性资产收入</view>
+</view>
+<view class='mt36 flex_row '>
+  <view class='checkbox flex_row flex_center'>
+    <image class='checkbox_img' src='../../img/wz.png'></image>
+  </view>
+  <view class='ml16 size30 black73 '>无收入来源、生活主要依靠积蓄或社会保障无收入来源、生活主要依靠积蓄或社会保障</view>
+</view> -->
+</block>
+
+<!-- <view class='flex_column  wrap flex_column_center'>
+  <view class='size30 black3c margin40 mt40'>2、您目前的主要收入来源（单选）</view>
+
+</view>
+<view class='wrap'>
+<view class='line2 margin40 mt30'></view> 
+</view>
+<view class='mt36 flex_row flex_row_center'>
+  <view class='checkbox flex_row flex_center'>
+    <image class='checkbox_img' src='../../img/xz.png'></image>
+  </view>
+  <view class='ml16 size30 blue'>工资、劳务酬劳</view>
+</view>
+<view class='mt36 flex_row flex_row_center'>
+  <view class='checkbox flex_row flex_center'>
+    <image class='checkbox_img' src='../../img/wz.png'></image>
+  </view>
+  <view class='ml16 size30 black73'>生产经营所得</view>
+</view>
+<view class='mt36 flex_row flex_row_center'>
+  <view class='checkbox flex_row flex_center'>
+    <image class='checkbox_img' src='../../img/wz.png'></image>
+  </view>
+  <view class='ml16 size30 black73'>利息、股息、转让证券等金融性资产收入</view>
+</view>
+<view class='mt36 flex_row flex_row_center'>
+  <view class='checkbox flex_row flex_center'>
+    <image class='checkbox_img' src='../../img/wz.png'></image>
+  </view>
+  <view class='ml16 size30 black73'>出租、出售房地产等非金融性资产收入</view>
+</view>
+<view class='mt36 flex_row '>
+  <view class='checkbox flex_row flex_center'>
+    <image class='checkbox_img' src='../../img/wz.png'></image>
+  </view>
+  <view class='ml16 size30 black73 '>无收入来源、生活主要依靠积蓄或社会保障无收入来源、生活主要依靠积蓄或社会保障</view>
+</view> -->
+</view>
+
+
+<view class='flex_row flex_center mt40 positonFix'>
+<button class=' common_button blue size28 bg_white' bindtap='goNext'>下一步</button>
+</view>

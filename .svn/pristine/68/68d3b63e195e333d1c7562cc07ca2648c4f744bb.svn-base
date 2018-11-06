@@ -1,0 +1,8 @@
+<view class='flex_column flex_center width100'>
+  <view style='margin-top:106rpx;' class='mytitle flex_row flex_center margin36'>{{noticeDetail.title}}</view>
+  <view class='gray99 t1 flex_row flex_center' style='margin-top:33rpx;'>{{org}}</view>
+  <!-- <view class='gray99 mt20 size24 flex_row flex_center'>发布时间：{{noticeDetail.publishDate}}</view> 
+  <text class='mycontent flex_row flex_center'>{{noticeDetail.content}}</text>-->
+
+   <rich-text  class='mycontent flex_row flex_center' nodes="{{noticeDetail.content}}" bindtap="tap"></rich-text>
+</view>

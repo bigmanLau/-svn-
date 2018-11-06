@@ -1,0 +1,140 @@
+page {
+  background: #f2f2f2;
+}
+
+.title {
+  width: 750rpx;
+  height: 85rpx;
+  border-bottom: 1rpx solid #ccc;
+  display: flex;
+  flex-direction: row;
+}
+
+.left {
+  font-size: 35rpx;
+  color: #ccc;
+ 
+  flex:1;
+  height: 85rpx;
+  background: white;
+  text-align: center;
+  line-height: 85rpx;
+  
+}
+
+.right {
+  font-size: 35rpx;
+  color: #ccc;
+   flex:1;
+  width: 50%;
+  height: 85rpx;
+  background: white;
+  text-align: center;
+  line-height: 85rpx;
+}
+.three{
+   font-size: 35rpx;
+    flex:1;
+  color: #ccc;
+  width: 50%;
+  height: 85rpx;
+  background: white;
+  text-align: center;
+  line-height: 85rpx;
+}
+.empty {
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.empty-image {
+  height: 162rpx;
+  width: 162rpx;
+  margin-top: 301rpx;
+}
+
+.empty-tesk {
+  font-size: 34rpx;
+  margin-top: 63rpx;
+  color: #09bb07;
+}
+
+.content {
+  width: 750rpx;
+}
+
+.item {
+  width: 750rpx;
+  height: 140rpx;
+  display: flex;
+  background: white;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #ebebeb;
+}
+
+.left-item {
+  height: 140rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.one {
+  font-size: 30rpx;
+  color: black;
+  margin-left: 40rpx;
+}
+
+.two {
+  margin-left: 40rpx;
+  margin-top: 10rpx;
+}
+
+.two-time {
+  font-size: 26rpx;
+  color: #ccc;
+}
+
+.two-desc {
+  font-size: 26rpx;
+  color: #ccc;
+  margin-left: 20rpx;
+}
+
+.right-item {
+  height: 140rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20rpx;
+}
+
+.right-icon {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.add-class {
+  position: fixed;
+  bottom: 40rpx;
+  right: 40rpx;
+}
+
+.add-image {
+  width: 102rpx;
+  height: 102rpx;
+}
+
+.divider {
+  width: 750rpx;
+  height: 20rpx;
+  background: #f2f2f2;
+}
+.select-class{
+  color: #09bb07;
+  border-bottom: 2rpx solid #09bb07;
+}

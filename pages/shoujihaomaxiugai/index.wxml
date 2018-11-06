@@ -1,0 +1,22 @@
+<view class="wrapper mt40">
+  <view class='inputwrap flex_row flex_row_center'>
+    <view class='leftlabel size28 black3c ml32'>原手机号</view>
+    <input class='size28 black3c' placeholder-class='size28 gray99' placeholder='请输入原手机号' type='password'></input>
+  </view>
+  <view class='inputwrap flex_row flex_row_center'>
+    <view class='leftlabel size28 black3c ml32'>新手机号</view>
+    <input class='size28 black3c' placeholder-class='size28 gray99' placeholder='请输入手机号码' type='password'></input>
+  </view>
+  <view class='inputwrap flex_row flex_row_center space-between'>
+  <view class='flex_row flex_row_center'>
+    <view class='leftlabel size28 black3c ml32'>验证码</view>
+    <input class='size28 black3c' placeholder-class='size28 gray99' placeholder='请输入验证码' type='password'></input>
+  </view>
+  <view class='blue size24 mycode flex_row flex_center mr32'>获取验证码</view>
+  </view>
+</view>
+
+<view class='flex_row flex_center'>
+
+<button class='blue size28 mybutton'>保存</button>
+</view>

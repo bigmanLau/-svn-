@@ -1,0 +1,5 @@
+<template name="globalMsg">
+    <view class="global-msg">
+        <text class="global-msg-text">{{globalMsg}}</text>
+    </view>
+</template>

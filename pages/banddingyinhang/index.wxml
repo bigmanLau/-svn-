@@ -1,0 +1,68 @@
+<picker name="selector" bindchange="bindItemChange" value="{{itemIndex}}" range="{{bankList}}">
+<view class="flex_row item space-between mt15">
+  <view class='flex_row flex_row_center '>
+    <view class='black73 size30  left'>结算银行</view>
+    <view class='black3c size30 margin40'>{{bankList[itemIndex]?bankList[itemIndex]:"请选择银行"}}</view>
+  </view>
+  <image src='../../img/right.png' class='icon_small ' mode='aspectFit'></image>
+</view>
+</picker>
+
+ <view class='wrap'>
+  <view class='line2 margin40 '></view>
+ </view>
+<view class="flex_row item space-between">
+  <view class='flex_row flex_row_center '>
+    <view class='black73 size30 gone left '>选择营业部</view>
+    <input class='black3c size30 margin40 inputclass ' placeholder-class='mypl ' placeholder='请输入银行卡号' bindinput='bankAccountChange' value='{{bankAccounts[cardIndex]}}'></input>
+  </view>
+  <image src='../../img/right.png' class='icon_small gone ' mode='aspectFit'></image>
+</view>
+ <view class='wrap'>
+  <view class='line2 margin40 '></view>
+ </view>
+<!-- <view class="flex_row item space-between">
+  <view class='flex_row flex_row_center '>
+    <view class='black73 size30 gone left '>选择营业部</view>
+    <input class='black3c size30 margin40 inputclass' placeholder-class='mypl ' placeholder='请输入银行网点名称' bindinput=''></input>
+  </view>
+  <image src='../../img/right.png' class='icon_small gone ' mode='aspectFit'></image>
+</view> -->
+ <view class='wrap'>
+  <view class='line2 margin40 '></view>
+ </view>
+
+
+<view class='flex_column flex_center'>
+
+  <view class='item2' bindtap='pickCards' >
+    <image src='{{BANK_CARD?BANK_CARD:"../../img/shenfen3.png"}}' class='tupian {{BANK_CARD?"itemImg":""}}' mode='aspectFit'></image>
+    <view class='wenzi mt40' wx:if="{{!BANK_CARD}}">上传银行卡照片</view>
+  </view>
+  <!-- <view class='item' bindtap='pickIDCardFront'>
+    <image src='{{IDCardFront?IDCardFront:"../../img/shenfen2.png"}}' class='tupian {{IDCardFront?"itemImg":""}}' ></image>
+    <view class='wenzi mt40' wx:if="{{!IDCardFront}}">上传身份证正面</view>
+  </view> -->
+
+  <view class='mybutton flex_row flex_center mt70 ' bindtap='goadd'>
+    <image src='../../img/jia.png' class='icon_little'></image>
+    <view class='white size24'>添加银行卡</view>
+  </view>
+  <view class='flex_row mwrap'>
+    <view class='black73 size24 mt44 ml38 '>已经添加的银行卡</view>
+  </view>
+  <block wx:for="{{bankImgs}}">
+  <view class='flex_row mwrap mt54'>
+    <view class='black3c size30  ml38 '>{{item.bankItem.bankName}}</view>
+    <view class='black3c size30  ml43 '>{{item.bankItem.bankAccount}}</view>
+  </view>
+  </block>
+    <view class='flex_row mwrap mt40'>
+    <view class='line margin40 mb104'></view>
+  </view>
+</view>
+
+
+
+
+<button class='blue_btn mt40 mb20' bindtap='uploadImgs'>下一步</button>

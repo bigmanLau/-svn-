@@ -1,0 +1,10 @@
+/* pages/zijinbangdingchenggong/index.wxss */
+.item{
+  height: 516rpx;
+  margin-top: 15rpx;
+
+}
+.myimg{
+  width: 114rpx;
+  height: 114rpx;
+}

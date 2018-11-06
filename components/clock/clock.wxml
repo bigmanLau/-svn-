@@ -1,0 +1,7 @@
+<view class="clock-wrap {{time<=0?'end':''}} {{unit?'w-auto':''}}">
+    <block wx:if="{{time>0}}">
+        <text class="time">{{(time/1000/60/60<10?'0':'')+~~(time/1000/60/60)+(unit?'时':': ')+(time/1000/60%60<10?'0':'')+~~(time/1000/60%60)+(unit?'分':': ')+(time/1000%60<10?'0':'')+~~(time/1000%60)+(unit?'秒':' ')}} </text>
+        <text class="millisecond" wx:if="{{millisecond}}">{{~~(time%1000/100)}}</text>
+    </block>
+    <text class="time  end" wx:else>{{endLabel}}</text>
+</view>

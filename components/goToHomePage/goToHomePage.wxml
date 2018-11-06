@@ -1,0 +1,5 @@
+<view bindtap="goToHomePage" class="goto-home-page-wrap" hoverClass="btn-hover" style="top:{{down?'80rpx':'30rpx'}};">
+    <button plain class="goto-home-page-btn">
+        <image src="../../images/gotohomepage.png"></image>
+    </button>
+</view>

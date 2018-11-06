@@ -1,0 +1,4 @@
+<button plain bindgetuserinfo="wechatLogin" class="btn-wx-login" hoverClass="btn-hover" lang="zh_CN" openType="getUserInfo" wx:if="{{!isLogin}}">
+    <text class="" wx:if="{{wxIsLoading}}"></text>
+    <text class="" wx:else></text>
+</button>

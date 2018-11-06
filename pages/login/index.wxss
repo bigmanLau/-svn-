@@ -1,0 +1,92 @@
+/* index.wxss */
+
+.title {
+  color: #000;
+  font-size: 40rpx;
+}
+
+.title-content {
+  height: 127rpx;
+  width: 750rpx;
+  line-height: 127rpx;
+  text-align: center;
+}
+
+.user-content {
+  height: 78rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  border: 1rpx solid #ebebeb;
+  border-radius: 8rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.left1{
+   height: 78rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.user-content-2{
+    height: 78rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  border: 1rpx solid #ebebeb;
+  border-radius: 8rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.user-name {
+  color: #a6a6a6;
+  font-size: 27rpx;
+  width: 190rpx;
+  padding-left: 20rpx;
+}
+
+.user-name-pl {
+  color: #9f9f9f;
+  font-size: 27rpx;
+}
+
+.user-name-input {
+  color: #000;
+  font-size: 27rpx;
+}
+.user-name-input2 {
+  color: #000;
+  font-size: 27rpx;
+  width:200rpx !important;
+}
+.getcode{
+  color: #000;
+  font-size: 24rpx;
+  margin-right: 20rpx;
+  background: #f2f2f2;
+  border-radius: 10rpx;
+  height: 60rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+}
+.login-btn {
+  height: 78rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 40rpx;
+  border: 1rpx solid #ebebeb;
+  border-radius: 8rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: #41a4F9;
+  color: white;
+  font-size: 36rpx;
+  justify-content: center;
+}

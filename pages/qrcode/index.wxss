@@ -1,0 +1,50 @@
+.contain {
+  width: 650rpx;
+  height: 1020rpx;
+  background: rgba(255, 255, 255, 1);
+  border-radius: 10rpx;
+  box-shadow: 0px 1rpx 1rpx 1rpx rgba(130, 130, 130, 0.3);
+  margin: 50rpx;
+}
+
+.headimg {
+  border-radius: 50%;
+  height: 100rpx;
+  width: 100rpx;
+}
+
+.ml20 {
+  margin-left: 20rpx;
+}
+
+.mt22 {
+  margin-top: 22rpx;
+}
+
+.mytop {
+  margin-top: 59rpx;
+  margin-left: 67rpx;
+}
+
+.myqrcode {
+  width: 566rpx;
+  height: 559rpx;
+  margin-top: 33rpx;
+  margin-left: 42rpx;
+  margin-right: 42rpx;
+}
+
+.text2 {
+  font-size: 22rpx;
+  font-family: MicrosoftYaHei;
+  color: rgba(188, 188, 188, 1);
+}
+
+.share_btn {
+  width: 428rpx;
+  height: 90rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid #2A9EF1;
+  margin-top: 73rpx;
+  color: #2A9EF1;
+}

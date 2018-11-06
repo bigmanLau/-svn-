@@ -1,0 +1,113 @@
+{
+  "pages": [
+     
+    "pages/jinrishouye/index",
+    "pages/jiaoyiquxian/index",
+"pages/authUser/index",
+    "pages/auth/index",
+    "pages/shuzimima/index",
+    "pages/shoujihaoma/index",
+    "pages/shenqingtijiao/index",
+    "pages/wenjuan/index",
+    "pages/gonggao/index",
+    "pages/yuyingbumenxuanze/index",
+    "pages/bumenxuanze/demo",
+    "pages/paisherenlian/index",
+    "pages/zijinbangdingchenggong/index",
+    "pages/jibenziliao/index",
+    "pages/jibenziliaoqueren/index",
+    "pages/banddingyinhang/index",
+    "pages/yuyuekaihuxiugai/index",
+    "pages/login/index",
+    "pages/index/index",
+    "pages/newsheet/index",
+    "pages/daiban/index",
+    "pages/datadetail/index",
+    "pages/aboutus/index",
+    "pages/pcenter/index",
+    "pages/xieyi/index",
+    "pages/anquanzhongxin/index",
+    "pages/gonggaodetail/index",
+    "pages/zixundetail/index",
+    "pages/markdown/index",
+    "pages/markdown2/index",
+    "pages/gopay/index",
+    "pages/myconsole/index",
+    "pages/zhixunhudong/index",
+    "pages/mysub/index",
+    "pages/zhanghaoguanli/index",
+    "pages/yonghumingxiugai/index",
+    "pages/jiaoyimimaxiugai/index",
+    "pages/shoujihaomaxiugai/index",
+    "pages/shoushimimaxiugai1/index",
+    "pages/shoushimimaxiugai2/index",
+    "pages/chaxunmimaxiugai/index",
+    "pages/gerenchengji/index",
+    "pages/zizhanghao/index",
+    "pages/zizhanghaobangdiingzhanghao/index",
+    "pages/zizhanghaogongxiangzhanghao/index",
+    "pages/jiaoyirili/index",
+    "pages/yuyuekaihuyindao/index",
+    "pages/qianshuxieyi/index",
+    "pages/zhichiyinhang/index",
+    "pages/xieyixiangqing/index",
+    "pages/huifang/index",
+    "pages/jiaoyikuaizhao/index",
+    "pages/jiaoyikuaizhao2/index",
+    "pages/jiaoyirili2/index",
+    "pages/zhengshumima/index",
+    "pages/zhuyishixiang/index",
+    "pages/shipingtonghua/index",
+    "pages/cert/index",
+    "pages/qrcode/index",
+    "pages/guide/index",
+      "pages/ocr/index",
+    "pages/chaxunchongzhi/index",
+    "pages/jiaoyichongzhi/index",
+    "pages/ruanjianshiyongxuzhi/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "white",
+    "navigationBarTitleText": "金瑞期货",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#ffffff",
+    "selectedColor": "#ffffff",
+    "borderStyle": "white",
+    "backgroundColor": "#2A9EF1",
+    "list": [
+      {
+        "pagePath": "pages/jinrishouye/index",
+        "iconPath": "img/shouye.png",
+        "selectedIconPath": "img/shouye.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/gonggao/index",
+        "iconPath": "img/gonggao.png",
+        "selectedIconPath": "img/gonggao.png",
+        "text": "公告"
+      },
+      {
+        "pagePath": "pages/jiaoyirili2/index",
+        "iconPath": "img/zhiku.png",
+        "selectedIconPath": "img/zhiku.png",
+        "text": "交易日历"
+      },
+      {
+        "pagePath": "pages/pcenter/index",
+        "iconPath": "img/touxiang.png",
+        "selectedIconPath": "img/touxiang.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 200000,
+    "connectSocket": 200000,
+    "uploadFile": 200000,
+    "downloadFile": 200000
+  }
+}

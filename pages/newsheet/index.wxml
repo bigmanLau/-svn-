@@ -1,0 +1,35 @@
+<view class="container">
+<form bindsubmit="onSubmit" bindreset="">
+  <view class="text-item">
+    <input type="text" class="text-input" placeholder="请在这里输入项目名称" placeholder-class="text-input-pl" bindchange="bindProjectNameChange"/>
+  </view>
+
+  <view class="text-item">
+    <input type="text" class="text-input" placeholder="请在这里输入施工部位" placeholder-class="text-input-pl" bindchange="bindWorkPlaceChange"/>
+  </view>
+  <view class="pick-content">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{teamArray}}">
+      <view class="pick-item">
+        <text class="pick-label">班组名称</text>
+        <text class="pick-text">{{team_name}}</text>
+      </view>
+    </picker>
+  </view>
+
+  <view class="pick-content">
+    <picker bindchange="bindManageChange" value="{{index}}" range="{{manageArray}}">
+      <view class="pick-item">
+        <text class="pick-label">生产经理</text>
+        <text class="pick-text">{{manager_name}}</text>
+      </view>
+    </picker>
+  </view>
+
+  <view class="text-area">
+    <textarea  class="area-class" placeholder="请输入使用事由" placeholder-class="textarea-pl" bindblur="bindWorkReasonChange"/>
+  </view>
+
+  <button formType="submit" class="login-btn" >提交工单</button>
+  </form>
+</view>
+<view class="warning" wx:if="{{isTipsShow}}">{{tips}}</view>

@@ -1,0 +1,19 @@
+<!--pages/zhichiyinhang/index.wxml-->
+<view class='container'>
+  <view class='container-wrop'>
+    <view class='container-wrop-title'>支持的银行借记卡</view>
+    <view class='container-wrop-info'>（如果没有以下银行卡，请先至银行办理）</view>
+  </view>
+  <view class='container-wrop'>
+    <view class='container-item'><image src='../../img/image-1@2x.png' mode='widthFix'></image></view>
+    <view class='container-item'><image src='../../img/image-2@2x.png' mode='widthFix'></image></view>
+    <view class='container-item'><image src='../../img/image-3@2x.png' mode='widthFix'></image></view>
+    <view class='container-item'><image src='../../img/image-4@2x.png' mode='widthFix'></image></view>
+    <view class='container-item'><image src='../../img/image-5@2x.png' mode='widthFix'></image></view>
+    <view class='container-item'><image src='../../img/image-6@2x.png' mode='widthFix'></image></view>
+    <view class='container-item'><image src='../../img/image-7@2x.png' mode='widthFix'></image></view>
+    <view class='container-item'><image src='../../img/image-8@2x.png' mode='widthFix'></image></view>
+    <view class='container-item'><image src='../../img/image-9@2x.png' mode='widthFix'></image></view>
+    <view class='container-item'><image src='../../img/image-10@2x.png' mode='widthFix'></image></view>
+  </view>
+</view>

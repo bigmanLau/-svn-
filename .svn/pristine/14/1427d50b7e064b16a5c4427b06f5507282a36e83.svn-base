@@ -1,0 +1,31 @@
+<!--pages/shengfenyanzhengxinxi/index.wxml-->
+<view class='index'>
+  <view class='tips'>
+    <text class='orangefa'>请确保您的姓名及证件信息真实有效，上传虚假信息将导致无法通过认证。</text>
+  </view>
+
+  <view class='main'>
+    <view class='card'>
+      <text class='card-text'>证件类型</text>
+      <view class='certificates' bindtap='onCertificates'>
+        <text class='certificates-text'>港澳通行证</text>
+        <image class='certificates-image' src='/img/r.png' mode="aspectFit"></image>
+      </view>
+    </view>
+    <view class='name'>
+      <text class='name-text' decode="true">姓&ensp;&ensp;&ensp;&ensp;名：</text>
+      <input class='name-input' placeholder="请输入姓名"></input>
+    </view>
+    <view class='number'>
+      <text class='number-text'>证件号码：</text>
+      <input class='number-input' placeholder="请输入证件号码"></input>
+    </view>
+    <view class='plus'>
+      <view class='add-to'>
+        <image src='/img/tianjia.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <button class='submission bg_e6'>提交</button>
+</view>

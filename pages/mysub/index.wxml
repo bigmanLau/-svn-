@@ -1,0 +1,28 @@
+<view class="container">
+  <view class="title">
+    <view class="title-item">产品名称</view>
+
+    <view class="title-item">金额</view>
+
+    <view class="title-item">开始时间</view>
+
+    <view class="title-item">截至时间</view>
+  </view>
+  <view class="line"></view>
+    <block wx:for="{{marketList}}" wx:key="unique"  >
+  <view class="data">
+    <view class="data-item">{{item.productName}}
+    </view>
+    <view class="data-item">{{item.price}}
+    </view>
+    <view class="data-item">{{item.serviceStart}}
+    </view>
+    <view class="data-item">{{item.serviceEnd}}
+    </view>
+
+  </view>
+  <view class="line"></view>
+
+  </block>
+  
+</view>

@@ -1,0 +1,45 @@
+<!--pages/main/index.wxml-->
+<view class="lock-box">
+
+  <view class='flex_column flex_row_center'>
+    <view class='size28 black3c '></view>
+    <image src='../../img/dots.png' mode='apectFit' class='mydots mt30'></image>
+    <text class='black3c size28 mt40'>{{title}}</text>
+
+  </view>
+  <view class='flex_row flex_center mt60'>
+  <block wx:for="{{passwords.length}}" wx:key="unique">
+   <view class='dot-active'></view>
+   </block>
+   <block wx:for="{{6-passwords.length}}" wx:key="unique">
+    <view class='dot'></view>
+    </block>
+    
+  </view>
+  <view class='flex_column flex_center mycanvaswrap mt50'>
+    <view class='flex_row flex_row_center  '>
+      <view class='key flex_row flex_center {{current==1?"key-active":""}}' data-number="1" catchtap='inputPass'>1</view>
+      <view class='key flex_row flex_center {{current==2?"key-active":""}}' data-number="2" catchtap='inputPass' >2</view>
+      <view class='key flex_row flex_center {{current==3?"key-active":""}}' data-number="3" catchtap='inputPass'>3</view>
+    </view>
+
+     <view class='flex_row flex_row_center  '>
+      <view class='key flex_row flex_center {{current==4?"key-active":""}}' data-number="4" catchtap='inputPass'>4</view>
+      <view class='key flex_row flex_center {{current==5?"key-active":""}}' data-number="5" catchtap='inputPass'>5</view>
+      <view class='key flex_row flex_center {{current==6?"key-active":""}}' data-number="6" catchtap='inputPass'>6</view>
+    </view>
+
+     <view class='flex_row flex_row_center  '>
+      <view class='key flex_row flex_center {{current==7?"key-active":""}}'data-number="7" catchtap='inputPass'>7</view>
+      <view class='key flex_row flex_center {{current==8?"key-active":""}}' data-number="8" catchtap='inputPass'>8</view>
+      <view class='key flex_row flex_center {{current==9?"key-active":""}}' data-number="9" catchtap='inputPass'>9</view>
+    </view>
+
+
+    <view class='flex_row flex_row_center  '>
+      <view class='key flex_row flex_center {{current==99?"key-active":""}}  size20' data-number="99"   catchtap='forgetPass'>忘记密码</view>
+      <view class='key flex_row flex_center {{current==0?"key-active":""}}' data-number="0" catchtap='inputPass'>0</view>
+      <view class='key flex_row flex_center {{current==50?"key-active":""}}'  data-number="50"  catchtap='delPass'>×</view>
+    </view>
+  </view>
+</view>

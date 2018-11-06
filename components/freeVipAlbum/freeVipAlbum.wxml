@@ -1,0 +1,7 @@
+<view bindtap="toAlbumDetail" class="album-container">
+    <view class="album-cover vip-free" style="background-image: url({{album.coverMiddle}});"></view>
+    <view class="album-tit">{{album.title}}</view>
+    <view class="album-price" wx:if="{{!isIos}}">
+        ￥<text class="price-count">{{album.price}}</text>{{album.priceTypeId==1?'/每集':''}}
+    </view>
+</view>

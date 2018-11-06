@@ -1,0 +1,49 @@
+<view  wx:if="{{!success}}">
+<view class="flex_row item space-between">
+  <view class='flex_row flex_row_center left'>
+    <view class='black73 size24 ml32 mr32'>资金账号</view>
+    <input class='black3c size30' placeholder='请输入资金账号'  maxlength='9'  type='number'  placeholder-class='blackbe size30'bindinput='investChange' type='number'></input>
+  </view>
+  <view class=' mr40 size24 red ' mode='aspectFit' wx:if="{{investError}}">账号不能为空</view>
+ 
+  <view class='line margin40 '></view>
+</view>
+<view class="flex_row item space-between ">
+  <view class='flex_row flex_row_center left'>
+    <view class='black73 size24 ml32 mr32'>身份证号</view>
+    <input class='black3c size30' placeholder='请输入身份证号'  type='idcard'  placeholder-class='blackbe size30' bindinput='idChange'></input>
+  </view>
+  <view class=' mr40 size24 red ' mode='aspectFit' wx:if="{{idCardError}}">身份证格式错误</view>
+  <view class='line margin40 '></view>
+</view>
+
+<view class='face_wrap flex_column flex_center'>
+
+  <view class='face_item flex_column flex_center {{!openCamera&&!IDCardFront?" ":"notransparent"}}' bindtap='pickFace'>
+    <image class='face {{openCamera?"faceImg":""}}' src='{{openCamera?IDCardFront:"../../img/face.png"}}' wx:if="{{!openCamera&&!IDCardFront}}"></image>
+     <image class='face {{IDCardFront?"faceImg":""}}' src='{{IDCardFront?IDCardFront:"../../img/face.png"}}' wx:if="{{IDCardFront}}"></image>
+    <view class='size24 blackbe mt40' wx:if="{{!openCamera&&!IDCardFront}}">拍摄人脸</view>
+    <camera device-position="front" flash="off" binderror="error" class='face_item notransparent ' wx:if="{{openCamera}}"></camera>
+
+  </view>
+  <view class='size24 blackbe mt30'>请保持环境光线充足</view>
+</view>
+
+
+<button class='my_btn mt40' bindtap='goNext'>{{openCamera?'拍照':'下一步'}}</button>
+<view class='mytoastcover  {{msg?"":"gone"}}'>
+  <view class='mytoasecontainer'>
+    <view class='mytoast white size30 '>
+      <view class='flex_row flex_center'>
+      {{msg}}</view>
+    </view>
+  </view>
+</view>
+</view>
+
+<view class='flex_column flex_center' wx:if="{{success}}">
+ <image class='success' src='../../img/yanzheng.png'></image>
+  <view class='size30 black73 ' style='margin-top:55rpx;'>恭喜您！绑定成功</view>
+<view  class='my_btn mt40 flex_row flex_center' bindtap='goHome' style='margin-top:200rpx;'>设置数字密码</view>
+  
+</view>

@@ -1,0 +1,305 @@
+<view wx:if="{{islogin||notbind}}">
+<view class="container">
+  <view class='topcontent'>
+
+    <view class="flex_row flex_center mt20">
+    <form bindsubmit='clickItem' report-submit>
+    <button form-type='submit' plain='true' style="border:0;width:100%;line-height:inherit;margin:0;padding:0;text-align:left;border-radius:0;" data-id="1">
+      <view class='tab size30  {{selectItem==1?"bg_blue white":"blue"}}  left_circle blue_border'  >我的关注</view>
+      </button>
+      </form>
+      <form bindsubmit='clickItem' report-submit>
+    <button form-type='submit' plain='true' style="border:0;width:100%;line-height:inherit;margin:0;padding:0;text-align:left;border-radius:0;" data-id="2">
+      <view class='tab size30 {{selectItem==2?"bg_blue white":"blue"}}  right_circle blue_border ' >我的粉丝</view>
+            </button>
+      </form>
+    </view>
+
+  </view>
+
+
+
+
+  <!-- 资金账户 开始  -->
+  <view class='container-view' wx:if="{{selectItem == 1}}">
+  <block wx:for="{{array1}}" wx:key="unique">
+    <view class='flex_row space-between width100 mt36' >
+      <view class='invisible2'>123</view>
+      <view class='flex_row flex_row_center'>
+        <view class='blue size24' bindtap='changeWeixin'>更换微信</view>
+        <view class='divier'></view>
+        <view class='blue size24 mr39' bindtap='delAccount'>删除主账号</view>
+      </view>
+    </view>
+    <view class='first-content'>
+      <view class='flex_row space-between'>
+        <view class='flex_row flex_row_center mt31'>
+          <image class='roundimg' src='{{item.avatarUrl?item.avatarUrl:"../../img/xiaochengxu.jpg"}}'></image>
+          <text class='myname'>{{item.nickName}}</text>
+        </view>
+        <view class='flex_column flex_column_center mt37'>
+          <view class='mytext1 myext2'>{{item.investorName?item.investorName:""}}</view>
+          <view class='mytext1'>{{item.investorId}}</view>
+        </view>
+      </view>
+      <view class='flex_row space-between mt22'>
+        <text class='size24 black99 mytext2'>创建时间：{{item.createDate}}</text>
+        <view class='flex_row flex_row_center'>
+          <text class='size24 black99 '>主账号</text>
+          <text class='size24  margin20 {{item.isShow?"blackbe":"blue"}}' bindtap='{{item.isShow?"":"makeShow2"}}'>{{item.isShow?"已在主页显示":"设置为首页"}}</text>
+        </view>
+      </view>
+    </view>
+</block>
+
+    <view class='second-content flex_column flex_column_center'  wx:if="{{index!=0}}">
+     <block wx:for="{{array2}}" wx:key="unique">
+    <view class='flex_column flex_column_center'>
+      <view class='flex_row space-between'>
+        <view class='flex_row flex_row_center'>
+          <image class='roundimg2' src='{{item.avatarUrl?item.avatarUrl:"../../img/xiaochengxu.jpg"}}'></image>
+          <view class='flex_column flex_column_center margin20'>
+            <view class='flex_row flex_row_center mt20'>
+              <input disabled='{{item.disable}}'value="{{item.nickName}}" class='size30 black33 widthatuo' bindinput='inputFname' data-index='{{index}}'></input>
+              <image class='edit_icon' src='../../img/edit.png' bindtap='changeEdit2' data-index='{{index}}' ></image>
+            </view>
+            <view class='size26 black66 mt36'>{{item.investorId}}({{item.investorName?(item.investorName):""}})</view>
+          </view>
+
+        </view>
+<view class='flex_column flex_column_center margin20 flex_end'>
+          <view class='myrec size22 ' bindtap='deauth' data-index='{{index}}'>
+          取消关注
+          </view>
+              <text class='size24  myjiaoyi {{item.isShow?"blackbe":"blue"}} ' bindtap='{{item.isShow?"":"makeShow"}}'  data-index='{{index}}'>{{item.isShow?"已在主页显示":"设置为首页"}}</text>
+          </view>
+      </view>
+      <view class='myline1 margin20 mt20'></view>
+</view>
+</block>
+    </view>
+
+
+    <block wx:for="{{zList}}" wx:key="unique">
+      <view class='container-view-item' wx:if="{{index==0}}">
+        <view class='container-view-item-left'>
+          <view class='title'>{{item.nickName}}</view>
+          <view class='item'>
+            <text>创建时间：{{item.createDate}}</text>
+          </view>
+        </view>
+        <view class='container-view-item-right'>
+          <view class='title'>{{item.investorId?item.investorId:" "}}</view>
+          <view class='item'>
+            <text>{{item.authId=="master"?"主账号":"解绑"}}</text>
+            <navigator url='../jiaoyikuaizhao{{item.authId=="master"?"":"2"}}/index?authId={{item.authId}}' class="text bluetx">{{item.isShow?"已在主页显示":"设置为首页"}}</navigator>
+          </view>
+        </view>
+      </view>
+
+      <view class='container-view-item' wx:if="{{index!=0}}">
+        <view class='container-view-item-left'>
+          <view class='title'>{{item.nickName}}
+            <view class='text'>
+              <image src='../../img/shenfen.png' class='img' mode='widthFix'></image>
+            </view>
+          </view>
+          <view class='item'>
+            <text>创建时间：{{item.createDate}}</text>
+          </view>
+        </view>
+        <view class='container-view-item-right'>
+          <view class='title'>{{item.investorId?item.investorId:" "}}</view>
+          <view class='item'>
+            <text data-index="{{index}}" class='{{item.authStatus==0?"tag":""}}' bindtap='{{item.authStatus==0?"unbind2":""}}'>{{item.authStatus==0?"解绑":"已授权"}}</text>
+            <navigator url='../jiaoyikuaizhao{{item.authId=="master"?"":"2"}}/index?authId={{item.authId}}' class="text bluetx">{{item.isShow?"已在主页显示":"设置为首页"}}</navigator>
+          </view>
+        </view>
+      </view>
+    </block>
+   
+  </view>
+  <!-- 资金账户 结束  -->
+  <view class='container-view' wx:elif="{{selectItem == 2}}">
+    <view class='container-view-table'>
+      <view class='container-view-table-tr bg_blue '>
+        <view class='item_2 time '>头像</view>
+        <view class='item_2 name'>用户名</view>
+        <view class='item_2 phone'>时间</view>
+        <view class='item_2 handle'>操作</view>
+      </view>
+<block wx:for="{{sList}}" wx:key="unique">
+<view class='container-view-table-tr bg_white'>
+          <view class='item_1 time'><image src='{{item.avatarUrl?item.avatarUrl:"../../img/xiaochengxu.jpg"}}' class='mylittle_head'></image></view>
+          <view class='item_1 name'>
+           <view class='flex_row flex_row_center'>
+              <input disabled='{{item.disable}}'value="{{item.nickName}}" class='size30 black33 widthatuo' bindinput='inputTname' data-index='{{index}}'></input>
+            <image class="little_edit" src='../../img/edit.png' bindtap='changeEdit' data-index='{{index}}' ></image>
+           </view>
+          </view>
+       <view class='item_1 time'>{{item.authDate}}</view>
+          <view class='item_1 handle tag  {{item.mauth==1?"":"red"}}' bindtap='doDeal' data-index='{{index}}'>{{item.mauth==1?"解除":"激活"}}</view>
+        </view>
+
+</block>
+
+<block wx:if="{{sList.length == 0 }}" >
+
+ <view class='size24 black3c flex_row flex_center emptyview' >{{notbind?"目前您没有好友，赶紧绑定资金账号去邀请呦":"目前您没有好友，赶紧去邀请呦"}}</view>
+
+</block>
+    
+
+    </view>
+ <button  class='container-view-button' open-type="share" wx:if="{{islogin}}" >邀请好友</button>
+  </view>
+</view>
+</view>
+
+
+
+
+
+
+<view wx:if="{{!islogin&&!notbind}}">
+<view class="container">
+  <view class='topcontent'>
+
+    <view class="flex_row flex_center mt20">
+      <view class='tab size30  {{selectItem==1?"bg_blue white":"blue"}}  left_circle blue_border' bindtap='clickItem2' data-id="1">我的关注</view>
+      <view class='tab size30 {{selectItem==2?"bg_blue white":"blue"}}  right_circle blue_border ' bindtap='clickItem2' data-id="2">我的粉丝</view>
+    </view>
+
+  </view>
+
+
+
+
+  <!-- 资金账户 开始  -->
+  <view class='container-view' wx:if="{{selectItem == 1}}">
+  
+    <view class='flex_row space-between width100 mt36' >
+      <view class='invisible2'>123</view>
+      <view class='flex_row flex_row_center'>
+        <view class='blue size24'>更换微信</view>
+        <view class='divier'></view>
+        <view class='blue size24 mr39'>删除主账号</view>
+      </view>
+    </view>
+    <view class='first-content'>
+      <view class='flex_row space-between'>
+        <view class='flex_row flex_row_center mt31'>
+          <image class='roundimg' src='../../img/xiaochengxu.jpg'></image>
+          <text class='myname'>金小瑞</text>
+        </view>
+        <view class='flex_column flex_column_center mt37'>
+          <view class='mytext1  myext2'>金瑞</view>
+          <view class='mytext1'>201545132</view>
+        </view>
+      </view>
+      <view class='flex_row space-between mt22'>
+        <text class='size24 black99 mytext2'>创建时间：2018-07-25</text>
+        <view class='flex_row flex_row_center'>
+          <text class='size24 black99 '>主账号</text>
+          <text class='size24 blue margin20'>设置为首页</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='second-content flex_column flex_column_center'  wx:if="{{index!=0}}">
+     <block wx:for="{{3}}" wx:key="unique">
+    <view class='flex_column flex_column_center'>
+      <view class='flex_row space-between'>
+        <view class='flex_row flex_row_center'>
+          <image class='roundimg2' src='../../img/xiaochengxu.jpg'></image>
+          <view class='flex_column flex_column_center margin20'>
+            <view class='flex_row flex_row_center mt20'>
+              <view class='size30 black33'>金啦啦</view>
+              <image class='edit_icon' src='../../img/edit.png'></image>
+            </view>
+            <view class='size26 black66 mt36'>2000112626(王大伟)</view>
+          </view>
+
+        </view>
+<view class='flex_column flex_column_center margin20'>
+          <view class='myrec size24 black66'>
+          取消关注
+          </view>
+              <text class='size24 blue myjiaoyi '>{{item.isShow?"已在主页显示":"设置为首页"}}</text>
+          </view>
+      </view>
+      <view class='myline1 margin20 mt20'></view>
+</view>
+</block>
+    </view>
+
+
+    <block wx:for="{{zList}}" wx:key="unique">
+      <view class='container-view-item' wx:if="{{index==0}}">
+        <view class='container-view-item-left'>
+          <view class='title'>{{item.nickName}}</view>
+          <view class='item'>
+            <text>创建时间：{{item.createDate}}</text>
+          </view>
+        </view>
+        <view class='container-view-item-right'>
+          <view class='title'>{{item.investorId?item.investorId:" "}}</view>
+          <view class='item'>
+            <text>{{item.authId=="master"?"主账号":"解绑"}}</text>
+            <navigator url='../jiaoyikuaizhao{{item.authId=="master"?"":"2"}}/index?authId={{item.authId}}' class="text bluetx">{{item.isShow?"已在主页显示":"设置为首页"}}</navigator>
+          </view>
+        </view>
+      </view>
+
+      <view class='container-view-item' wx:if="{{index!=0}}">
+        <view class='container-view-item-left'>
+          <view class='title'>{{item.nickName}}
+            <view class='text'>
+              <image src='../../img/shenfen.png' class='img' mode='widthFix'></image>
+            </view>
+          </view>
+          <view class='item'>
+            <text>创建时间：{{item.createDate}}</text>
+          </view>
+        </view>
+        <view class='container-view-item-right'>
+          <view class='title'>{{item.investorId?item.investorId:" "}}</view>
+          <view class='item'>
+            <text data-index="{{index}}" class='{{item.authStatus==0?"tag":""}}' bindtap='{{item.authStatus==0?"unbind2":""}}'>{{item.authStatus==0?"解绑":"已授权"}}</text>
+            <navigator url='../jiaoyikuaizhao{{item.authId=="master"?"":"2"}}/index?authId={{item.authId}}' class="text bluetx">{{item.isShow?"已在主页显示":"设置为首页"}}</navigator>
+          </view>
+        </view>
+      </view>
+    </block>
+   
+  </view>
+  <!-- 资金账户 结束  -->
+  <view class='container-view' wx:elif="{{selectItem == 2}}">
+    <view class='container-view-table'>
+      <view class='container-view-table-tr bg_blue '>
+        <view class='item_2 time '>头像</view>
+        <view class='item_2 name'>用户名</view>
+        <view class='item_2 phone'>时间</view>
+        <view class='item_2 handle'>操作</view>
+      </view>
+<block wx:for="{{10}}" wx:key="unique">
+<view class='container-view-table-tr bg_white'>
+          <view class='item_1 time'><image src='../../img/xiaochengxu.jpg' class='mylittle_head'></image></view>
+          <view class='item_1 name'>
+           <view class='flex_row flex_row_center'>
+            <view>辜泉友</view>
+            <image class="little_edit" src='../../img/edit.png'></image>
+           </view>
+          </view>
+       <view class='item_1 time'>201/01/05</view>
+          <view class='item_1 handle tag' bindtap='unbind' data-index='{{index}}'>解除</view>
+        </view>
+</block>
+
+      
+
+    </view>
+    <view class='container-view-button' bindtap='shareAccountTap'>邀请好友</view>
+  </view>
+</view>
+</view>

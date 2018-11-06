@@ -1,0 +1,35 @@
+.clock-wrap {
+    display: inline-block;
+    width: 84px;
+    color: inherit;
+    text-align: left;
+    white-space: nowrap;
+    overflow: visible;
+}
+
+.w-auto,.w-auto .time {
+    width: auto;
+}
+
+.clock-wrap.end {
+    width: auto;
+}
+
+.time {
+    display: inline-block;
+    width: 64px;
+}
+
+.end .time {
+    width: auto;
+}
+
+.millisecond {
+    display: inline-block;
+    margin-left: 4px;
+    width: 15px;
+    text-align: center;
+    padding: 0;
+    background: #FC6E3E;
+    color: #fff;
+}

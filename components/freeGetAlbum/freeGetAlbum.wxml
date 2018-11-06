@@ -1,0 +1,55 @@
+<view catchtap="toAlbumDetail" class="free-get-album {{isFailed?'failed':''}} {{isIndex?'index-page':''}}" data-album-id="{{album.albumId}}" data-assistance-number="{{album.assistanceNumber}}" data-price="{{album.originalPrice}}" hoverClass="{{showMine?'':'album-hover'}}">
+    <view class="free-get-album-cover" hoverClass="album-hover">
+        <image lazyLoad src="{{album.cover}}"></image>
+        <view class="count-down" wx:if="{{!album.isInvalid&&album.leftTime>0&&!isSucceed&&!isFailed&&!isOutOfNumber}}">{{album.leftTimeStr}}</view>
+    </view>
+    <view class="free-get-album-info {{noBorderBottom?'no-border-bottom':''}}">
+        <view class="free-get-album-title line-ellipsis" hoverClass="album-hover">{{album.courseName?album.courseName:'标题'}}</view>
+        <view class="free-get-album-intro line-ellipsis">{{album.subTitle?album.subTitle:''}}</view>
+        <block wx:if="{{!showMine}}">
+            <view class="free-get-tip {{isIOS?'is-ios':''}}">
+                <view class="free-get-need-count">
+                    <view wx:if="{{!isIOS}}">
+                        <image class="icon-free icon-gold" src="../../images/icon-gold.png"></image>需要{{album.assistanceNumber}}人助力
+          </view>
+                </view>
+                <text class="free-get-hasget">{{album.watchCount}}人已抢</text>
+            </view>
+            <view class="free-get-action" wx:if="{{isIndex}}">
+                <view class="free-get-price">
+                    <image class="icon-free icon-oprice" src="../../images/icon-gold.png"></image>
+          原价¥ {{album.originalPrice}}
+        </view>
+                <image class="free-get-btn" src="../../images/free-get-btn.png"></image>
+            </view>
+            <view class="free-get-action free-list" wx:else>
+                <!-- <view class="free-get-need-count-ios" wx:if="{{isIOS}}"> -->
+          <!-- 需<text>{{album.assistanceNumber}}</text>人助力 -->
+        <!-- </view> -->
+                <view class="free-get-price" >
+                    <image class="icon-free icon-oprice" src="../../images/icon-oprice.png"></image>
+          原价¥
+          <text>{{album.originalPrice}}</text>
+                </view>
+                <view class="free-get-btn">马上抢</view>
+            </view>
+        </block>
+        <block wx:else>
+            <!-- <view class="free-get-rest">需要{{album.assistanceNumber}}人助力，还差{{album.leftCount}}人</view> -->
+            <view class="free-get-tip showMine"></view>
+            <view class="free-get-action showMine">
+                <button plain catchtap="checkDetail" class="check-detail-btn" data-activity-id="{{album.activityId}}" data-album-id="{{album.albumId}}" hoverClass="btn-hover">
+                    <view>助力详情</view>
+                </button>
+                <button disabled plain class="succeed-btn" wx:if="{{isSucceed}}">
+                    <image src="../../images/succeed_btn_icon.png"></image>
+                </button>
+                <button disabled plain class="failed-btn" wx:elif="{{isFailed}}">助力失败</button>
+                <button disabled plain class="out-of-number-btn" wx:elif="{{isOutOfNumber}}">已抢光</button>
+                <button plain catchtap="keepShare" class="keep-share-btn" data-activity-id="{{album.activityId}}" data-album-cover="{{album.image}}" data-album-id="{{album.albumId}}" data-album-title="{{album.title?album.title:'标题'}}" data-assist-num="{{album.assistanceNumber}}" data-left-count="{{album.leftCount}}" data-original-price="{{album.originalPrice}}" data-share-img-default="{{album.shareImage}}" hoverClass="btn-hover" openType="share" wx:else>
+            继续分享
+          </button>
+            </view>
+        </block>
+    </view>
+</view>

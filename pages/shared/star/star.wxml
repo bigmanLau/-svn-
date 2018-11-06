@@ -1,0 +1,9 @@
+<template name="star">
+    <view class="star-wrap">
+        <block wx:for="{{starCount}}">
+            <icon class="icon icon-star-o icon-{{starClass}}" wx:if="{{score-index<=0}}"></icon>
+            <icon class="icon icon-star-half-o icon-{{starClass}}" wx:elif="{{score-index>0&&score-index<1}}"></icon>
+            <icon class="icon icon-star icon-{{starClass}}" wx:elif="{{score-index>=0}}"></icon>
+        </block>
+    </view>
+</template>

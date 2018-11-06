@@ -1,0 +1,60 @@
+<view class="container">
+<view class='container-view-button' style="background-color:#D3D3D3">升级规则</view>
+ <view class='container-view'>
+ <view class='container-view-item'>
+    <view class='container-view-item-title'>
+      <view class='title'>排名：第<text>50</text>名</view>
+      <view class='glory' style='transform: translateX(50%) scale(1.1);'><view class='icon'>
+        <image src='../../images/avatar-1.png' mode='widthFix'></image>
+      </view></view>
+    </view>
+    <!-- <view class='dialog-box'>
+      <view class='title-wrop'>2017年3月1日升级 段位：独当一面</view>
+    </view>  -->
+  </view>
+  <view class='container-view-item'>
+    <view class='container-view-item-title'>
+      <view class='title'>当前：第<text>88</text>名</view>
+      <view class='glory' style='transform: translateX(50%) scale(.6);'><view class='icon'><image class='avatar' src='../../images/xiaochengxu.jpg' mode='widthFix'></image></view></view>
+    </view>
+    <view class='dialog-box'>
+      <view class='title-wrop'>2017年3月1日升级 段位：独当一面</view>
+    </view> 
+  </view>
+  <view class='container-view-item'>
+    <view class='container-view-item-title'>
+      <view class='title'>当前：第<text>300</text>名</view>
+      <view class='glory' style='transform: translateX(50%) scale(.95);'><view class='icon'>
+        <image src='../../images/avatar-2.png' mode='widthFix'></image>
+      </view></view>
+    </view>
+    <view class='dialog-box'>
+      <view class='title-wrop'>2017年3月1日升级 段位：独当一面</view>
+    </view> 
+  </view>
+  <view class='container-view-item'>
+    <view class='container-view-item-title'>
+      <view class='title'>当前：第<text>600</text>名</view>
+      <view class='glory' style='transform: translateX(50%) scale(.9);'><view class='icon'>
+        <image src='../../images/avatar-3.png' mode='widthFix'></image>
+      </view></view>
+    </view>
+    <view class='dialog-box'>
+      <view class='title-wrop'>2017年3月1日升级 段位：独当一面</view>
+    </view> 
+  </view>
+  <view class='container-view-item'>
+    <view class='container-view-item-title'>
+      <view class='title'>当前：第<text>1000</text>名</view>
+      <view class='glory' style='transform: translateX(50%) scale(.85);'><view class='icon'>
+        <image src='../../images/avatar-4.png' mode='widthFix'></image>
+      </view></view>
+    </view>
+    <view class='dialog-box'>
+      <view class='title-wrop'>2017年3月1日升级 段位：独当一面</view>
+    </view> 
+  </view>
+  
+  <view class='container-view-bor'></view>
+ </view>
+</view>

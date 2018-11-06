@@ -1,0 +1,106 @@
+<view class="container">
+  <view class="top"></view>
+  <view class="item">
+    <text class="label">项目名称</text>
+    <text class="value">{{detail.project_name}}</text>
+  </view>
+  <view class="line"></view>
+  <view class="item">
+    <text class="label">创建时间</text>
+    <text class="value">{{detail.date}}</text>
+  </view>
+
+  <view class="item">
+    <text class="label">施工班组</text>
+    <text class="value">{{detail.team_name}}</text>
+  </view>
+
+  <view class="item">
+    <text class="label">施工部位</text>
+    <text class="value">{{detail.work_place}}</text>
+  </view>
+  <view class="line"></view>
+  <view class="item-more">
+    <text class="label">使用事由</text>
+
+  </view>
+
+  <view class="text-more">{{detail.work_reason}}
+  </view>
+  <view class="line"></view>
+  <view class="item">
+    <text class="label">班组负责人</text>
+    <text class="value">{{detail.leader_name}}</text>
+  </view>
+
+  <view class="item">
+    <text class="label">使用经办人</text>
+    <text class="value">{{detail.name}}</text>
+  </view>
+
+  <view class="line"></view>
+  <view class="item" wx:if="{{detail.worker_num}}">
+    <text class="label">审定用工 (台班)数量
+    </text>
+    <text class="value">{{detail.worker_num}}</text>
+  </view>
+
+
+  <view class="line" wx:if="{{detail.worker_num}}"></view>
+
+
+
+   
+    <view class="item-more" wx:if="{{detail.comment&&isCommentShow}}">
+      <text class="label-1">处理意见</text>
+
+    </view>
+
+    <view class="text-more" wx:if="{{detail.comment&&isCommentShow}}">{{detail.comment}}
+  
+  </view>
+   <view class="item-more" wx:if="{{selectId==2}}">
+      <text class="label-1">处理意见</text>
+
+    </view>
+  <view class="text-more" wx:if="{{selectId==2}}">{{detail.comment}}
+  
+  </view>
+  <view class="line"></view>
+
+ 
+  <view class="deal-content" wx:if="{{isCheckShow}}">
+   <view class="item">
+    <text class="label">审核操作</text>
+  </view>
+    <form bindsubmit="onSubmit" bindreset="">
+      <view class="content-div" wx:if="{{selectId==1&&isSelectShow}}">
+        <view class="pick-content">
+          <picker bindchange="bindPickerChange" value="{{index}}" range="{{selectNameArray}}">
+            <view class="pick-item">
+              <text class="pick-label">{{selectTitle}}</text>
+              <text class="pick-text">{{selectName}}</text>
+            </view>
+          </picker>
+        </view>
+      </view>
+
+      <view class="text-area" wx:if="{{selectId==2}}">
+        <textarea class="area-class " placeholder="请输入驳回理由"  name="work_reason" placeholder-class="textarea-pl" bindblur="bindWorkReasonChange" value="" />
+      </view>
+
+      <view class="select-div">
+        <view class="agree {{selectId==1?'select-class':''}}" data-id="1" catchtap="selectItem" wx:if="{{state==4}}">同意</view>
+        <view class="disagree {{selectId==2?'select-class2':''}}" data-id="2" catchtap="selectItem">驳回</view>
+      </view>
+
+      <button formType="submit" class="login-btn">提交</button>
+    </form>
+  </view>
+  <view class="line"></view>
+
+  <view class="state">
+    <image src="{{statePic}}" class="state-image"></image>
+  </view>
+</view>
+<view class="warning" wx:if="{{isTipsShow}}">{{tips}}</view>

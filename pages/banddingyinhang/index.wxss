@@ -1,0 +1,69 @@
+.item{
+  height: 91rpx;
+
+  margin-left: 38rpx;
+  margin-right: 38rpx;
+}
+.left{
+  width: 150rpx;
+}
+.gone{
+  visibility: hidden;
+}
+.line2{
+  width: 90%;
+  margin-left: 30rpx;
+  margin-right: 40rpx;
+  background: #f3f3f3;
+  height: 2rpx;
+}
+.wrap{
+  width: 100%;
+}
+.mypl{
+  font-size: 30rpx;
+  color: #bebebe;
+}
+.inputclass{
+  width:400rpx;
+}
+.item2{
+  width: 674rpx;
+  height: 351rpx;
+  border: 1rpx dotted #cdcdcd;
+  margin-top: 25rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-repeat: repeat-y;
+}
+
+.tupian{
+  width: 135rpx;
+  height: 90rpx;
+}
+.itemImg{
+   width: 670rpx;
+  height: 345rpx;
+}
+.wenzi{
+  font-size: 24rpx;
+  color: #bebebe;
+}
+.mybutton{
+  height: 56rpx;
+  width: 674rpx;
+  background:#2A9EF1;
+  border-radius: 8rpx;
+  line-height: 56rpx;
+  
+}
+.icon_little{
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 15rpx;
+}
+.mwrap{
+  width: 100%;
+}

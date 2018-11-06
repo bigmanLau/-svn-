@@ -1,0 +1,37 @@
+ <view class="container">
+ <view class="product-content">
+  
+    
+<block wx:for="{{marketList}}" wx:key="unique">
+    <view class="product-item" bindtap="goDetail"  data-name="{{item.productName}}" data-id="{{item.id}}">
+      <view class="item-left">
+        <view class="left-item-title">
+          <text class="project-name">{{item.productName}}</text>
+          <view class="label">{{item.productMode=='2'?'免费':'收费'}}</view>
+          <view class="label">{{item.realSimFlag=='real'?'实盘':'仿真'}}</view>
+        </view>
+        <view class="project-relative">
+        <block wx:for="{{item.tag}}" wx:key="unique" >
+          <view class="relative-item">{{item}}</view>
+         </block>
+         
+        </view>
+        <view class="product-sub">{{item.description}}</view>
+      </view>
+      <view class="item-right">
+        <view class="right-item-top">
+          到期还有<text class="myday">{{item.serviceDay }}</text>天
+        </view>
+        <view class="item-data-content">
+          <text class="item-data-data">{{item.yieldRate}}</text>
+          <text class="item-data-percent">%</text>
+        </view>
+        <text class="item-shouyilv">总收益率</text>
+      </view>
+    </view>
+
+</block>
+
+
+  </view>
+  </view>

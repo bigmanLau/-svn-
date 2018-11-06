@@ -1,0 +1,87 @@
+<view class='topcontent'>
+
+  <view class="flex_row flex_center mt20">
+    <view class='tab size30  {{tabIndex==1?"bg_blue white":"blue"}}  left_circle blue_border' bindtap='selectTab' data-index='{{1}}'>交易所</view>
+    <view class='tab size30 {{tabIndex==2?"bg_blue white":"blue"}}  right_circle blue_border ' bindtap='selectTab' data-index='{{2}}'>期货公司</view>
+  </view>
+
+  <view class='myredpoints' wx:if="{{tice != 0}}">{{tice}}</view>
+</view>
+
+
+<scroll-view scroll-x class='myscrollview ' bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" wx:if="{{tabIndex==1}}">
+
+
+  <view class='scroll_item ' bindtap='changeExchangeIndex' data-index='1'>
+    <view class='flex_column flex_center'>
+      <view class='size24 {{exchangeIndex==1?"blue":"black66"}}'>大商所</view>
+      <view class='select_line {{exchangeIndex==1?"":"gone"}}'></view>
+    </view>
+  </view>
+
+
+  <view class='scroll_item ' bindtap='changeExchangeIndex' data-index='2'>
+    <view class='flex_column flex_center'>
+      <view class='size24 {{exchangeIndex==2?"blue":"black66"}}'>上期所</view>
+      <view class='select_line {{exchangeIndex==2?"":"gone"}}'></view>
+    </view>
+  </view>
+
+  <view class='scroll_item ' bindtap='changeExchangeIndex' data-index='3'>
+    <view class='flex_column flex_center'>
+      <view class='size24 {{exchangeIndex==3?"blue":"black66"}}'>郑商所</view>
+      <view class='select_line {{exchangeIndex==3?"":"gone"}}'></view>
+    </view>
+  </view>
+
+  <view class='scroll_item ' bindtap='changeExchangeIndex' data-index='4'>
+    <view class='flex_column flex_center'>
+      <view class='size24 {{exchangeIndex==4?"blue":"black66"}}'>中金所</view>
+      <view class='select_line {{exchangeIndex==4?"":"gone"}}'></view>
+    </view>
+  </view>
+
+  <view class='scroll_item ' bindtap='changeExchangeIndex' data-index='5'>
+    <view class='flex_column flex_center'>
+      <view class='size24 {{exchangeIndex==5?"blue":"black66"}}'>能源中心</view>
+      <view class='select_line {{exchangeIndex==5?"":"gone"}}'></view>
+    </view>
+  </view>
+
+
+</scroll-view>
+
+<view class='flex_column mt40' wx:if="{{tabIndex==1}}">
+  <block wx:for="{{list}}" wx:key="unique">
+    <navigator url='../gonggaodetail/index?id={{item.id}}&type={{tabIndex}}' class='item flex_row space-between flex_center'>
+      <view class='flex_row flex_center'>
+        <view class='text-overflow-one black3c size26 centertext ml32'>{{item.title}}</view>
+      </view>
+      <view class='size26 gray99 mytext'>{{item.publishDate}}</view>
+    </navigator>
+  </block>
+
+
+</view>
+
+
+<view class='flex_column mt40' wx:if="{{tabIndex==2}}">
+
+  <block wx:for="{{list}}" wx:key="unique">
+    <navigator url='../gonggaodetail/index?id={{item.id}}&type={{tabIndex}}' class='item flex_row space-between flex_center'>
+      <view class='flex_row flex_center'>
+
+        <view class='text-overflow-one size26 centertext ml32 {{item.readFlag==0?"black3c":"gray99"}}'>{{item.title}}</view>
+      </view>
+      <view class='size26 mytext {{item.readFlag==0?"black3c":"gray99"}}'>{{item.publishDate}}</view>
+    </navigator>
+  </block>
+</view>
+<view class='flex_column mt40' wx:if="{{list==null||list.length==0}}">
+
+
+  <view class='flex_row flex_center'>
+
+    <view class='text-overflow-one size26 black3c centertext flex_row flex_center text-center'>暂无公告</view>
+  </view>
+</view>

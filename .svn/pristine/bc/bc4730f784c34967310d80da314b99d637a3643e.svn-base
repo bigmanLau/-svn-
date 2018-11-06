@@ -1,0 +1,140 @@
+<view class="container">
+  <view class="top-four">
+    <view class="four-item {{selectItem==1?'select-one':''}}" data-id="1" bindtap="clickItem">资讯</view>
+    <view class="vline"></view>
+    <view class="four-item {{selectItem==2?'select-one':''}}" data-id="2" bindtap="clickItem">公告</view>
+    <view class="vline"></view>
+
+    <view class="four-item {{selectItem==3?'select-one':''}}" data-id="3" bindtap="clickItem">直播</view>
+    <view class="vline"></view>
+    <view class="four-item {{selectItem==4?'select-one':''}}" data-id="4" bindtap="clickItem">问答</view>
+  </view>
+
+
+
+  <!--资讯-->
+  <view class="zixun-container {{selectItem==1?'':'hide'}}">
+    <block wx:for="{{newsList}}" wx:key="unique">
+      <view class="zixun-item" bindtap="goZixunDetail" data-id="{{item.id}}">
+        <view class="zixun-left">
+          <image src="{{item.url}}" class="zixun-image"></image>
+        </view>
+        <view class="zixun-right">
+          <view class="zixun-a">{{item.title}}</view>
+          <view class="zixun-b">{{item.content}}</view>
+          <view class="zixun-c-box">
+            <view class="zixun-c-box-1">{{item.publisher}}</view>
+            <view class="zixun-c-box-2">{{item.publishTime}}</view>
+          </view>
+
+        </view>
+      </view>
+    </block>
+
+  </view>
+  <!--资讯-->
+  <!--公告-->
+  <view class="gonggao-container {{selectItem==2?'':'hide'}} ">
+    <block wx:for="{{noticeList}}" wx:key="unique">
+      <view class="gonggao-item" bindtap="goGonggaoDetail" data-id="{{item.id}}">
+        <view class="gonggao-top">
+          <view class="gonggao-inform">
+            {{item.title}}</view>
+          <view class="gonggao-time">{{item.publishTime}}</view>
+        </view>
+        <view class="gonggao-word">{{item.content}}</view>
+
+      </view>
+    </block>
+
+
+
+  </view>
+  <!--公告-->
+  <!--直播-->
+  <view class="zhibo-container {{selectItem==3?'':'hide'}}">
+    <block wx:for="{{LiveList}}" wx:key="unique">
+      <view class="zhibo-item">
+        <view class="zhibo-name">
+          <view class="zhibo-name1">
+            <image src="{{item.memberIcon}}" class="zhibo-old-man"></image>
+
+            <view class="zhibo-changsheng">{{item.memberNick}}</view>
+          </view>
+          <view class="zhibo-name2">{{item.createDate}}</view>
+
+
+        </view>
+        <view class="zhibo-word">{{item.content}}</view>
+
+      </view>
+
+    </block>
+
+  </view>
+  <!--直播-->
+  <!--问答-->
+  <view class="question-container {{selectItem==4?'':'hide'}}">
+    <block wx:for="{{questionList}}" wx:key="unique">
+      <view class="question-item">
+        <view class="name">
+          <view class="name1">
+            <image src="{{item.memberIcon}}" class="old-man"></image>
+
+            <view class="changsheng">{{item.memberNick}}</view>
+          </view>
+          <view class="name2">{{item.questionTime}}
+
+
+          </view>
+        </view>
+
+        <view class="question-1">
+          <view class="left-question">
+            <view class="q1">
+              <image src="/images/wenti.png" class="tu-1"></image>
+              <view class="word-1">{{item.content}}</view>
+            </view>
+            <block wx:for="{{item.answers}}" wx:key="unique">
+              <view class="answer">
+                <image src="/images/ask.png" class="answer-img"></image>
+                <view class="ask-text">{{item.content}}</view>
+              </view>
+            </block>
+          </view>
+          <view class="tu-2">
+            <image src="/images/duihua.png" class="tutu"></image>
+          </view>
+        </view>
+
+      </view>
+    </block>
+
+
+
+
+  </view>
+  <image src="/images/tiwen.png" class="tiwen {{selectItem==4?'':'hide'}}" bindtap="chat"></image>
+  <!--问答-->
+
+</view>
+<form bindsubmit="submit" bindreset="" report-submit="true" wx:if="{{!isShowMessage}}">
+  <view class="message-box " >
+    <view class="message-bg">
+      <view class="message-content">
+        <view class="message-title">
+          <image src="{{userInfo.avatarUrl}}" class="message-img"></image>
+          <text class="message-title-text">{{nickname}}</text>
+        </view>
+        <view class="message-answer">
+          <textarea placeholder="请输入文字..." placeholder-class="message-textarea-pl" class="message-textarea" name="questionContent" />
+        </view>
+        <view class="tips">可输入200字</view>
+        <view class="message-bottom">
+          <button class="message-cancel-btn" bindtap="cancel">取 消</button>
+          <button class="message-submit-btn" formType="submit">提 交</button>
+        </view>
+      </view>
+    </view>
+  </view>
+</form>

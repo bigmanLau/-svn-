@@ -1,0 +1,568 @@
+<view wx:if="{{islogin}}">
+<scroll-view scroll-x="true" scroll-with-animation="true" id="scroll-list" class='bg_blue fix_top'>
+  <view class="  flex_row flex_row_center nowrap mytopview">
+    <scroll-item>
+      <view class='width25'>
+        <view class='flex_column flex_center ' bindtap='goNext' data-url="../jiaoyikuaizhao/index">
+          <view class='imgwrap'>
+
+            <view class='myrelatvie'>
+              <image src='../../img/icon_kuaizhao.png' class='img' mode='widthFix'></image>
+              <image src='../../img/del.png' class='delimg' mode='aspectFit' wx:if="{{isEdit}}"></image>
+            </view>
+
+          </view>
+          <view class="size24 white mt12">交易快照</view>
+        </view>
+      </view>
+    </scroll-item>
+
+    <scroll-item>
+      <view class='width25'>
+        <view class='flex_column flex_center ' bindtap='goNext' data-url="../jiaoyiquxian/index" >
+          <view class='imgwrap'>
+            <view class='myrelatvie'>
+              <image src='../../img/icon_shouyiquxian.png' class='img' mode='widthFix'></image>
+              <image src='../../img/del.png' class='delimg' mode='aspectFit' wx:if="{{isEdit}}"></image>
+            </view>
+
+          </view>
+          <view class="size24 white mt12">收益曲线</view>
+        </view>
+      </view>
+    </scroll-item>
+
+
+    <scroll-item>
+      <view class='width25'>
+        <view class='flex_column flex_center ' bindtap='goNext' data-url="" >
+          <view class='imgwrap'>
+            <view class='myrelatvie'>
+              <image src='../../img/rank.png' class='img' mode='widthFix' ></image>
+              <image src='../../img/del.png' class='delimg' mode='aspectFit' wx:if="{{isEdit}}"></image>
+            </view>
+
+          </view>
+          <view class="size24 white mt12 gray_half">等级排名</view>
+        </view>
+      </view>
+    </scroll-item>
+
+
+
+    <scroll-item>
+      <view class='width25'>
+        <view class='flex_column flex_center ' bindtap='goNext' data-url="../zizhanghao/index">
+          <view class='imgwrap'>
+            <view class='myrelatvie'>
+              <image src='../../img/icon_my_friend.png' class='img' mode='widthFix'></image>
+              <image src='../../img/del.png' class='delimg' mode='aspectFit' wx:if="{{isEdit}}"></image>
+            </view>
+
+          </view>
+          <view class="size24 white mt12">我的好友</view>
+        </view>
+      </view>
+    </scroll-item>
+
+
+    <scroll-item>
+      <view class='width25'>
+        <view class='flex_column flex_center ' bindtap='goEdit'>
+          <view class='imgwrap'>
+            <image src='../../img/add.png' class='img2' style='height:60rpx;width:60rpx;' mode='aspectFit'></image>
+          </view>
+
+        </view>
+      </view>
+    </scroll-item>
+
+
+
+  </view>
+</scroll-view>
+
+
+
+
+<!-- <view class='flex_row mytopview bg_blue'>
+  <view class='flex_column flex_center flex_1' bindtap='goNext'>
+    <view class='imgwrap'>
+      <image src='../../img/kuaizhao.png' class='img' mode='widthFix'></image>
+    </view>
+    <view class="size24 white mt12">交易快照</view>
+  </view>
+  <view class='flex_column flex_center flex_1'>
+    <view class='imgwrap'>
+      <image src='../../img/fenxi.png' class='img' mode='widthFix'></image>
+    </view>
+    <view class="size24 white mt12">账户分析</view>
+  </view>
+  <view class='flex_column flex_center flex_1'>
+    <view class='imgwrap'>
+      <image src='../../img/paiming.png' class='img' mode='widthFix'></image>
+    </view>
+    <view class="size24 white mt12">等级排名</view>
+  </view>
+  <view class='flex_column flex_center flex_1' bindtap='goNextTap'>
+    <view class='imgwrap'>
+      <image src='../../img/zizhanghao.png' class='img' mode='widthFix'></image>
+    </view>
+    <view class="size24 white mt12">监控授权</view>
+  </view>
+</view> -->
+
+<view class='flex_row flex_row_center mt15 space-between second_item mt114'>
+  <view class='flex_row flex_row_center'>
+    <open-data type="userAvatarUrl" class='avatar'></open-data>
+    <view class='flex_column flex_column_center second_item'>
+      <view class='size30 black3c'>
+        <input disabled='{{true}}' class='center-set-text' value='{{account.clientName}}' bindinput='inputNick'>{{account.clientName}}</input>
+        <view class='center-set'>
+          <view bindtap='changeDisable' class='flex_row flex_row_center' url='../yonghumingxiugai/index'>
+            <!-- <image src='../../img/xiugai.png' class='little-icon' mode='aspectFill'></image> -->
+             
+          </view>
+        </view>
+      </view>
+      <!-- <view class='size30 black3c mt17'>{{account.investorId}}</view> -->
+    </view>
+  </view>
+   <view class="flex_column ">
+   <view class='blue size29 mr42'> {{account.name?account.name:"-"}}</view>
+  <view class='blue size29 mr42'> {{account.investorId?account.investorId:"-"}}</view>
+  </view>
+  
+</view>
+
+<view class='shadow-border margin20 mt30'>
+
+<view class='flex_row flex_row_center   pt30'>
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>动态权益</view>
+    <text class='red2 size28 mt25'>{{account.dynamicrRs}}</text>
+  </view>
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>持仓盈亏</view>
+    <text class='green00 size28 mt25'>{{account.mapl}}</text>
+  </view>
+
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>占用保证金</view>
+    <text class='red2 size28 mt25'>{{account.marginOccupied}}</text>
+  </view>
+
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>出金</view>
+    <text class='green00 size28 mt25'>{{account.withdraw}}</text>
+  </view>
+</view>
+
+
+<view class='flex_row flex_row_center   pt30'>
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>日初权益</view>
+    <text class='red2 size28 mt25'>{{account.balanceb}}</text>
+  </view>
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>平仓盈亏</view>
+    <text class='green00 size28 mt25'>{{account.realizedL}}</text>
+  </view>
+
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>可用资金</view>
+    <text class='red2 size28 mt25'>{{account.fundAvail}}</text>
+  </view>
+
+ <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>入金</view>
+    <text class='green00 size28 mt25'>{{account.deposit}}</text>
+  </view>
+ 
+</view>
+
+<view class='flex_row flex_row_center  pt30 pb30'>
+   <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>盈亏</view>
+    <text class='green00 size28 mt25'>{{account.profitLoss}}</text>
+  </view>
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>手续费</view>
+    <text class='green00 size28 mt25'>{{account.dwWal}}</text>
+  </view>
+
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>风险度</view>
+    <text class='red2 size28 mt25'>{{account.riskDegree}}</text>
+  </view>
+
+  <navigator url='../jiaoyikuaizhao/index' class='flex_column flex_center width25'>
+    <image src='../../img/more.png' class='myicon' mode='widthFix'></image>
+  </navigator>
+</view>
+</view>
+<view class="container  {{(!isModal&&!isShowPickTime&&!isModal2)?'visible':'invisible'}}">
+  <canvas canvas-id="lineCanvas" disable-scroll="false" class="canvas"  wx:if="{{line!=null&&line.length!=0}}"></canvas>
+  <view class='size24 black3c flex_row flex_center emptyview' wx:if="{{line==null||line.length==0}}">数据为空</view>
+</view>
+<view class='container-menu'>
+  <view class='container-menu-item {{canvas_tag == 1 ? "tag" : "" }}' bindtap='canvasTap' data-id="1">近1周</view>
+  <view class='container-menu-item {{canvas_tag == 2 ? "tag" : "" }}' bindtap='canvasTap' data-id="2">近1个月</view>
+  <view class='container-menu-item {{canvas_tag == 3 ? "tag" : "" }}' bindtap='canvasTap' data-id="3">近3个月</view>
+  <view class='container-menu-item {{canvas_tag == 4 ? "tag" : "" }}' bindtap='canvasTap' data-id="4">近6个月</view>
+  <view class='container-menu-item {{canvas_tag == 5 ? "tag" : "" }}' bindtap='canvasTap' data-id="5">自定义</view>
+</view>
+
+<view class="modal-mask" wx:if="{{isModal}}" ></view>
+<view class="modal-dialog" wx:if="{{isModal}}">
+  <view class='modal-dialog-wrap'>
+    <image src='../../img/dialog-bg.png' class='img' mode='widthFix'></image>
+    <view class='wrap-logo'>
+      <image src='../../img/dialog-logo.png' class='img' mode='widthFix'></image>
+    </view>
+    <!-- ../yuyingbumenxuanze/index -->
+    <!-- <view class='wrap-button' bindtap='goNext' data-url="../yuyuekaihuyindao/index">已有资金账户，去绑定>></view> -->
+    <view class='wrap-button size20' bindtap='goBand'>已有资金账户，去绑定>></view>
+    <!-- <view class='wrap-title' bindtap='goBand'>已有资金账户，去绑定>></view> -->
+  </view>
+</view>
+<view class='cover-shadow' wx:if="{{isShowPickTime}}"></view>
+<view class="pickbox" wx:if="{{isShowPickTime}}">
+   <view class='pick-title flex_row flex_row_center space-between'>
+    <text class="size30 black3c margin20">请选择起止时间</text>
+    <view class='flex_row flex_row_center'> 
+    <text class="size30 black3c margin20" bindtap='changeShowPicker'>取消</text>
+    <text class="size30 black3c margin20" bindtap='submitTime'>确定</text>
+    </view>
+   
+   </view>
+   <view class="flex_row">
+    <picker-view wx:if="{{years.length>0 && months.length>0 && days.length>0}}" style="width: 50%; height: 500rpx;" value="{{value}}" bindchange="bindChange">
+        <picker-view-column>
+            <view wx:for="{{years}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{months}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{days}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+ </picker-view>
+<picker-view wx:if="{{years2.length>0 && months2.length>0 && days2.length>0}}" style="width: 50%; height: 500rpx;" value="{{value2}}" bindchange="bindChange2">
+
+         <picker-view-column>
+            <view wx:for="{{years2}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{months2}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{days2}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+<view wx:if="{{!islogin}}">
+<scroll-view scroll-x="true" scroll-with-animation="true" id="scroll-list" class='bg_blue fix_top'>
+  <view class="  flex_row flex_row_center nowrap mytopview">
+    <scroll-item>
+      <view class='width25'>
+        <view class='flex_column flex_center ' bindtap='goNext' data-url="../jiaoyikuaizhao/index">
+          <view class='imgwrap'>
+
+            <view class='myrelatvie'>
+              <image src='../../img/icon_kuaizhao.png' class='img' mode='widthFix'></image>
+              <image src='../../img/del.png' class='delimg' mode='aspectFit' wx:if="{{isEdit}}"></image>
+            </view>
+
+          </view>
+          <view class="size24 white mt12">交易快照</view>
+        </view>
+      </view>
+    </scroll-item>
+
+    <scroll-item>
+      <view class='width25'>
+        <view class='flex_column flex_center ' bindtap='goNext' data-url="../jiaoyiquxian/index" >
+          <view class='imgwrap'>
+            <view class='myrelatvie'>
+              <image src='../../img/icon_shouyiquxian.png' class='img' mode='widthFix'></image>
+              <image src='../../img/del.png' class='delimg' mode='aspectFit' wx:if="{{isEdit}}"></image>
+            </view>
+
+          </view>
+          <view class="size24 white mt12">收益曲线</view>
+        </view>
+      </view>
+    </scroll-item>
+
+
+    <scroll-item>
+      <view class='width25'>
+        <view class='flex_column flex_center ' bindtap='goNext' data-url="" >
+          <view class='imgwrap'>
+            <view class='myrelatvie'>
+              <image src='../../img/rank.png' class='img' mode='widthFix' ></image>
+              <image src='../../img/del.png' class='delimg' mode='aspectFit' wx:if="{{isEdit}}"></image>
+            </view>
+
+          </view>
+          <view class="size24 white mt12 gray_half">等级排名</view>
+        </view>
+      </view>
+    </scroll-item>
+
+
+
+    <scroll-item>
+      <view class='width25'>
+        <view class='flex_column flex_center ' bindtap='goNext' data-url="../zizhanghao/index">
+          <view class='imgwrap'>
+            <view class='myrelatvie'>
+              <image src='../../img/icon_my_friend.png' class='img' mode='widthFix'></image>
+              <image src='../../img/del.png' class='delimg' mode='aspectFit' wx:if="{{isEdit}}"></image>
+            </view>
+
+          </view>
+          <view class="size24 white mt12">我的好友</view>
+        </view>
+      </view>
+    </scroll-item>
+
+
+    <scroll-item>
+      <view class='width25'>
+        <view class='flex_column flex_center ' bindtap='goEdit'>
+          <view class='imgwrap'>
+            <image src='../../img/add.png' class='img2' style='height:60rpx;width:60rpx;' mode='aspectFit'></image>
+          </view>
+
+        </view>
+      </view>
+    </scroll-item>
+
+
+
+  </view>
+</scroll-view>
+
+
+
+
+<!-- <view class='flex_row mytopview bg_blue'>
+  <view class='flex_column flex_center flex_1' bindtap='goNext'>
+    <view class='imgwrap'>
+      <image src='../../img/kuaizhao.png' class='img' mode='widthFix'></image>
+    </view>
+    <view class="size24 white mt12">交易快照</view>
+  </view>
+  <view class='flex_column flex_center flex_1'>
+    <view class='imgwrap'>
+      <image src='../../img/fenxi.png' class='img' mode='widthFix'></image>
+    </view>
+    <view class="size24 white mt12">账户分析</view>
+  </view>
+  <view class='flex_column flex_center flex_1'>
+    <view class='imgwrap'>
+      <image src='../../img/paiming.png' class='img' mode='widthFix'></image>
+    </view>
+    <view class="size24 white mt12">等级排名</view>
+  </view>
+  <view class='flex_column flex_center flex_1' bindtap='goNextTap'>
+    <view class='imgwrap'>
+      <image src='../../img/zizhanghao.png' class='img' mode='widthFix'></image>
+    </view>
+    <view class="size24 white mt12">监控授权</view>
+  </view>
+</view> -->
+
+<view class='flex_row flex_row_center mt15 space-between second_item mt114'>
+  <view class='flex_row flex_row_center'>
+    <image type="userAvatarUrl" class='avatar' src='../../img/xiaochengxu.jpg'></image>
+    <view class='flex_column flex_column_center second_item'>
+      <view class='size30 black3c'>
+        <input disabled='{{true}}' class='center-set-text' value='金小瑞' bindinput='inputNick'></input>
+        <view class='center-set'>
+          <view bindtap='changeDisable' class='flex_row flex_row_center' url='../yonghumingxiugai/index'>
+            <!-- <image src='../../img/xiugai.png' class='little-icon' mode='aspectFill'></image> -->
+             
+          </view>
+        </view>
+      </view>
+      <!-- <view class='size30 black3c mt17'>{{account.investorId}}</view> -->
+    </view>
+  </view>
+   <view class="flex_column ">
+   <view class='blue size29 mr42'>*金瑞</view>
+  <view class='blue size29 mr42'> 99****50</view>
+  </view>
+  
+</view>
+
+<view class='shadow-border margin20 mt30'>
+
+<view class='flex_row flex_row_center   pt30'>
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>动态权益</view>
+    <text class='red2 size28 mt25'>5036250.43</text>
+  </view>
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>持仓盈亏</view>
+    <text class='green00 size28 mt25'>11000</text>
+  </view>
+
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>占用保证金</view>
+    <text class='red2 size28 mt25'>91970.50</text>
+  </view>
+
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>出金</view>
+    <text class='green00 size28 mt25'>0</text>
+  </view>
+</view>
+
+
+<view class='flex_row flex_row_center   pt30'>
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>日初权益</view>
+    <text class='red2 size28 mt25'>13241123</text>
+  </view>
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>平仓盈亏</view>
+    <text class='green00 size28 mt25'>0</text>
+  </view>
+
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>可用资金</view>
+    <text class='red2 size28 mt25'>4955279.93</text>
+  </view>
+
+ <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>入金</view>
+    <text class='green00 size28 mt25'>0</text>
+  </view>
+ 
+</view>
+
+<view class='flex_row flex_row_center  pt30 pb30'>
+   <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>盈亏</view>
+    <text class='green00 size28 mt25'>0</text>
+  </view>
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>手续费</view>
+    <text class='green00 size28 mt25'>0</text>
+  </view>
+
+  <view class='flex_column flex_center width25'>
+    <view class='size24 black73'>风险度</view>
+    <text class='red2 size28 mt25'>1.83%</text>
+  </view>
+
+  <navigator url='../jiaoyikuaizhao/index' class='flex_column flex_center width25'>
+    <image src='../../img/more.png' class='myicon' mode='widthFix'></image>
+  </navigator>
+</view>
+</view>
+<view class="container  {{(!isModal&&!isShowPickTime&&!isModal2)?'visible':'invisible'}}">
+  <canvas canvas-id="lineCanvas2" disable-scroll="false" class="canvas  abc"  ></canvas>
+  <view class='size24 black3c flex_row flex_center emptyview' wx:if="{{line.length==0}}">数据为空</view>
+</view>
+<view class='container-menu'>
+  <view class='container-menu-item {{canvas_tag == 1 ? "tag" : "" }}' bindtap='canvasTap2' data-id="1">近1周</view>
+  <view class='container-menu-item {{canvas_tag == 2 ? "tag" : "" }}' bindtap='canvasTap2' data-id="2">近1个月</view>
+  <view class='container-menu-item {{canvas_tag == 3 ? "tag" : "" }}' bindtap='canvasTap2' data-id="3">近3个月</view>
+  <view class='container-menu-item {{canvas_tag == 4 ? "tag" : "" }}' bindtap='canvasTap2' data-id="4">近6个月</view>
+  <view class='container-menu-item {{canvas_tag == 5 ? "tag" : "" }}' bindtap='canvasTap2' data-id="5">自定义</view>
+</view>
+
+<view class="modal-mask" wx:if="{{isModal}}" ></view>
+<view class="modal-dialog" wx:if="{{isModal}}">
+  <view class='modal-dialog-wrap'>
+    <image src='../../img/dialog-bg.png' class='img' mode='widthFix'></image>
+    <view class='wrap-logo'>
+      <image src='../../img/dialog-logo.png' class='img' mode='widthFix'></image>
+    </view>
+    <!-- ../yuyingbumenxuanze/index -->
+    <!-- <view class='wrap-button' bindtap='goNext' data-url="../yuyuekaihuyindao/index">已有资金账户，去绑定>></view> -->
+    <view class='wrap-button size20' bindtap='goBand'>已有资金账户，去绑定>></view>
+    <!-- <view class='wrap-title' bindtap='goBand'>已有资金账户，去绑定>></view> -->
+  </view>
+</view>
+<view class='cover-shadow' wx:if="{{isShowPickTime}}"></view>
+<view class="pickbox" wx:if="{{isShowPickTime}}">
+   <view class='pick-title flex_row flex_row_center space-between'>
+    <text class="size30 black3c margin20">请选择起止时间</text>
+    <view class='flex_row flex_row_center'> 
+    <text class="size30 black3c margin20" bindtap='changeShowPicker'>取消</text>
+    <text class="size30 black3c margin20" bindtap='submitTime'>确定</text>
+    </view>
+   
+   </view>
+   <view class="flex_row">
+    <picker-view wx:if="{{years.length>0 && months.length>0 && days.length>0}}" style="width: 50%; height: 500rpx;" value="{{value}}" bindchange="bindChange">
+        <picker-view-column>
+            <view wx:for="{{years}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{months}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{days}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+ </picker-view>
+<picker-view wx:if="{{years2.length>0 && months2.length>0 && days2.length>0}}" style="width: 50%; height: 500rpx;" value="{{value2}}" bindchange="bindChange2">
+
+         <picker-view-column>
+            <view wx:for="{{years2}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{months2}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{days2}}" wx:key="{{index}}" class='text-center'>{{item}}</view>
+        </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+</view>
+
+<view class="modal-mask" wx:if="{{isModal2}}" ></view>
+<view class="modal-dialog" wx:if="{{isModal2}}">
+  <view class='modal-dialog-wrap'>
+  
+    <view class='mbg'></view>
+    
+    <view class='wrap-logo2'>
+      <image src='../../img/icon_tips.png' class='img' mode='widthFix'></image>
+         
+    </view>
+   <view class='wrap-logo3' bindtap='closeModal2'>
+  <image src='../../img/icon_close.png' class='icon' mode='widthFix'></image>
+  </view>
+    <view class='modal-tips'>重要提示</view>
+    <view class='modal-tips2'>您好，需要获得您好友的同意方可查看
+ 交易快照详情！</view>
+    <!-- ../yuyingbumenxuanze/index -->
+    <!-- <view class='wrap-button' bindtap='goNext' data-url="../yuyuekaihuyindao/index">已有资金账户，去绑定>></view> -->
+    <form  bindsubmit='doRequest' report-submit='true'>
+    <button class='wrap-button2 size20'  form-type='submit'>发送请求</button>
+    </form>
+    <!-- <view class='wrap-title' bindtap='goBand'>已有资金账户，去绑定>></view> -->
+  </view>
+</view>
+<view class='cover-shadow' wx:if="{{isModal2}}"></view>

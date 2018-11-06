@@ -1,0 +1,31 @@
+<template name="modal">
+    <view class="xm-modal {{showModal?'hidden':''}} ">
+        <view class="modal-dialog {{isInputing?'isInputing':''}}">
+            <view bindtap="closeModal" class="modal-close">
+                <icon class="icon icon-modal-close">×</icon>
+            </view>
+            <view class="modal-content">
+                <view class="modal-header">
+                    <view class="modal-title">验证码</view>
+                </view>
+                <view class="modal-body">
+                    <view class="input-modal-code-wrap">
+                        <input bindblur="inputBlur" bindfocus="inputFocus" bindinput="inputVerifyCheckCode" class="input-modal-code" maxlength="10" placeholder="输入验证码" type="text" value="{{checkCode}}"></input>
+                    </view>
+                    <view class="input-modal-image-wrap">
+                        <image class="input-modal-image" src="{{verifyCodeRes.checkCodeUrl}}"></image>
+                        <view bindtap="changeImage" class="btn btn-change-image">换一张</view>
+                    </view>
+                </view>
+                <view class="modal-footer">
+                    <view bindtap="closeModal" class="btn btn-footer-modal">取消</view>
+                    <view bindtap="sendCheckCode" class="btn btn-footer-modal">确认</view>
+                </view>
+            </view>
+        </view>
+        <view bindtap="closeModal" class="mask"></view>
+        <view class="global-msg" wx:if="{{globalMsg2}}">
+            <text class="global-msg-text">{{globalMsg}}</text>
+        </view>
+    </view>
+</template>

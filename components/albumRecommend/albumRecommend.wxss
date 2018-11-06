@@ -1,0 +1,71 @@
+.album {
+}
+
+.album-cover {
+    float: left;
+    width: 95px;
+    height: 95px;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.album-info {
+    margin-top: 7px;
+    min-height: 159rpx;
+    border-bottom: 1rpx solid #fff;
+    margin-left: 110px;
+    margin-bottom: 12px;
+}
+
+.no-border-bottom.album-info {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.album-title {
+    font-size: 18px;
+    color: #fff;
+    line-height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 540rpx;
+}
+
+.album-intro {
+    margin: 10rpx 0;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    font-size: 13px;
+    line-height: 18px;
+    color: #FFEBE5;
+    opacity: .8;
+}
+
+.album-playcount {
+    font-size: 12px;
+    opacity: .8;
+    color: #FFEBE5;
+    line-height: 16px;
+    margin-bottom: 27px;
+}
+
+.icon-playcount {
+    margin-right: 12rpx;
+    width: 20rpx;
+    height: 20rpx;
+}
+
+.icon-ispaid {
+    position: absolute;
+    width: 33rpx;
+    height: 33rpx;
+    align-self: flex-start;
+    margin-top: 36rpx;
+}
+
+.album-hover {
+    opacity: .8;
+}

@@ -1,0 +1,24 @@
+<view bindtap="switchShow" class="sign-in-container">
+    <view class="sign-in-logo"></view>
+    <view class="sign-in-box" hidden="{{!show}}">
+        <view catchtap="nothing" class="sign-in-content">
+            <view class="sign-in-tit">签到领星星</view>
+            <view class="sign-in-count-wrap">已连续签到：<text class="sign-in-count">{{continuousSignInCount}}</text> 天</view>
+            <view class="sign-in-stars">
+                <view class="sign-in-star {{item<=continuousSignInCount%7?'signed-in-star':''}}" wx:for="{{[1,2,3,4,5,6,7]}}" wx:key="{{item}}">
+                    <view class="sign-in-star-hd">第 {{~~(continuousSignInCount/7)*7+item}} 天</view>
+                </view>
+            </view>
+            <view class="btn-area">
+                <button plain bindtap="toPaidRank" class="btn-sign-in btn-signed-in" hoverClass="btn-hover" wx:if="{{todaySignIn}}">去解锁节目</button>
+                <button plain bindtap="signIn" class="btn-sign-in" hoverClass="btn-hover" wx:else>签到{{signing?'中...':''}}</button>
+            </view>
+            <view class="sign-in-tip" wx:if="{{todaySignIn}}">
+                今天已成功签到领取{{continuousSignInCount%7==0||continuousSignInCount%7==6?2:1}}颗星
+            </view>
+            <view class="sign-in-tip" wx:else>
+                星星可用于解锁付费节目
+            </view>
+        </view>
+    </view>
+</view>

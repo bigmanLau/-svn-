@@ -1,0 +1,12 @@
+<template name="player">
+    <view bindtap="{{player.tapSoundBlock}}" class="player {{player.hidden?'hidden':''}} player-is-{{player.state.paused?'paused':'playing'}}" data-track-id="{{player.sound.id}}" hoverClass="btn-hover" wx:if="{{player.sound.title}}">
+        <view class="player-playing-icon {{!player.state.paused?'playing':''}}">
+            <view class="line-wrapper">
+                <view class="line"></view>
+                <view class="line"></view>
+                <view class="line"></view>
+            </view>
+        </view>
+        <image class="player-image {{!player.state.paused?'playing':''}}" src="{{player.sound.albumImage}}"></image>
+    </view>
+</template>

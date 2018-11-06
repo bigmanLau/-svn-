@@ -1,0 +1,667 @@
+var wxCharts = require('../../utils/wxcharts.js');
+var wRequest = require('../../utils/servers.js');
+var app = getApp();
+var lineChart = null;
+const date = new Date()
+const nowYear = date.getFullYear()
+const nowMonth = date.getMonth() + 1
+const nowDay = date.getDate()
+
+let daysInMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
+// 根据年月 获取当月的总天数
+let getDays = function(year, month) {
+  if (month === 2) {
+    return ((year % 4 === 0) && ((year % 100) !== 0)) || (year % 400 === 0) ? 29 : 28
+  } else {
+    return daysInMonth[month - 1]
+  }
+}
+// 根据年月日设置当前月有多少天 并更新年月日数组
+let setDate = function(year, month, day, _th, index) {
+  let daysNum = year === nowYear && month === nowMonth ? nowDay : getDays(year, month)
+  day = day > daysNum ? 1 : day
+  // let monthsNum = year === nowYear ? nowMonth : 12
+  let monthsNum = year === nowYear ? nowMonth : 12 - nowMonth
+
+  let years = []
+  let months = []
+  let days = []
+  let yearIdx = 9999
+  let monthIdx = 0
+  let dayIdx = 0
+
+  // 重新设置年份列表
+  for (let i = nowYear - 1; i <= nowYear; i++) {
+    years.push(i)
+  }
+  years.map((v, idx) => {
+    if (v === year) {
+      yearIdx = idx
+    }
+  })
+  if (year === nowYear) {
+    // 重新设置月份列表
+    for (let i = 1; i <= monthsNum; i++) {
+      months.push(i)
+    }
+  } else {
+    for (let i = 12 - monthsNum + 1; i <= 12; i++) {
+      months.push(i)
+    }
+  }
+  months.map((v, idx) => {
+    if (v === month) {
+      monthIdx = idx
+    }
+  })
+  // 重新设置日期列表
+  for (let i = 1; i <= daysNum; i++) {
+    days.push(i)
+  }
+  days.map((v, idx) => {
+    if (v === day) {
+      dayIdx = idx
+    }
+  })
+  if (index == 1) {
+    _th.setData({
+      years: years, //年份列表
+      months: months, //月份列表
+      days: days, //日期列表
+      value: [yearIdx, monthIdx, dayIdx],
+      year: year,
+      month: month,
+      day: day
+    })
+  } else {
+    _th.setData({
+      years2: years, //年份列表
+      months2: months, //月份列表
+      days2: days, //日期列表
+      value2: [yearIdx, monthIdx, dayIdx],
+      year2: year,
+      month2: month,
+      day2: day
+    })
+  }
+
+}
+Page({
+  data: {
+    isEdit: false,
+    isModal: false, //弹窗开闭
+    canvas_tag: "1",
+    disable: true,
+    years: [],
+    months: [],
+    days: [],
+    year: nowYear,
+    month: nowMonth,
+    day: nowDay,
+    years2: [],
+    months2: [],
+    days2: [],
+    year2: nowYear,
+    month2: nowMonth,
+    day2: nowDay,
+    value: [9999, 1, 1],
+    value2: [9999, 1, 1],
+    isShowPickTime:false,
+    islogin: true,
+    isModal2:false
+  },
+  inputNick(e) {
+    this.data.account.clientName = e.detail.value
+    this.setData({
+      account: this.data.account
+    })
+  },
+  changeShowPicker(){
+    this.setData({
+      isShowPickTime: !this.data.isShowPickTime
+    })
+  },
+  changeDisable() {
+
+    this.setData({
+      disable: !this.data.disable
+    })
+    if (!this.data.disable) {
+      let parms = {
+        nickName: this.data.account.clientName
+      }
+      wRequest.updateName(parms)
+    }
+  },
+  closeModal2(){
+   this.setData({
+     isModal2:false
+   })
+  },
+  touchHandler: function(e) {
+    if (this.data.line != null && this.data.line.length != 0) {
+      lineChart.showToolTip(e, {
+        // background: '#7cb5ec',
+        format: function(item, category) {
+          return category + ' ' + item.name + ':' + item.data
+        }
+      });
+    }
+    // console.log(lineChart.getCurrentDataIndex(e));
+
+  },
+  createSimulationData: function() {
+    var categories = [];
+    var data = [];
+    for (var i = 0; i < 7; i++) {
+      categories.push('2018-1-' + (i + 1));
+      data.push(Math.random());
+    }
+    // data[4] = null;
+    return {
+      categories: categories,
+      data: data
+    }
+  },
+
+onShow(){
+
+  this.updateData2()
+
+
+  this.doLogin()
+  if (this.data.islogin && this.data.shareId || this.data.notbind && this.data.shareId) {
+    if(ths.data.isClose){
+    this.setData({
+      isModal2: false
+    })
+    }else{
+      this.setData({
+        isModal2: true
+      })
+    }
+  }
+},
+
+  createSimulationData2: function() {
+
+    var categories = [];
+    var data = [];
+    for (var i = 0; i < this.data.line.length; i++) {
+      categories.push(this.data.line[i].day);
+      data.push(this.data.line[i].income);
+    }
+  
+    // data[4] = null;
+    return {
+      categories: categories,
+      data: data
+    }
+
+    
+  },
+  submitTime() {
+    this.isError=false;
+    if (this.data.years[this.data.value[0]] <= this.data.years2[this.data.value2[0]]) {
+      if (this.data.years[this.data.value[0]] == this.data.years2[this.data.value2[0]]) {
+        if (this.data.months[this.data.value[1]] <= this.data.months2[this.data.value2[1]]) {
+          
+          if (this.data.months[this.data.value[1]] == this.data.months2[this.data.value2[1]]) {
+            if (this.data.days[this.data.value[2]] < this.data.days2[this.data.value2[2]]) {
+              
+            } else {
+              this.showerror()
+            }
+          } 
+
+        } else {
+          this.showerror()
+        }
+      } 
+    }else{
+      this.showerror()
+    }
+    if(!this.isError){
+      let startTime = this.data.years[this.data.value[0]] + "-" +
+        this.data.months[this.data.value[1]] + "-" +
+        this.data.days[this.data.value[2]]
+      let endTime = this.data.years2[this.data.value2[0]] + "-" +
+        this.data.months2[this.data.value2[1]] + "-" +
+        this.data.days2[this.data.value2[2]]
+      console.log(startTime)
+      console.log(endTime)
+      this.setData({
+        beginDate:startTime,
+        endDate:endTime
+      })
+      this.account2()
+      this.changeShowPicker()
+    }
+   
+  
+
+  },
+  isError:false,
+  showerror() {
+    this.isError=true;
+    wx.showModal({
+      title: '提示',
+      content: '结束时间不能小于开始时间',
+      showCancel: false
+    })
+    return
+  },
+  updateData: function() {
+    var simulationData = this.createSimulationData2();
+    var windowWidth = 320;
+    try {
+      var res = wx.getSystemInfoSync();
+      windowWidth = res.windowWidth;
+    } catch (e) {
+      console.error('getSystemInfoSync failed!');
+    }
+    lineChart = new wxCharts({
+      canvasId: 'lineCanvas',
+      type: 'line',
+      categories: simulationData.categories,
+      animation: false,
+      // background: '#f5f5f5',
+      series: [{
+        name: '成交量1',
+        data: simulationData.data,
+        format: function(val, name) {
+          if (this.isInteger(val)) {
+            return val
+          } else {
+            return val.toFixed(2);
+          }
+        }
+      }],
+      xAxis: {
+        disableGrid: true,
+        fontColor: "#737373"
+      },
+      yAxis: {
+        title: '成交金额 (万元)',
+        format: (val) => {
+          if (this.isInteger(val)) {
+            return val + "%"
+          } else {
+            return val.toFixed(2) + "%";
+          }
+        },
+        disableGrid: true,
+        fontColor: "#696969"
+      },
+      width: windowWidth,
+      height: 200,
+      dataLabel: false,
+      title: false,
+      legend: false,
+      dataPointShape: false,
+      extra: {
+        lineStyle: 'line'
+      }
+    });
+  },
+  updateData2: function () {
+    var simulationData = this.createSimulationData();
+    var windowWidth = 320;
+    try {
+      var res = wx.getSystemInfoSync();
+      windowWidth = res.windowWidth;
+    } catch (e) {
+      console.error('getSystemInfoSync failed!');
+    }
+    lineChart = new wxCharts({
+      canvasId: 'lineCanvas2',
+      type: 'line',
+      categories: simulationData.categories,
+      animation: false,
+      // background: '#f5f5f5',
+      series: [{
+        name: '成交量1',
+        data: simulationData.data.sort(),
+        format: function (val, name) {
+          if (this.isInteger(val)) {
+            return val
+          } else {
+            return val.toFixed(2);
+          }
+        }
+      }],
+      xAxis: {
+        disableGrid: true,
+        fontColor: "#737373"
+      },
+      yAxis: {
+        title: '成交金额 (万元)',
+        format: (val) => {
+          if (this.isInteger(val)) {
+            return val + "%"
+          } else {
+            return val.toFixed(2) + "%";
+          }
+        },
+        disableGrid: true,
+        fontColor: "#737373"
+      },
+      width: windowWidth,
+      height: 200,
+      dataLabel: false,
+      title: false,
+      legend: false,
+      dataPointShape: false,
+      extra: {
+        lineStyle: 'line'
+      }
+    });
+  },
+  isInteger(obj) {
+
+    return Math.round(obj) === obj //是整数，则返回true，否则返回false
+
+  },
+  goEdit() {
+    this.setData({
+      isEdit: !this.data.isEdit
+    })
+  },
+  bindChange: function(e) {
+    let val = e.detail.value
+    setDate(this.data.years[val[0]], this.data.months[val[1]], this.data.days[val[2]], this, 1)
+  },
+  bindChange2: function(e) {
+    let val = e.detail.value
+    setDate(this.data.years2[val[0]], this.data.months2[val[1]], this.data.days2[val[2]], this, 2)
+  },
+  onLoad: function(e) {
+
+    if (e.scene) {
+      var scene = decodeURIComponent(e.scene)
+      console.log("sceneId:" + scene)
+      wx.setStorageSync("sceneId", scene)
+
+    }
+    if (e.shareId) {
+      this.setData({
+        isModal2: true,
+        shareId: e.shareId
+      })
+    } else {
+      this.setData({
+        isModal2: false
+      })
+    }
+
+  },
+  reqShare(shareId,formId){
+    
+    wRequest.reqShare(shareId,formId).then(res=>{
+      console.log("分享",res)
+      this.setData({
+        isModal2:false
+      })
+
+      if ( res.data && res.data.resultCode  ) {
+        wx.showModal({
+          title: '提示',
+          content: res.data.message
+        });
+
+        // wx.showToast({
+        //   title: ret.data.message,
+        // })
+      }
+    })
+  },
+  goNext(e) {
+    let url = e.currentTarget.dataset.url;
+    if (url == '') {
+      /*
+      wx.showModal({
+        title: '提示',
+        content: '正在开发中...',
+      });
+      */
+    } else {
+      url ? wx.navigateTo({
+        url: url
+      }) : "";
+    }
+
+  },
+  afterLogin(){
+
+   
+      setDate(this.data.year, this.data.month, this.data.day, this, 1)
+      setDate(this.data.year2, this.data.month2, this.data.day2, this, 2)
+      this.findDataByinvesId()
+      this.account()
+    
+  },
+
+  closeModalTap() {
+    this.setData({
+      isModal: !this.data.isModal
+    });
+  },
+  canvasTap2(e){
+    // this.setData({
+    //   canvas_tag: e.currentTarget.dataset.id
+    // })
+  wx.navigateTo({
+    url: '../jiaoyiquxian/index',
+  })
+
+  },
+  canvasTap(e) {
+    // this.setData({
+    //   canvas_tag: e.currentTarget.dataset.id
+    // })
+    // if(e.currentTarget.dataset.id==5){
+    //   this.changeShowPicker()
+    //   return
+    // }
+  
+    // this.account()
+    wx.navigateTo({
+      url: '../jiaoyiquxian/index',
+    })
+  }
+  //获取资金账号信息
+  ,
+  findDataByinvesId() {
+    var parms = {
+      investorId: "999200850"
+    }
+    wRequest.findDataByinvesId(parms).then((res) => {
+      console.log("account", res.data.data)
+      this.setData({
+        account: res.data.data
+      })
+
+    }, (res) => {
+      console.log("account", res)
+    });
+  },
+  account() {
+    let typeValue;
+
+    switch (this.data.canvas_tag) {
+      case "1":
+        typeValue = "iw"
+        break;
+      case "2":
+        typeValue = "MM"
+        break;
+      case "3":
+        typeValue = "0"
+        break;
+      case "4":
+        typeValue = "sixMonths"
+        break;
+    }
+    var parms = {
+      type: typeValue
+    }
+
+    wRequest.account1(parms).then((res) => {
+   
+      console.log("account1", res.data)
+      if ( res.data.data == null ) return;
+      this.setData({
+        line: res.data.data.incomeEntities
+      })
+      console.log("line",this.data.line)
+    
+      if (res.data.data.incomeEntities != null && res.data.data.incomeEntities.length != 0) {
+        this.updateData()
+      }
+
+    }, (res) => {
+      console.log("account", res)
+    });
+  },
+  account2() {
+    let typeValue;
+
+    switch (this.data.canvas_tag) {
+      case "1":
+        typeValue = "iw"
+        break;
+      case "2":
+        typeValue = "MM"
+        break;
+      case "3":
+        typeValue = "0"
+        break;
+      case "4":
+        typeValue = "sixMonths"
+        break;
+    }
+    var parms = {
+      type: 1,
+      beginDate: this.data.beginDate,
+      endDate: this.data.endDate
+    }
+
+    wRequest.account1(parms).then((res) => {
+      console.log("account1", res.data)
+	  if ( res.data.data == null ) return;
+      this.setData({
+        line: res.data.data.incomeEntities
+      })
+      if (res.data.data.incomeEntities != null && res.data.data.incomeEntities.length != 0) {
+        this.updateData()
+      }
+
+    }, (res) => {
+      console.log("account", res)
+    });
+  },
+  
+  goBand() {
+    wx.navigateTo({
+      url: '../paisherenlian/index',
+    })
+  },
+  doLogin(){
+    wx.login({
+      success: (res) => {
+        if (res.code) {
+          //发起网络请求  
+          //console.log(res.code);
+          let parms = {
+            timestamp: new Date().getTime(),
+            code: res.code
+          };
+          // 登录换取 session_key
+          this.doOpenId(parms)
+        } else {
+          console.log('获取用户登录态失败！' + res.errMsg)
+        }
+      },// 成功
+      fail: res => {
+
+      }, complete: res => {
+
+      }
+    });// end of wx login.
+  },
+  doOpenId(parms) {
+    wRequest.doOpenId(parms).then(
+   (res) => {
+        let ret = res.data.data;
+        if (res.data.resultCode == "success") {
+          var storeCookie = res.header['Set-Cookie'];
+          console.log("storeCookie1", res.header['Set-Cookie'])
+          if (typeof (storeCookie) == 'undefined' || storeCookie == '') {
+            let setCookie = "tsessionid=" + ret.sessionId + "; Path=/; HttpOnly";
+            app.globalData.storeCookie = setCookie;
+
+          } else {
+            app.globalData.storeCookie = storeCookie;
+
+          }
+          console.log("storeCookie2", app.globalData.storeCookie)
+          console.log("sessionId", ret.sessionId)
+
+          console.log("sessionKey", ret.sessionKey)
+          console.log("getopenid返回数据", res)
+          app.globalData.headercookie = res.header['Set-Cookie'];
+          app.globalData.sessionKey = ret.sessionKey;
+          app.globalData.openid = ret.openid;
+
+      
+          if (ret.status && ret.status == 'login') {
+            
+            app.globalData.isBindInvestor = true
+            app.globalData.islogin = true
+            this.setData({
+              islogin:true
+            })
+            this.afterLogin()
+          } else if (ret.status &&ret.status == 'notbind'){
+            app.globalData.notbind = true
+            app.globalData.isBindInvestor = false
+            app.globalData.islogin = false
+            this.setData({
+              islogin: false,
+              notbind:true
+            })
+            this.updateData2()
+          }
+          else{
+            app.globalData.islogin = false
+            app.globalData.isBindInvestor = false
+            this.setData({
+              islogin: false
+            })
+            this.updateData2()
+          }
+         
+
+        } // end get success. 
+      },(res) =>{
+        console.log("获取openid失败", res)
+      })
+    
+
+  },doRequest(e){
+    this.setData({
+      isClose:true
+    })
+   if(this.data.islogin||this.data.notbind){
+    console.log(e.detail.formId)
+    this.reqShare(this.data.shareId,e.detail.formId)
+    }else{
+      wx.navigateTo({
+        url: '../authUser/index',
+      })
+    }
+   
+  }
+ 
+
+});

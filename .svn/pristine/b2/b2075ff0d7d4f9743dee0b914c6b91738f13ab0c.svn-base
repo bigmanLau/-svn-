@@ -1,0 +1,67 @@
+<view class="container">
+   <view class="item">
+    <view class="left-item">头像</view>
+    <view class="right">
+      <image src="{{brokerDetail.icon}}" class="myavaotr"></image>
+    </view>
+  </view> 
+
+
+<view class="item">
+    <view class="left-item">姓名</view>
+    <view class="right">
+       {{brokerDetail.nick}}
+    </view>
+  </view>
+
+
+  <view class="item">
+    <view class="left-item">性别</view>
+    <view class="right">
+       {{brokerDetail.gender}}
+    </view>
+  </view>
+
+
+  <view class="item">
+    <view class="left-item">认证状态</view>
+    <view class="right">
+       {{brokerDetail.status==1?'已认证':'未认证'}}
+    </view>
+  </view>
+
+
+  <view class="item">
+    <view class="left-item">从业资格证号</view>
+    <view class="right">
+       {{brokerDetail.identityCard}}
+    </view>
+  </view>
+
+
+  <view class="item">
+    <view class="left-item">期货公司</view>
+    <view class="right">
+       {{brokerDetail.futuresCompany}}
+    </view>
+  </view>
+
+
+  <view class="item">
+    <view class="left-item">擅长品种</view>
+    <view class="right">
+      <block wx:for="{{brokerDetail.adeptvariety}}" wx:key="unique">
+       {{item.productName}} {{  }}
+      </block>
+    </view>
+  </view>
+
+
+  <view class="item">
+    <view class="left-item">个人简介</view>
+    <view class="right">
+       {{brokerDetail.intro}}
+    </view>
+  </view>
+
+</view>

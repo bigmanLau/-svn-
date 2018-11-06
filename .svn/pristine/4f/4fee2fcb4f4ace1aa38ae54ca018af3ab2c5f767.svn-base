@@ -1,0 +1,19 @@
+.item{
+  height: 91rpx;
+  margin-top: 45rpx;
+  background: white;
+  box-sizing: border-box;
+  /* padding-left: 25rpx; */
+  /* padding-right: 25rpx; */
+  border-top: 1rpx solid RGBA(181, 181, 181, 1);
+  border-bottom: 1rpx solid RGBA(181, 181, 181, 1);
+}
+.myleft{
+  width: 150rpx;
+}
+.left{
+  width: 80%;
+}
+page{
+  background: #fff;
+}

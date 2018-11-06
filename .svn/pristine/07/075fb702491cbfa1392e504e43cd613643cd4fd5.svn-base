@@ -1,0 +1,13 @@
+<!--pages/zizhanghaobangdiingzhanghao/index.wxml-->
+<form bindsubmit='authbind'>
+<view class="container">
+  <view class='contianer-info'>请在此填写您收到的授权码</view>
+
+  <view class='contianer-input'>
+    <view class='contianer-input-label'>授权码</view>
+    <view class='contianer-input-wrop'><input type='number'  maxlength='6' placeholder='请输入收到的6位数字授权码' name="code"></input></view>
+  </view>
+  <view class='contianer-info'>注：当授权人在“共享我的资金帐号”界面输入您的手机号，您通过短信获取到授权码后，可在此界面输入授权码，将授权人的帐号绑定在您的帐号下。</view>
+  <button form-type='submit' class='contianer-button'>确认绑定</button>
+</view>
+</form>

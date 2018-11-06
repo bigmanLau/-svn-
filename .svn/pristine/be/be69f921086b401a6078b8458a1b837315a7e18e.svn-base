@@ -1,0 +1,500 @@
+<view wx:if="{{islogin}}">
+
+<view class='flex_row flex_row_center space-between name-space'>
+  <view class='flex_row flex_row_center'>
+    <text class='black3c size24 ml32'>姓名:</text>
+    <text class='size24 blue ml20'>{{account.name?account.name:"-"}}</text>
+  </view>
+  <view class='flex_row ml32  mr32'>
+    <view class='black3c size24'>资金账号：</view>
+    <view class='size24 blue'>{{account.investorId}}</view>
+  </view>
+</view>
+<!-- 基本信息  -->
+<view class='bg_white mt20 pb20'>
+  <view class='flex_row flex_row_center pt20 margin40'>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>动态权益</view>
+      <text class='red2 size28 mt25'>{{account.dynamicrRs}}</text>
+    </view>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>持仓盈亏</view>
+      <text class='green00 size28 mt25'>{{account.mapl}}</text>
+    </view>
+
+
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>占用保证金</view>
+      <text class='red2 size28 mt25'>{{account.marginOccupied}}</text>
+    </view>
+
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>出金</view>
+      <text class='red2 size28 mt25'>{{account.withdraw}}</text>
+    </view>
+  </view>
+
+  <view class='flex_row flex_row_center mt35 margin40'>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>日初权益</view>
+      <text class='red2 size28 mt25'>{{account.balanceb}}</text>
+    </view>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>平仓盈亏</view>
+      <text class='green00 size28 mt25'>{{account.realizedL}}</text>
+    </view>
+
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>可用资金</view>
+      <text class='red2 size28 mt25'>{{account.fundAvail}}</text>
+    </view>
+
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>入金</view>
+      <text class='red2 size28 mt25'>{{account.deposit}}</text>
+    </view>
+  </view>
+
+  <view class='flex_row flex_row_center mt35 margin40'>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>盈亏</view>
+      <text class='green00 size28 mt25'>{{account.profitLoss}}</text>
+    </view>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>手续费</view>
+      <text class='green00 size28 mt25'>{{account.dwWal}}</text>
+    </view>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>风险度</view>
+      <text class='green00 size28 mt25'>{{account.riskDegree}}</text>
+    </view>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'></view>
+      <text class='red2 size28 mt25'></text>
+    </view>
+  </view>
+</view>
+
+<view class='bg_white mt20 pb40'>
+  <view class='flex_row space-between pt24 '>
+    <view class='flex_row flex_row_center '>
+      <view class='blue_line bg_blue ml32'></view>
+      <view class='size30 black3c ml7 {{orderIndex==1?"blue":""}}' bindtap='changeOrder' data-index='1'>持仓</view>
+      <view class='blue_line bg_g  bg_black'></view>
+      <view class='size30 black3c ml17 {{orderIndex==2?"blue":""}}' bindtap='changeOrder' data-index='2'>未成交单</view>
+      <view class='blue_line bg_g  bg_black '></view>
+      <view class='size30 grayAd ml17 {{orderIndex==3?"blue":""}}' bindtap='changeOrder' data-index='3'>条件单</view>
+    </view>
+    <view class='flex_row mr32 mt20 flex_row_center' bindtap='changeOrderShow'>
+      <view class='blue size24'>{{isShowOrder?"收起":"展开"}}</view>
+
+      <image src='img/tri2.png' class='mytri '> </image>
+    </view>
+  </view>
+
+  <scroll-view scroll-x class='myscrollview ' wx:if="{{orderIndex==1&&isShowOrder}}" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view class='flex_column column_wrap mleft'>
+      <view class='item size24 grayAd bt'>合约</view>
+      <block wx:for="{{all}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>{{item.instrumentId}}</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap'>
+      <view class='item size24 grayAd bt'>买卖</view>
+      <block wx:for="{{all}}" wx:key="unqiue">
+        <view class='item size24 grayAd {{item.posiDirection==2?"red":item.posiDirection==3?"green":""}}'>{{item.posiDirection==2?"买":item.posiDirection==3?"卖":""}}</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>总持仓</view>
+      <block wx:for="{{all}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>{{item.position}}</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap'>
+      <view class='item size24 grayAd bt'>昨仓</view>
+      <block wx:for="{{all}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>{{item.ydPosition}}</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap'>
+      <view class='item size24 grayAd bt'>今仓</view>
+      <block wx:for="{{all}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>{{item.todayPosition}}</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>可平量</view>
+      <block wx:for="{{all}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>{{item.closeVolume}}</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>持仓均价</view>
+      <block wx:for="{{all}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>{{item.positionCost}}</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>持仓盈亏</view>
+      <block wx:for="{{all}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>{{item.positionProfit}}</view>
+      </block>
+    </view>
+  </scroll-view>
+  <scroll-view scroll-x class='myscrollview ' scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" wx:if="{{orderIndex==2&&isShowOrder}}">
+    <view class='flex_column column_wrap mleft'>
+      <view class='item size24 grayAd bt'>报单编号</view>
+      <block wx:for="{{NoOrder}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>{{item.orderSysId}}</view>
+      </block>
+    </view>
+    <view class='flex_column column_wrap'>
+      <view class='item size24 grayAd bt'>合约</view>
+      <block wx:for="{{NoOrder}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>{{item.instrumentId}}</view>
+      </block>
+    </view>
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>买卖</view>
+      <block wx:for="{{NoOrder}}" wx:key="unqiue">
+        <view class='item size24 grayAd {{item.direction==0?"red":"green"}}'>{{item.direction==0?"买":"卖"}}</view>
+      </block>
+    </view>
+    <view class='flex_column column_wrap'>
+      <view class='item size24 grayAd bt'>开平</view>
+      <block wx:for="{{NoOrder}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>
+          {{item.combOffsetFlag==0?"开仓" :item.combOffsetFlag==1?"平仓" :item.combOffsetFlag==2?"强平" :item.combOffsetFlag==3?"平今" :item.combOffsetFlag==4?"平昨" :item.combOffsetFlag==5?"强减" :item.combOffsetFlag==6?"本地强平" :""}}
+        </view>
+      </block>
+    </view>
+    <view class='flex_column column_wrap'>
+      <view class='item size24 grayAd bt'>报单手数</view>
+      <block wx:for="{{NoOrder}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>{{item.orderSysId}}</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>未成交手数</view>
+      <block wx:for="{{NoOrder}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>{{item.orderSysId}}</view>
+      </block>
+    </view>
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>报单价格</view>
+      <block wx:for="{{NoOrder}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>{{item.limitPrice}}</view>
+      </block>
+    </view>
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>报单时间</view>
+      <block wx:for="{{NoOrder}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>{{item.insertDate}}</view>
+      </block>
+    </view>
+    <button class=' common_button blue size28 bg_white mt20 gone' form-type='submit' style='margin-right:20rpx;' wx:if="{{orderIndex==2&&isShowOrder}}">一键撤单</button>
+  </scroll-view>
+</view>
+
+<view class='bg_white mt20 '>
+  <view class='flex_row space-between pt24 '>
+    <view class='flex_row flex_row_center '>
+      <view class='blue_line bg_blue ml32'></view>
+      <view class='size30 black3c ml7 '>盈利/亏损</view>
+    </view>
+  </view>
+  <view class=' flex_column  '>
+   <canvas canvas-id="canvas4" class="myCanvas {{finalName.length!=0?'visible':'invisible'}}" style="width:{{chartWidth}}px;height:{{chartHeight}}px;"  />
+    <view class='size24 black3c flex_row flex_center emptyview' wx:if="{{finalName.length==0}}">数据为空</view>
+  </view>
+</view>
+
+<view class='bg_white mt20 '>
+  <view class='bg_white mt20 pb40 '>
+    <view class='flex_row space-between pt24 '>
+      <view class='flex_row flex_row_center '>
+        <view class='blue_line bg_blue ml32'></view>
+        <view class='size30 black3c ml7 '>手续费</view>
+      </view>
+    </view>
+
+    <view class=' flex_column  '>
+   <canvas canvas-id="canvas3" class="myCanvas {{poundageName.length!=0?'visible':'invisible'}}" style="width:{{chartWidth}}px;height:{{chartHeight}}px;" 
+     />
+        <view class='size24 black3c flex_row flex_center emptyview' wx:if="{{poundageName.length==0}}">数据为空</view>
+    </view>
+  </view>
+</view>
+
+<view class='flex_row flex_row_center mt60 mb20'>
+  <view class='hline'></view>
+  <view class='size24 graya7 margin10'>已经到底啦</view>
+  <view class='hline'></view>
+</view>
+</view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<view wx:if="{{!islogin}}">
+
+<view class='flex_row flex_row_center space-between name-space'>
+  <view class='flex_row flex_row_center'>
+    <text class='black3c size24 ml32'>姓名:</text>
+    <text class='size24 blue ml20'>*金瑞</text>
+  </view>
+  <view class='flex_row ml32  mr32'>
+    <view class='black3c size24'>资金账号：</view>
+    <view class='size24 blue'>99****50</view>
+  </view>
+</view>
+<!-- 基本信息  -->
+<view class='bg_white mt20 pb20'>
+  <view class='flex_row flex_row_center pt20 margin40'>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>动态权益</view>
+      <text class='red2 size28 mt25'>5036250.43</text>
+    </view>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>持仓盈亏</view>
+      <text class='green00 size28 mt25'>11000</text>
+    </view>
+
+
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>占用保证金</view>
+      <text class='red2 size28 mt25'>91970.50</text>
+    </view>
+
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>出金</view>
+      <text class='red2 size28 mt25'>0</text>
+    </view>
+  </view>
+
+  <view class='flex_row flex_row_center mt35 margin40'>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>日初权益</view>
+      <text class='red2 size28 mt25'>132411.23</text>
+    </view>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>平仓盈亏</view>
+      <text class='green00 size28 mt25'>0</text>
+    </view>
+
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>可用资金</view>
+      <text class='red2 size28 mt25'>4955279.93</text>
+    </view>
+
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>入金</view>
+      <text class='red2 size28 mt25'>0</text>
+    </view>
+  </view>
+
+  <view class='flex_row flex_row_center mt35 margin40'>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>盈亏</view>
+      <text class='green00 size28 mt25'>0</text>
+    </view>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>手续费</view>
+      <text class='green00 size28 mt25'>0</text>
+    </view>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'>风险度</view>
+      <text class='green00 size28 mt25'>1.83%</text>
+    </view>
+    <view class='flex_column flex_center width25'>
+      <view class='size24 black73'></view>
+      <text class='red2 size28 mt25'></text>
+    </view>
+  </view>
+</view>
+
+<view class='bg_white mt20 pb40'>
+  <view class='flex_row space-between pt24 '>
+    <view class='flex_row flex_row_center '>
+      <view class='blue_line bg_blue ml32'></view>
+      <view class='size30 black3c ml7 {{orderIndex==1?"blue":""}}' bindtap='changeOrder' data-index='1'>持仓</view>
+      <view class='blue_line bg_g  bg_black'></view>
+      <view class='size30 black3c ml17 {{orderIndex==2?"blue":""}}' bindtap='changeOrder' data-index='2'>未成交单</view>
+      <view class='blue_line bg_g  bg_black '></view>
+      <view class='size30 grayAd ml17 {{orderIndex==3?"blue":""}}' bindtap='changeOrder' data-index='3'>条件单</view>
+    </view>
+    <view class='flex_row mr32 mt20 flex_row_center' bindtap='changeOrderShow'>
+      <view class='blue size24'>{{isShowOrder?"收起":"展开"}}</view>
+
+      <image src='img/tri2.png' class='mytri '> </image>
+    </view>
+  </view>
+
+  <scroll-view scroll-x class='myscrollview ' wx:if="{{orderIndex==1&&isShowOrder}}" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+    <view class='flex_column column_wrap mleft'>
+      <view class='item size24 grayAd bt'>合约</view>
+      <block wx:for="{{2}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>i1805</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap'>
+      <view class='item size24 grayAd bt'>买卖</view>
+      <block wx:for="{{2}}" wx:key="unqiue">
+        <view class='item size24 grayAd {{item.posiDirection==2?"red":item.posiDirection==3?"green":""}}'>买</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>总持仓</view>
+      <block wx:for="{{2}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>181</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap'>
+      <view class='item size24 grayAd bt'>昨仓</view>
+      <block wx:for="{{2}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>32</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap'>
+      <view class='item size24 grayAd bt'>今仓</view>
+      <block wx:for="{{2}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>11</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>可平量</view>
+      <block wx:for="{{2}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>181</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>持仓均价</view>
+      <block wx:for="{{2}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>464.11</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>持仓盈亏</view>
+      <block wx:for="{{2}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>4505.12</view>
+      </block>
+    </view>
+  </scroll-view>
+  <scroll-view scroll-x class='myscrollview ' scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}" wx:if="{{orderIndex==2&&isShowOrder}}">
+    <view class='flex_column column_wrap mleft'>
+      <view class='item size24 grayAd bt'>报单编号</view>
+      <block wx:for="{{3}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>1345</view>
+      </block>
+    </view>
+    <view class='flex_column column_wrap'>
+      <view class='item size24 grayAd bt'>合约</view>
+      <block wx:for="{{3}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>1234</view>
+      </block>
+    </view>
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>买卖</view>
+      <block wx:for="{{3}}" wx:key="unqiue">
+        <view class='item size24 grayAd {{item.direction==0?"red":"green"}}'>{{item.direction==0?"买":"卖"}}</view>
+      </block>
+    </view>
+    <view class='flex_column column_wrap'>
+      <view class='item size24 grayAd bt'>开平</view>
+      <block wx:for="{{3}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>
+    开仓
+        </view>
+      </block>
+    </view>
+    <view class='flex_column column_wrap'>
+      <view class='item size24 grayAd bt'>报单手数</view>
+      <block wx:for="{{3}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>100</view>
+      </block>
+    </view>
+
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>未成交手数</view>
+      <block wx:for="{{3}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>2</view>
+      </block>
+    </view>
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>报单价格</view>
+      <block wx:for="{{3}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>4511.00</view>
+      </block>
+    </view>
+    <view class='flex_column column_wrap flex_2'>
+      <view class='item size24 grayAd bt'>报单时间</view>
+      <block wx:for="{{3}}" wx:key="unqiue">
+        <view class='item size24 grayAd '>2018-11-12</view>
+      </block>
+    </view>
+    <!-- <button class=' common_button blue size28 bg_white mt20 gone' form-type='submit' style='margin-right:20rpx;' >一键撤单</button> -->
+  </scroll-view>
+</view>
+
+<view class='bg_white mt20 '>
+  <view class='flex_row space-between pt24 '>
+    <view class='flex_row flex_row_center '>
+      <view class='blue_line bg_blue ml32'></view>
+      <view class='size30 black3c ml7 '>盈利/亏损</view>
+    </view>
+  </view>
+  <view class=' flex_column  '>
+    <canvas canvas-id="canvas1" class="myCanvas" style="width:{{chartWidth}}px;height:{{chartHeight}}px;" />
+  </view>
+</view>
+
+<view class='bg_white mt20 '>
+  <view class='bg_white mt20 pb40'>
+    <view class='flex_row space-between pt24 '>
+      <view class='flex_row flex_row_center '>
+        <view class='blue_line bg_blue ml32'></view>
+        <view class='size30 black3c ml7 '>手续费</view>
+      </view>
+    </view>
+
+    <view class=' flex_column  '>
+      <canvas canvas-id="canvas2" class="myCanvas" style="width:{{chartWidth}}px;height:{{chartHeight}}px;" />
+    </view>
+  </view>
+</view>
+
+<view class='flex_row flex_row_center mt60 mb20'>
+  <view class='hline'></view>
+  <view class='size24 graya7 margin10'>已经到底啦</view>
+  <view class='hline'></view>
+</view>
+</view>

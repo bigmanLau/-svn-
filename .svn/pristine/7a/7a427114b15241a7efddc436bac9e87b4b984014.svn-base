@@ -1,0 +1,19 @@
+<form bindsubmit='goNext'>
+<view class='graycontent'></view>
+<view class="wrapper ">
+  <view class='inputwrap flex_row flex_row_center'>
+    <view class='leftlabel size28 black3c ml32'>输入密码</view>
+    <input class='size28 black3c' placeholder-class='size28 gray99' placeholder='请设置6位纯数字密码' type='password' name="password"></input>
+  </view>
+  <view class='inputwrap flex_row flex_row_center'>
+    <view class='leftlabel size28 black3c ml32'>确认密码</view>
+    <input class='size28 black3c' placeholder-class='size28 gray99' placeholder='请设置6位纯数字密码' type='password' name="password2"></input>
+  </view>
+
+</view>
+
+<view class='flex_row flex_center'>
+
+<button class='blue size28 mybutton' form-type='submit'>确认提交</button>
+</view>
+</form>

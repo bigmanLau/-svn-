@@ -1,0 +1,55 @@
+<view class="flex_column width100" wx:if="{{!isStart}}">
+  <view class='flex_row flex_center text11'>准备工作</view>
+  <view class='flex_row flex_center text22'>视频认证前确保环境正常</view>
+  <view class='flex_column margin140 mt68'>
+    <view class='flex_row flex_row_center'>
+      <image class='img2' src='img/yanzheng.png'></image>
+      <view class='text3'>光线充足</view>
+    </view>
+
+    <view class='flex_row flex_row_center mt60'>
+      <image class='img2' src='img/yanzheng.png'></image>
+      <view class='text3'>网络稳定</view>
+    </view>
+
+    <view class='flex_row flex_row_center mt60'>
+      <image class='img2' src='img/yanzheng.png'></image>
+      <view class='text3'>视频摄像头清晰</view>
+    </view>
+
+    <view class='flex_row flex_row_center mt60'>
+      <image class='img2' src='img/yanzheng.png'></image>
+      <view class='text3'>脸部完全漏出</view>
+    </view>
+
+
+  </view>
+
+ <view class='flex_row flex_center '>
+     <navigator bindtap='startVideo' class='mybutton text4  flex_row flex_center'>开始视频通话</navigator>
+ </view>
+
+</view>
+
+
+<view class='container'wx:if="{{isStart}}">
+  
+   
+      <live-player id="{{anychat_remote_id}}" mode="RTC" debug="true" object-fit="fillCrop" min-cache="1" max-cache="3" class="live1"  src="{{puller_rtmpurl}}">
+        <cover-view class='buttonwrapper'>
+      <cover-view class='flex_column flex_center'>
+        <cover-view class='text1'>00:00</cover-view>
+        <cover-view class='redwrap flex_row flex_center'>
+          <cover-image class='img' src='img/phone.png'></cover-image>
+        </cover-view>
+        <cover-view   bindtap='closeVideo'  class='text2'>挂断</cover-view>
+      </cover-view>
+    </cover-view>
+      </live-player>
+
+      
+      <live-pusher id="{{anychat_local_id}}" mode="RTC" debug="true" enable-camera="false" audio-quality="high" aspect="3:4" class="live2" min-bitrate="200" max-bitrate="300" url="{{pusher_rtmpurl}}">
+      
+      </live-pusher>
+
+</view>

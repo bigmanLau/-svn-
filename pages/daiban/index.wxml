@@ -1,0 +1,30 @@
+<view class="title">
+  <view class="left {{isSelect==1?'select-class':''}}" data-id="1" bindtap="selectItem">{{leftTitle}}</view>
+  <view class="right {{isSelect==2?'select-class':''}}"  data-id="2" bindtap="selectItem">{{rightTitle}}</view>
+   <view class="three {{isSelect==3?'select-class':''}}"  data-id="3" bindtap="selectItem" wx:if="{{threeShow}}">{{threeTitle}}</view>
+    <view class="three {{isSelect==4?'select-class':''}}"  data-id="4" bindtap="selectItem" wx:if="{{threeShow}}">{{fourTitle}}</view>
+</view>
+<view class="divider"></view>
+<view class="empty" wx:if="{{list.length==0}}">
+  <image class="empty-image" src="/images/no-tesk.png"></image>
+  <view class="empty-tesk">当前没有工单</view>
+</view>
+<view class="content">
+<block wx:for="{{list}}" wx:key="unique">
+  <view class="item" bindtap="goItem" data-id="{{item.id}}" data-state="{{item.state}}" data-recieve_id="{{item.recieve_id}}">
+    <view class="left-item">
+
+      <view class="one">{{item.project_name}}</view>
+      <view class="two">
+        <text class="two-time">{{item.date}}</text>
+        <text class="two-desc"></text>
+      </view>
+
+    </view>
+    <view class="right-item">
+    <image src="/images/icon-arrowdown.png" class="right-icon"></image></view>
+  </view>
+  </block>
+</view>
+<view class="add-class" wx:if="{{role_id==1}}">
+<image src="/images/add.png" class="add-image" bindtap="addSheet" ></image></view>

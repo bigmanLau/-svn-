@@ -1,0 +1,22 @@
+<view bindtap="toAlbumDetail" class="album {{vertical?'vertical-album':''}}" data-album-id="{{album.id}}" data-category="{{category_name}}" data-is-assistant="{{isAssistant}}" data-ispaid="{{ispaid}}" hoverClass="album-hover">
+    <view class="imgs">
+        <image class="icon icon-ispaid" src="../../images/icon-ispaid.png" wx:if="{{ispaid==1&&isAssistant==0}}"></image>
+        <image lazyLoad class="album-cover" mode="widthFix" src="{{album.cover}}"></image>
+        <view class="album-playcount" wx:if="{{vertical}}">
+            <image class="icon icon-playcount" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAPFJREFUOBGlkLEOwVAYhVuDQUQiEjEZJAxGMWFkMEgkNqPBM7B6DvEEFgYLq/AEhiaEUWJjpb4rvUnb/Kj6ky/tPfecc9trGM7Yth2HGiS0FvhJKAVHUHODIUR/KeippG8s1s1vJRHHEBOMebQFJXPICfsvSRfc3xnQW7CjZATSQYbBRh+CzAlTx32Y/oKHW/zwnmVvSskSCsqnCz79gtRXR9xSkg5boEqTUPmn4ELBJmzBinDVNM2zLgh6iXuCbYINsHgPfIlXvAMoEpypoGe4zTZI80CcQMYT8C8wlIT0Gq3s94prjCaMQZ14gK5oFMQnTMTgzLyhcKoAAAAASUVORK5CYII="></image>
+            <text>{{album.countingInfo}}</text>
+        </view>
+    </view>
+    <view class="album-info {{noBorderBottom?'no-border-bottom':''}}">
+        <view class="album-title line-ellipsis">{{album.courseName}}</view>
+        <view class="album-intro">{{album.subTitle}}</view>
+        <view class="album-playcount" wx:if="{{!vertical}}">
+            <image class="icon icon-playcount" src="../../images/icon-playcount.png"></image>
+            <text>{{album.countingInfo}}</text>
+            <block wx:if="{{hasTotalCount}}">
+                <image class="icon icon-playcount" src="https://img.alicdn.com/imgextra/i3/732450928/TB27zKIdbJmpuFjSZFwXXaE4VXa_!!732450928.png" style="margin-left: 20rpx;"></image>
+                <text>{{album.total_count}}集</text>
+            </block>
+        </view>
+    </view>
+</view>

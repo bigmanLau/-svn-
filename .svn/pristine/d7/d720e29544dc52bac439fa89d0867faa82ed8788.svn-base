@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="title">{{noticeDetail.title}}</view>
+  <view class="release">
+   <view class="left-release">发布人：{{noticeDetail.publisher}}</view>
+   <view class="right-release">发布时间：{{noticeDetail.publishTime}}</view>
+  </view>
+  <view class="img">
+  <image src="{{noticeDetail.url}}" class="myimg"></image></view>
+  <view class="content">
+  {{noticeDetail.content}}
+  </view>
+</view>

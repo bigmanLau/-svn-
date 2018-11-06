@@ -1,0 +1,7 @@
+<view class="inputwraper mt40 flex_column flex_column_center">
+ <input class='input' value='金小瑞'></input>
+</view>
+
+<view class='flex_row flex_center'>
+<button class='blue size28 mybutton'>保存</button>
+</view>

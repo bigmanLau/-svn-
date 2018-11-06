@@ -1,0 +1,56 @@
+page {
+  background: #575859;
+}
+
+.text1 {
+  font-size: 60rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(255, 255, 255, 1);
+  margin-top: 92rpx;
+}
+
+.text2 {
+  margin-top: 43rpx;
+  font-size: 30rpx;
+  font-family: PingFang-SC-Regular;
+  color: rgba(205, 204, 204, 1);
+}
+
+.margin140 {
+  margin-left: 140rpx;
+  margin-right: 140rpx;
+}
+
+.mt68 {
+  margin-top: 68rpx;
+}
+
+.img {
+  width: 100rpx;
+  height: 100rpx;
+  /* background:rgba(42,158,241,1);
+opacity:0.15;
+box-shadow:1px 0px 0px rgba(130,130,130,0.3) ;
+border-radius: 50%; */
+}
+
+.text3 {
+  font-size: 48rpx;
+  font-family: MicrosoftYaHei;
+  color: rgba(255, 255, 255, 1);
+  margin-left: 50rpx;
+}
+
+.mybutton {
+  width: 299rpx;
+  height: 90rpx;
+  background: rgba(42, 158, 241, 1);
+  border-radius: 10rpx;
+  margin-top: 123rpx;
+}
+
+.text4 {
+  font-size: 36rpx;
+  font-family: MicrosoftYaHei;
+  color: rgba(255, 255, 255, 1);
+}

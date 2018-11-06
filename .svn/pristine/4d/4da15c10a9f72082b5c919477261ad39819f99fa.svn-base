@@ -1,0 +1,31 @@
+<view  wx:if="{{!success}}">
+<view class='face_wrap flex_column flex_center'>
+
+  <view class='face_item flex_column mt50 flex_center {{!openCamera&&!IDCardFront?" ":"notransparent"}}' bindtap='pickFace'>
+    <image class='face {{openCamera?"faceImg":""}}' src='{{openCamera?IDCardFront:"../../img/face.png"}}' wx:if="{{!openCamera&&!IDCardFront}}"></image>
+     <image class='face {{IDCardFront?"faceImg":""}}' src='{{IDCardFront?IDCardFront:"../../img/face.png"}}' wx:if="{{IDCardFront}}"></image>
+    <view class='size24 blackbe mt40' wx:if="{{!openCamera&&!IDCardFront}}">拍摄人脸</view>
+    <camera device-position="front" flash="off" binderror="error" class='face_item notransparent ' wx:if="{{openCamera}}"></camera>
+
+  </view>
+  <view class='size24 blackbe mt30 mb50'>请保持环境光线充足</view>
+</view>
+
+
+<button class='my_btn mt40' bindtap='goNext'>{{openCamera?'拍照':'下一步'}}</button>
+<view class='mytoastcover  {{msg?"":"gone"}}'>
+  <view class='mytoasecontainer'>
+    <view class='mytoast white size30 '>
+      <view class='flex_row flex_center'>
+      {{msg}}</view>
+    </view>
+  </view>
+</view>
+</view>
+
+<view class='flex_column flex_center' wx:if="{{success}}">
+ <image class='success' src='../../img/yanzheng.png'></image>
+  <view class='size30 black73 ' style='margin-top:55rpx;'>恭喜您！绑定成功</view>
+<view  class='my_btn mt40 flex_row flex_center' bindtap='goHome' style='margin-top:200rpx;'>设置数字密码</view>
+  
+</view>

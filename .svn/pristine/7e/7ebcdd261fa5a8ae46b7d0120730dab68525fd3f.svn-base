@@ -1,0 +1,17 @@
+<!--pages/zizhanghaogongxiangzhanghao/index.wxml-->
+<form bindsubmit='authsend'>
+<view class="container">
+  <view class='contianer-message gone'>
+    <view class='icon'><image src='../../img/shenfen1.png' class='img' mode='widthFix'></image></view>
+    <text>请在此填写您收到的授权码</text>
+    <view class='close'><image src='../../img/close.png' class='img' mode='widthFix'></image></view>
+  </view>
+
+  <view class='contianer-input'>
+    <view class='contianer-input-label'>手机号</view>
+    <view class='contianer-input-wrop'><input type='number' placeholder='请输入被授权人手机号码' name="phone"></input></view>
+  </view>
+  <view class='contianer-info'>注：您需要填写被授权人的手机号码，系统自动发送授权码到对方手机号后，被授权人可根据该授权码，将您的帐号绑定到对方帐号下。</view>
+  <button class='contianer-button' form-type='submit'>确认绑定</button>
+</view>
+</form>

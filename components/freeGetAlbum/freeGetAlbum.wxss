@@ -1,0 +1,236 @@
+.free-get-album {
+    display: flex;
+    padding-top: 30rpx;
+    line-height: 1.4;
+}
+
+.free-get-album-cover {
+    width: 200rpx;
+    height: 200rpx;
+    flex-shrink: 0;
+    margin-left: 28rpx;
+    border-radius: 10rpx;
+    overflow: hidden;
+    position: relative;
+}
+
+.index-page .free-get-album-cover {
+    width: 200rpx;
+    height: 200rpx;
+}
+
+.index-page .free-get-tip {
+    margin-top: 22rpx;
+}
+
+.free-get-album-cover image {
+    width: 100%;
+    height: 100%;
+}
+
+.free-get-album-cover .count-down {
+    opacity: 0.6;
+    background: #000;
+    position: absolute;
+    bottom: 0;
+    font-size: 20rpx;
+    color: #fef8f6;
+    text-align: center;
+    width: 100%;
+    height: 40rpx;
+    line-height: 40rpx;
+    border-radius: 0 0 10rpx 10rpx;
+}
+
+.free-get-album-info {
+    margin-left: 27rpx;
+    border-bottom: 1px solid #e8e8e8;
+    padding-bottom: 32rpx;
+    flex: 1;
+    padding-right: 28rpx;
+    overflow: hidden;
+}
+
+.free-get-album-info.no-border-bottom {
+    border-bottom: none;
+}
+
+.free-get-album-title {
+    font-size: 32rpx;
+    color: #111;
+}
+
+.free-get-album-intro {
+    font-size: 26rpx;
+    color: #999;
+    margin-top: 10rpx;
+    font-family: PingFangSC-Regular;
+}
+
+.free-get-tip,.free-get-action {
+    display: flex;
+    font-size: 22rpx;
+    color: #999;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.free-get-rest {
+    font-family: PingFangSC-Light;
+    font-size: 22rpx;
+    color: #999;
+    margin-top: 24rpx;
+    font-weight: 100;
+    letter-spacing: 0.58rpx;
+}
+
+.free-get-tip {
+    margin-top: 63rpx;
+}
+
+.free-get-tip.is-ios {
+    margin-top: 30rpx;
+}
+
+.free-get-tip.showMine {
+    margin-top: 9rpx;
+    height: 30rpx;
+}
+
+.free-get-action {
+    margin-top: 7rpx;
+}
+
+.free-get-action.showMine {
+    margin-left: -18rpx;
+    margin-bottom: -20rpx;
+}
+
+.free-get-action.free-list .free-get-btn {
+    height: 48rpx;
+    width: 128rpx;
+    background: #f86442;
+    border-radius: 200rpx;
+    font-size: 24rpx;
+    color: #ffece8;
+    line-height: 48rpx;
+    text-align: center;
+}
+
+.free-get-action.free-list .free-get-price {
+    display: inline-block;
+    font-size: 24rpx;
+    color: #f86442;
+    text-decoration: none;
+}
+
+.free-get-action.free-list .free-get-price text {
+    font-size: 32rpx;
+    color: #f86543;
+}
+
+.free-get-price {
+    text-decoration: line-through;
+}
+
+.free-get-need-count,.free-get-hasget {
+    letter-spacing: 0.58rpx;
+    display: inline-block;
+}
+
+.free-get-hasget {
+    display: inline-block;
+    width: 128rpx;
+    text-align: center;
+}
+
+.free-get-btn {
+    width: 128rpx;
+    height: 48rpx;
+}
+
+.line-ellipsis {
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.album-hover,.btn-hover {
+    opacity: 0.8;
+}
+
+button.check-detail-btn,button.keep-share-btn,button.succeed-btn,button.failed-btn,button.out-of-number-btn {
+    border-radius: 200rpx;
+    height: 48rpx;
+    width: 200rpx;
+    padding: 0;
+    margin: 0;
+    font-size: 24rpx;
+    letter-spacing: 0.62rpx;
+    font-family: PingFang-SC-Bold;
+    font-weight: 500;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.check-detail-btn {
+    padding: 0rpx 20rpx 20rpx 20rpx;
+    box-sizing: content-box;
+}
+
+button.check-detail-btn view {
+    color: #f86442;
+    background: #ffece8;
+    width: 100%;
+    height: 100%;
+    border-radius: 200rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button.keep-share-btn {
+    margin-bottom: 20rpx;
+    background: #f86442;
+    color: #fff;
+}
+
+.free-get-album button.failed-btn,.free-get-album button.out-of-number-btn {
+    background: #ccc;
+    border-color: #ccc;
+    color: #fff;
+    margin-bottom: 20rpx;
+}
+
+.free-get-album button.succeed-btn {
+    margin-bottom: 20rpx;
+    background: #fff;
+}
+
+.free-get-album button.succeed-btn image {
+    width: 100%;
+    height: 100%;
+}
+
+.icon-free {
+    display: inline-block;
+    width: 24rpx;
+    height: 24rpx;
+    vertical-align: middle;
+}
+
+.icon-oprice {
+    width: 18rpx;
+    height: 20rpx;
+}
+
+.free-get-need-count-ios {
+    font-size: 24rpx;
+}
+
+.free-get-need-count-ios text {
+    font-size: 32rpx;
+}
